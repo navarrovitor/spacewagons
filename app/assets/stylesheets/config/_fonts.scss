@@ -1,10 +1,17 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700|Montserrat:100,300,400,700|Oswald:300,400,700|Poller+One|Roboto:300,400,700|Source+Code+Pro:300,400,700|Ubuntu:300,400,700|Work+Sans:300,400,700');
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
-
+$sans: "Open Sans", "Helvetica", "sans-serif";
+$raleway: "Raleway", "Helvetica", "sans-serif";
+$poller: 'Poller One', "cursive";
+$roboto: 'Roboto', "sans-serif";
+$montserrat: 'Montserrat', "sans-serif";
+$oswald: 'Oswald', "sans-serif";
+$ubuntu: 'Ubuntu', "sans-serif";
+$arimo: 'Arimo', "sans-serif";
+$work: 'Work Sans', "sans-serif";
+$nerdy: 'Source Code Pro', "monospace";
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
