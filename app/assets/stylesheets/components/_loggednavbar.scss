@@ -79,3 +79,12 @@
   font-size: 32px;
   color: $light-gray;
 }
+
+#coins {
+  transition: color 0.3s ease;
+  font-weight: lighter !important;
+  color: #999999 !important;
+  font-size: 15px !important;
+  line-height: 22px !important;
+  padding: 10px 20px;
+}

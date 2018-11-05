@@ -7,16 +7,17 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <a href="" class="navbar-wagon-item navbar-wagon-link"><i class="fas fa-cogs"></i> Your Parts</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link"><i class="fas fa-coins"> 40.000</i></a>
+    <%= link_to "<i class='fas fa-cogs'></i> Your Parts".html_safe, parts_path %>
 
   <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <img src="https://kitt.lewagon.com/placeholder/users/navarrovitor" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
+          <li id="coins"><i class="fas fa-coins"> 40.000</i></li>
+          <li><a href=""><i class="fas fa-columns"></i> Dashboard</a></li>
+
+          <li><%= link_to "<i class='fas fa-sign-out-alt'></i> Sign out".html_safe, destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
     </div>
