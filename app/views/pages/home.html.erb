@@ -1,2 +1,20 @@
+<% if user_signed_in? %>
+
+<h1>Dentro da sua pagina</h1>
+<h1><%= @user.email %></h1>
+
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<%= link_to "Go to marketplace", parts_path %>
+
+<!-- Minha nave e dados basicos -->
+<!-- Minhas partes -->
+
+<% else %>
+
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<%= link_to "Go to login screen", new_user_session_path %>
+<%= link_to "Go to signup screen", new_user_registration_path %>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+<% end %>
