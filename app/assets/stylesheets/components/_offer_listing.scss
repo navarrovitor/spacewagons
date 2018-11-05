@@ -1,0 +1,57 @@
+.wrapper-listings {
+  background-color: lightgrey;
+}
+
+.container-listings {
+  margin: 0 200px;
+  border: 1px solid black;
+}
+
+.part-listing {
+  margin: 0 100px;
+
+}
+
+.listing-header {
+
+}
+
+.stat-list {
+  list-style-type: none;
+}
+
+.each-stat {
+
+}
+
+.stat-name {
+  font-size: 20px;
+  color: rgba(100,100,100,1);
+  font-weight: bold;
+}
+
+.stat-positive {
+  font-size: 20px;
+  color: green;
+}
+
+.stat-negative {
+  font-size: 20px;
+  color: red;
+}
+
+.stat-neutral {
+  font-size: 20px;
+  color: rgba(150,150,150,1);
+}
+
+.owner-name {
+  font-size: 25px;
+  color: black;
+}
+
+.part-serial {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
