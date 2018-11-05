@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_184721) do
+ActiveRecord::Schema.define(version: 2018_11_05_222712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "parts", force: :cascade do |t|
     t.string "serial"
-    t.string "type"
+    t.string "category"
     t.integer "condition"
     t.integer "price"
     t.integer "stat_acc"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2018_11_05_184721) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.boolean "is_starter"
+    t.integer "initial_price"
     t.index ["user_id"], name: "index_parts_on_user_id"
   end
 
