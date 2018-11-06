@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
 
 // Log shortcut
@@ -23,6 +26,7 @@ const allListings = document.querySelectorAll(".basic-part-listing");
 const selectButtons = document.querySelectorAll(".select-part-btn");
 const userCoins = document.querySelector(".user-boardin-coin");
 const coinBlock = document.querySelector(".user-boardin-coin-block");
+const finalSubmit = document.querySelector(".final-submit-btn");
 
 //Find price of a part
 function price_of_part(part_index) {
@@ -135,11 +139,15 @@ Array.prototype.forEach.call(selectButtons, button => {
   });
 });
 
+// l(finalSubmit);
 
-
-
-
-
-
-
+// finalSubmit.addEventListener("click", function() {
+//   Rails.ajax({
+//     url: '/boardin',
+//     type: 'POST',
+//     sucess: function(r){
+//       l("FUCK");
+//     }
+//   });
+// });
 });

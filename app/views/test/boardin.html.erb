@@ -3,8 +3,7 @@
     <h1>Greetings, <span class="user-name-highlight"><%= @user.email %></span></h1>
     <h2>It's time to begin your adventure. One day, you might become the best of your galaxy. Or even the best in this universe.</h2>
     <h2>Every adventurer needs a ship... <span class="ship-name-ask">What is the name of your ship?</span></h2>
-    <form action="/restaurants" method="post">
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <form>
       <input type="text" name="restaurant[name]" id="ship-name-select" placeholder="Ship name" autofocus>
     </form>
   </div>
@@ -1227,14 +1226,16 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="submit-info">
-            <form action="/restaurants" method="post">
-              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-              <input type="submit btn btn-prymary" id="boardin-submit-btn">
-          </form>
-      </div>
+  </div>
+
+
+  <div id="final-submit">
+    <div class="final-submit-btn btn btn-danger">
+      Submit!
     </div>
   </div>
+
 </div>
 
