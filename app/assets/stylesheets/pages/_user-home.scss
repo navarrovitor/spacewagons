@@ -1,25 +1,67 @@
 .wrapper-home {
-  height: 200vh;
+  height: cover;
+  width: auto;
   background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 80%), url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GAojbUa/space-background-loop-animation_vjn1rkcge__F0000.png');
   padding: 50px 200px;
 }
 
-.container-user-info {
+.container-content {
   background-color: rgba(80,80,120,0.4);
-  margin-bottom: 30px;
+  margin: 0 auto;
+  width: auto;
+  // align-items: center;
+  // justify-content: space-around;
   border: 2px solid white;
-  display: flex;
+  // display: flex;
+  padding: 20px 20px 20px 20px;
+}
+
+.card {
+  border: 2px dashed white;
+  text-align: center;
+  margin: 20px;
+}
+
+.row {
+  border: 2px dotted white;
+  margin: 20px;
+}
+
+
+.container-picture-box  {
+  flex: 1 0 50%;
+  border: 2px dashed white;
+  text-align: center;
   align-items: center;
-  justify-content: space-around;
-  padding: 20px 100px 20px 200px;
+  border-width: 1px;
+  margin: 10px;
+  height: 90%;
+  display: flex;
+  min-height: 100px;
+  overflow: scroll;
+}
+
+.container-info-box {
+  flex: 1 0 50%;
+  border: 2px dashed white;
+  text-align: center;
+  align-items: center;
+  border-width: 1px;
+  margin: 10px;
+  height: 90%;
+  display: flex;
+  min-height: 100px;
+  overflow: scroll;
+
+
 }
 
 .user-avatar {
-  flex: 0 0 20%;
+  flex: 1 0 50%;
 }
 
 .user-avatar-img {
-  width: 350px;
+  width: 50%;
 }
 
 .user-info {
@@ -47,7 +89,7 @@
 }
 
 .ship-avatar {
-  flex: 0 0 20%;
+  flex: 1 0 50%;
 }
 
 .ship-avatar-img {
@@ -68,4 +110,3 @@
   background-color: rgba(80,80,120,0.8);
   border: 2px solid white;
 }
-
