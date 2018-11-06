@@ -1,0 +1,130 @@
+.wrapper-boardin {
+  background-color: black;
+  height: 180vh;
+  padding: 20px 200px;
+}
+
+.container-shipname {
+  background-color: gray;
+  padding: 50px 200px 10px 200px;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+}
+
+#ship-name-select {
+  width: 800px;
+  height: 50px;
+  color: blue;
+  font-size: 30px;
+  text-align: center;
+  margin: 50px 0 50px 100px;
+}
+
+.ship-name-ask {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.user-name-highlight {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.container-pickparts {
+  margin-top: 30px;
+  background-color: gray;
+  padding: 50px 200px;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    text-align: justify;
+    font-size: 30px;
+  }
+
+  .part-name-highlight {
+    font-weight: bold;
+  }
+}
+
+.user-boardin-coin {
+  font-size: 40px;
+  color: gold;
+  text-shadow: 1px 1px black;
+  text-align: center !important;
+}
+
+.coins {
+  border: 1px solid white;
+  margin: 50px 0;
+}
+
+.boardin-category-list {
+  border: 2px solid black;
+  background-color: $lilac;
+}
+
+.boardin-category-item {
+  text-transform: uppercase;
+  font-size: 30px;
+  width: 200px;
+  text-align: center;
+  padding: 20px 0;
+
+  &:hover {
+    opacity: 0.4;
+    cursor: pointer;
+  }
+}
+
+.boardin-active {
+  background-color: white;
+  border-bottom: 5px solid red;
+  color: black;
+  font-weight: bold;
+}
+
+.part-pick-listing {
+}
+
+.basic-part-category-group {
+
+}
+
+.basic-part-listing {
+  background-color: darkgrey;
+  padding: 20px 20px;
+  margin-bottom: 20px;
+}
+
+.basic.part-listing-header {
+}
+
+.boardin-part-stats {
+}
+
+.boardin-part-category {
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+
+.boradin-part-serial {
+
+}
+
+.boarding-part-price {
+
+}
+
+.select-part-btn {
+
+}
+
