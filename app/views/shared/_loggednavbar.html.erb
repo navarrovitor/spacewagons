@@ -1,22 +1,22 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-    <i class="fas fa-space-shuttle bigger"> Space Wagons</i>
-  </a>
+  <div class="hvr-icon-buzz-out">
+    <%= link_to "<i class='fas fa-space-shuttle bigger hvr-icon'></i>".html_safe, root_path, class: "navbar-wagon-brand" %>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <a href="" class="navbar-wagon-item navbar-wagon-link"><i class="fas fa-cogs"></i> Your Parts</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link"><i class="fas fa-coins"> 40.000</i></a>
+    <%= link_to "<i class='fas fa-cogs'></i> Your Parts".html_safe, parts_path %>
 
   <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <img src="https://kitt.lewagon.com/placeholder/users/navarrovitor" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
+          <li><a><i class="fas fa-coins" id="coins"> 40.000</i></a></li>
+          <li><%= link_to "<i class='fas fa-columns'></i> Dashboard".html_safe, new_user_registration_path, id: "dropdown-list"  %></li>
+          <li><%= link_to "<i class='fas fa-sign-out-alt'></i> Sign out".html_safe, destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
     </div>
