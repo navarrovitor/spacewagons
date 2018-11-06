@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 2018_11_05_222712) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wagon_ships", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "parts", "users"
   add_foreign_key "ships", "users"
 end

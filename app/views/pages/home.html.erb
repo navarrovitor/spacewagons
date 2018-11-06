@@ -1,53 +1,72 @@
 <% if user_signed_in? %>
 
-<div class="wrapper-home">
-  <div class="container-user-info">
-    <div class="user-avatar">
-      <img src="https://pbs.twimg.com/profile_images/574496403868647425/84GaJKHk.jpeg" class=" img-circle user-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
-    </div>
-    <div class="user-info text-center">
-      <h2 class="user-name">
-        <%= current_user.email %>
-      </h2>
-      <h3 class="user-spaceship-name">
-        Commander of <span class="spaceship-name-art">Space Juggernaut</span>
-      </h3>
-      <h3 class="user-ranking">
-        Ranking position: <span class="ranking-position-art">#3</span>
-      </h3>
-      <h3 class="user-races-won">
-        Total points: <span class="total-points-art">1,613</span>
-      </h3>
-    </div>
-  </div>
-  <h1 class="title-ship-parts"></h1>
-  <div class="container-ship-parts">
-    <div class="ship-avatar">
-      <img src="https://img1.cgtrader.com/items/666066/f55674da32/spaceship-fighter-3d-model-low-poly-fbx-mat-prefab.jpg" class="ship-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
-    </div>
-    <div class="ship-parts text-center">
-      <h2 class="ship-name">
-        <%= "Space Juggernaut" %>
-      </h2>
-      <ul class="equipped-part-list">
-        <li class="equipped-each-part">
-        </li>
-      </ul>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+  <%= link_to "Go to marketplace", parts_path, class: "btn btn-primary" %>
+
+  <div class="wrapper-home">
+    <div class="container container-content">
+      <div class="row">
+        <h2>Pilot Info</h2>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+              <img src="https://pbs.twimg.com/profile_images/574496403868647425/84GaJKHk.jpeg" class="img-circle user-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
+              <h3>Han Solo</h3>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+              <ul>
+                <li><h4>Rank Position: 3rd</h4></li>
+                <li><h4>Total Points: 15.871</h4></li>
+                <li><h4>Last Race: 1st</h4></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <h2>Ship Info</h2>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+              <img src="https://img1.cgtrader.com/items/666066/f55674da32/spaceship-fighter-3d-model-low-poly-fbx-mat-prefab.jpg" class="img user-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
+              <h3>Millenium Falcom</h3>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+              <ul>
+                <li><h4>Speed: **********</h4></li>
+                <li><h4>Acell: **********</h4></li>
+                <li><h4>Shield: ******</h4></li>
+                <li><h4>Wing: ****</h4></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <h2>Parts</h2>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+              <h1>user.cards.each</h1>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+              <h1>CARD 6</h1>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <h1 class="title-spare-parts"></h1>
-  <div class="container-spare-parts">
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
 
-  </div>
-</div>
+
 
 <% else %>
 
-<h1 style="color: black; font-size: 60px;">Home screen (No Login). Basic options:</h1>
+  <h1 style="color: black; font-size: 60px;">Home screen (No Login). Basic options:</h1>
 
+  <%= link_to "Go to login screen", new_user_session_path, class: "btn btn-success" %>
+  <%= link_to "Go to signup screen", new_user_registration_path, class: "btn btn-primary" %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
 <% end %>
