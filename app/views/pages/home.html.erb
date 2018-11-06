@@ -1,60 +1,65 @@
 <% if user_signed_in? %>
 
-<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-<%= link_to "Go to marketplace", parts_path, class: "btn btn-primary" %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+  <%= link_to "Go to marketplace", parts_path, class: "btn btn-primary" %>
 
-<div class="wrapper-home">
-  <div class="container-user-info">
-    <div class="user-avatar">
-      <img src="https://pbs.twimg.com/profile_images/574496403868647425/84GaJKHk.jpeg" class=" img-circle user-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
+  <div class="wrapper-home">
+    <div class="container-user-info">
+      <div class="user-avatar">
+        <img src="https://pbs.twimg.com/profile_images/574496403868647425/84GaJKHk.jpeg" class=" img-circle user-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
+      </div>
+      <div class="user-info text-center">
+        <h2 class="user-name">
+          <%= current_user.email %>
+        </h2>
+        <h3 class="user-spaceship-name">
+          Commander of <span class="spaceship-name-art">Space Juggernaut</span>
+        </h3>
+        <h3 class="user-ranking">
+          Ranking position: <span class="ranking-position-art">#3</span>
+        </h3>
+        <h3 class="user-races-won">
+          Total points: <span class="total-points-art">1,613</span>
+        </h3>
+      </div>
     </div>
-    <div class="user-info text-center">
-      <h2 class="user-name">
-        <%= current_user.email %>
-      </h2>
-      <h3 class="user-spaceship-name">
-        Commander of <span class="spaceship-name-art">Space Juggernaut</span>
-      </h3>
-      <h3 class="user-ranking">
-        Ranking position: <span class="ranking-position-art">#3</span>
-      </h3>
-      <h3 class="user-races-won">
-        Total points: <span class="total-points-art">1,613</span>
-      </h3>
+    <h1 class="title-ship-parts"></h1>
+    <div class="container-ship-parts">
+      <div class="ship-avatar">
+        <img src="https://img1.cgtrader.com/items/666066/f55674da32/spaceship-fighter-3d-model-low-poly-fbx-mat-prefab.jpg" class="ship-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
+      </div>
+      <div class="ship-parts text-center">
+        <h2 class="ship-name">
+          <%= "Space Juggernaut" %>
+        </h2>
+        <ul class="equipped-part-list">
+          <li class="equipped-each-part">
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h1 class="title-spare-parts"></h1>
+    <div class="container-spare-parts">
+      <p>a</p>
+      <p>a</p>
+      <p>a</p>
+      <p>a</p>
+
     </div>
   </div>
-  <h1 class="title-ship-parts"></h1>
-  <div class="container-ship-parts">
-    <div class="ship-avatar">
-      <img src="https://img1.cgtrader.com/items/666066/f55674da32/spaceship-fighter-3d-model-low-poly-fbx-mat-prefab.jpg" class="ship-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
-    </div>
-    <div class="ship-parts text-center">
-      <h2 class="ship-name">
-        <%= "Space Juggernaut" %>
-      </h2>
-      <ul class="equipped-part-list">
-        <li class="equipped-each-part">
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <h1 class="title-spare-parts"></h1>
-  <div class="container-spare-parts">
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-
-  </div>
-</div>
 
 <% else %>
 
-<h1 style="color: black; font-size: 60px;">Home screen (No Login). Basic options:</h1>
-
-<%= link_to "Go to login screen", new_user_session_path, class: "btn btn-success" %>
-<%= link_to "Go to signup screen", new_user_registration_path, class: "btn btn-primary" %>
-<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container d-flex h-100 align-items-center">
+          <div class="text-center margins">
+            <h1 class="text-uppercase">Space Wagons</h1>
+            <h2 class="margins text-center">The only place in the galaxy for your spaceship parts.</h2>
+            <a href="#about" class="btn btn-primary js-scroll-trigger">Create your account</a>
+          </div>
+      </div>
+    </header>
 
 <% end %>
