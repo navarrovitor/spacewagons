@@ -150,11 +150,4 @@ Array.prototype.forEach.call(selectButtons, button => {
 //     }
 //   });
 // });
-
-
-
-
-
-
-
 });
