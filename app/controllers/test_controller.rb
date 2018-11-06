@@ -11,9 +11,14 @@ class TestController < ApplicationController
     `rails db:seed:boardin-basic-parts`
     # Pick the 15 last generated parts to be the user basic parts
     @basicparts = Part.all[-15 .. -1]
+  end
+
+  def boardin_submit
+    raise
 
 
   end
+
 end
 
 
