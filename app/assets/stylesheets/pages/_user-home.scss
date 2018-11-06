@@ -1,0 +1,71 @@
+.wrapper-home {
+  height: 200vh;
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 80%), url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GAojbUa/space-background-loop-animation_vjn1rkcge__F0000.png');
+  padding: 50px 200px;
+}
+
+.container-user-info {
+  background-color: rgba(80,80,120,0.4);
+  margin-bottom: 30px;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 100px 20px 200px;
+}
+
+.user-avatar {
+  flex: 0 0 20%;
+}
+
+.user-avatar-img {
+  width: 350px;
+}
+
+.user-info {
+  flex: 0 0 80%;
+}
+
+.ranking-position-art {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.total-points-art {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.container-ship-parts {
+  background-color: rgba(80,80,120,0.8);
+  margin-bottom: 100px;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 100px 20px 200px;
+}
+
+.ship-avatar {
+  flex: 0 0 20%;
+}
+
+.ship-avatar-img {
+  width: 450px;
+}
+
+.ship-parts {
+  flex: 0 0 80%;
+}
+
+.spaceship-name-art {
+  font-weight: bold;
+  color: red;
+  font-size: 30px;
+}
+
+.container-spare-parts {
+  background-color: rgba(80,80,120,0.8);
+  border: 2px solid white;
+}
+

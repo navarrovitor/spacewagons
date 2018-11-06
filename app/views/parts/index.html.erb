@@ -1,2 +1,90 @@
-<h1>Parts#index</h1>
-<p>Find me in app/views/parts/index.html.erb</p>
+<% if @parts_for_sale.length > 0 %>
+  <div class="wrapper-listings">
+    <div class="container-listings">
+
+      <% @parts_for_sale.each do |part| %>
+
+        <div class="part-listing">
+          <div class="listing-header">
+            <div class="row">
+              <div class="col-xs-2">
+                <h3 class="part-category"><%= part.category %></h3>
+              </div>
+              <div class="col-xs-3">
+                <h3 class="owner-name"><%= User.find(part.user_id).email %></h3>
+              </div>
+              <div class="col-xs-4">
+                <h3 class="part-serial"><%= part.serial %> </h3>
+              </div>
+              <div class="col-xs-2">
+                <h3 class="part-price">
+                  <i class="fas fa-coins"></i>
+                  <%= part.initial_price %>
+                </h3>
+              </div>
+              <div class="col-xs-1">
+                <h3 class="buy-btn btn btn-primary"><%= "Buy" %></h3>
+              </div>
+            </div>
+          </div>
+          <div class="listing-body">
+            <ul class="stat-list">
+              <li class="each-stat">
+                <span class="stat-name">Acceleration: </span>
+                <% if part.stat_acc > 0 %>
+                  <span class="stat-positive"> +<%= part.stat_acc %></span>
+                <% elsif part.stat_acc < 0 %>
+                  <span class="stat-negative"> <%= part.stat_acc %></span>
+                <% else %>
+                  <span class="stat-neutral"> <%= part.stat_acc %> </span>
+                <% end %>
+              </li>
+              <li class="each-stat">
+                <span class="stat-name">Speed: </span>
+                <% if part.stat_spd > 0 %>
+                  <span class="stat-positive"> +<%= part.stat_spd %></span>
+                <% elsif part.stat_spd < 0 %>
+                  <span class="stat-negative"> <%= part.stat_spd %></span>
+                <% else %>
+                  <span class="stat-neutral"> <%= part.stat_spd %> </span>
+                <% end %>
+              </li>
+              <li class="each-stat">
+                <span class="stat-name">Maneuvrability: </span>
+                <% if part.stat_man > 0 %>
+                  <span class="stat-positive"> +<%= part.stat_man %></span>
+                <% elsif part.stat_man < 0 %>
+                  <span class="stat-negative"> <%= part.stat_man %></span>
+                <% else %>
+                  <span class="stat-neutral"> <%= part.stat_man %> </span>
+                <% end %>
+              </li>
+              <li class="each-stat">
+                <span class="stat-name">Attack: </span>
+                <% if part.stat_atk > 0 %>
+                  <span class="stat-positive"> +<%= part.stat_atk %></span>
+                <% elsif part.stat_atk < 0 %>
+                  <span class="stat-negative"> <%= part.stat_atk %></span>
+                <% else %>
+                  <span class="stat-neutral"> <%= part.stat_atk %> </span>
+                <% end %>
+              </li>
+              <li class="each-stat">
+                <span class="stat-name">Defense: </span>
+                <% if part.stat_def > 0 %>
+                  <span class="stat-positive"> +<%= part.stat_def %></span>
+                <% elsif part.stat_def < 0 %>
+                  <span class="stat-negative"> <%= part.stat_def %></span>
+                <% else %>
+                  <span class="stat-neutral"> <%= part.stat_def %> </span>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <h1 class="no-parts-for-sale">There are no parts for sale</h1>
+<% end %>
