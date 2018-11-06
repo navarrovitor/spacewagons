@@ -13,13 +13,13 @@
 }
 .footer-links a {
   color: white;
-  opacity: 0.15;
+  opacity: 1;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
-  opacity: 1;
+  opacity: 0.15;
 }
 .footer-copyright {
   color: white;
@@ -27,4 +27,17 @@
   text-decoration: none;
   font-size: 16px;
   padding: 0px 10px;
+}
+.nerdy {
+  display: flex;
+  align-items: center;
+  font-family: $nerdy;
+  color: white;
+  opacity: 1;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0px 10px;
+}
+.nerdy:hover {
+  opacity: 0.15;
 }
