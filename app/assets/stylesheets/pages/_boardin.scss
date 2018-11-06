@@ -1,6 +1,6 @@
 .wrapper-boardin {
   background-color: black;
-  height: 180vh;
+  height: 220vh;
   padding: 20px 200px;
 }
 
@@ -55,16 +55,41 @@
   }
 }
 
-.user-boardin-coin {
+.user-boardin-coin-block {
   font-size: 40px;
-  color: gold;
   text-shadow: 1px 1px black;
   text-align: center !important;
+  background-color: rgba(100,100,100,1);
+}
+
+
+.coins-left-text {
+  color: white;
+  margin: 0;
+}
+
+.coin-boardin {
+  color: gold;
+}
+
+.user-boardin-coin {
+  color: gold;
+}
+
+.spend-hint {
+  color: white;
+  margin: 0;
 }
 
 .coins {
   border: 1px solid white;
   margin: 50px 0;
+
+  h2 {
+    margin: 0;
+    padding: 20px 0;
+    line-height: 1.6;
+  }
 }
 
 .boardin-category-list {
@@ -74,13 +99,13 @@
 
 .boardin-category-item {
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 25px;
   width: 200px;
   text-align: center;
   padding: 20px 0;
 
   &:hover {
-    opacity: 0.4;
+    background-color: lightblue;
     cursor: pointer;
   }
 }
@@ -103,6 +128,11 @@
   background-color: darkgrey;
   padding: 20px 20px;
   margin-bottom: 20px;
+}
+
+.part-selected {
+  border: 3px solid black;
+  background-color: lightblue;
 }
 
 .basic.part-listing-header {
