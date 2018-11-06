@@ -1,8 +1,5 @@
 <% if user_signed_in? %>
 
-<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-<%= link_to "Go to marketplace", parts_path, class: "btn btn-primary" %>
-
 <div class="wrapper-home">
   <div class="container-user-info">
     <div class="user-avatar">
@@ -52,9 +49,5 @@
 <% else %>
 
 <h1 style="color: black; font-size: 60px;">Home screen (No Login). Basic options:</h1>
-
-<%= link_to "Go to login screen", new_user_session_path, class: "btn btn-success" %>
-<%= link_to "Go to signup screen", new_user_registration_path, class: "btn btn-primary" %>
-<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
 
 <% end %>
