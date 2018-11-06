@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'test/:id/boardin/', to: 'test#boardin'
+
   devise_for :users
 
   resources :parts
