@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-
   <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
   <%= link_to "Go to marketplace", parts_path, class: "btn btn-primary" %>
 
@@ -49,7 +48,6 @@
   </div>
   
 <% else %>
-
     <!-- Header -->
     <header class="masthead" id="animate-area">      
       <div class="container d-flex h-100 align-items-center">

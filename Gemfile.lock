@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/lautis/uglifier.git
+  revision: 9abd18da4f5eb2fb4b5aab8023f08470221743c1
+  ref: 9abd18da4f5eb2fb4b5aab8023f08470221743c1
+  specs:
+    uglifier (3.1.13)
+      execjs (>= 0.3.0, < 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -181,8 +189,6 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.19)
-      execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.7.0)
@@ -220,7 +226,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
-  uglifier
+  uglifier!
   web-console (>= 3.3.0)
   webpacker
 

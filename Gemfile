@@ -13,7 +13,7 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'sass-rails'
 gem 'simple_form'
-gem 'uglifier'
+gem 'uglifier', :git => 'https://github.com/lautis/uglifier.git', :ref => '9abd18da4f5eb2fb4b5aab8023f08470221743c1'
 gem 'webpacker'
 
 group :development do
