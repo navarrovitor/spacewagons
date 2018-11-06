@@ -1,19 +1,28 @@
 .wrapper-listings {
   background-color: lightgrey;
+  padding: 100px 0 100px 0;
 }
 
 .container-listings {
   margin: 0 200px;
-  border: 1px solid black;
 }
 
 .part-listing {
-  margin: 0 100px;
-
+  margin-top: 15px;
 }
 
 .listing-header {
+  background-color: $blue;
+  z-index: 50;
 
+  &:hover {
+    background-color: $lilac;
+    cursor: pointer;
+  }
+}
+
+.listing-body {
+  padding: 10px 0 0 0;
 }
 
 .stat-list {
@@ -30,18 +39,22 @@
   font-weight: bold;
 }
 
+.each-stat {
+  font-family: $roboto;
+}
+
 .stat-positive {
-  font-size: 20px;
+  font-size: 24px;
   color: green;
 }
 
 .stat-negative {
-  font-size: 20px;
+  font-size: 24px;
   color: red;
 }
 
 .stat-neutral {
-  font-size: 20px;
+  font-size: 24px;
   color: rgba(150,150,150,1);
 }
 
@@ -54,4 +67,32 @@
   font-size: 25px;
   font-weight: bold;
   color: black;
+  padding-left: 20px;
 }
+
+.part-category {
+  padding-left: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+.part-price {
+  font-weight: 25px;
+  color: rgba(255,215,0,1);
+  text-shadow: 2px 2px black;
+  position: absolute;
+  top: -8px;
+}
+
+.coin-listing {
+  color: black;
+}
+
+.buy-btn {
+  z-index: 99;
+  position: absolute;
+  top: -8px;
+}
+
