@@ -16,9 +16,11 @@
     </div>
 
     <div class="coins">
-      <h2 class="user-boardin-coin">
+      <h2 class="user-boardin-coin-block">
+        <span class="coins-left-text">Amount left to spend: <br></span>
         <i class="fas fa-coins coin-boardin"></i>
         <span class="user-boardin-coin"> <%= @user.coins %> </span>
+        <span class="spend-hint"><br>Pick awesome parts</span>
       </h2>
     </div>
 
@@ -26,19 +28,19 @@
       <div class="part-category-tabs">
         <ul class="boardin-category-list list-inline">
           <li class="boardin-category-item boardin-active">
-            Propulsor
+            Propulsors
           </li>
           <li class="boardin-category-item">
-            Shield
+            Shields
           </li>
           <li class="boardin-category-item">
-            Shell
+            Shells
           </li>
           <li class="boardin-category-item">
-            Bumper
+            Bumpers
           </li>
           <li class="boardin-category-item">
-            Wing
+            Wings
           </li>
         </ul>
       </div>
@@ -56,7 +58,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[0].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[0].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -134,7 +136,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[1].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[1].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -212,7 +214,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[2].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[2].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -293,7 +295,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[3].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[3].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -371,7 +373,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[4].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[4].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -449,7 +451,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[5].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[5].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -529,7 +531,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[6].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[6].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -607,7 +609,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[7].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[7].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -685,7 +687,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[8].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[8].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -765,7 +767,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[9].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[9].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -843,7 +845,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[10].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[10].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -921,7 +923,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[11].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[11].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -1001,7 +1003,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[12].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[12].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -1079,7 +1081,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[13].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[13].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -1157,7 +1159,7 @@
                 <div class="col-xs-3">
                   <h3 class="boardin-part-price">
                     <i class="fas fa-coin coin-boardin"></i>
-                    <%= @basicparts[14].initial_price %>
+                    <span class="part-cost"> <%= @basicparts[14].initial_price %> </span>
                   </h3>
                 </div>
                 <div class="col-xs-2">
@@ -1224,7 +1226,13 @@
             </div>
           </div>
         </div>
+      </div>
 
+      <div class="submit-info">
+            <form action="/restaurants" method="post">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <input type="submit btn btn-prymary" id="boardin-submit-btn">
+          </form>
       </div>
     </div>
   </div>

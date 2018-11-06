@@ -4,6 +4,8 @@ class TestController < ApplicationController
 
   def boardin
     @user = User.find(params[:id])
+    @user.coins = 10000
+    @user.save
 
     # Initiate the 15 basic parts to be sold to the user
     `rails db:seed:boardin-basic-parts`
