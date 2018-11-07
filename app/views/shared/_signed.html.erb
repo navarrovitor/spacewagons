@@ -1,23 +1,18 @@
-<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-<%= link_to "Go to marketplace", parts_path, class: "btn btn-primary" %>
-
 <div class="wrapper-home">
   <div class="container container-content">
     <div class="row row-dash">
       <h2>Pilot Info</h2>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <div class="card">
-            <img src="https://pbs.twimg.com/profile_images/574496403868647425/84GaJKHk.jpeg" class="img-circle user-avatar-img" id="navbar-wagon-menu" data-toggle="dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{current_user.username}", class: "img-circle", id: "profile" %>
             <h3><%= current_user.username %></h3>
           </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <div class="card">
             <ul>
-              <li><h4>Coins: <%= current_user.coins %></h4></li>
-              <li><h4>Rank Position: 3rd</h4></li>
-              <li><h4>Score: <%= current_user.score%></h4></li>
-              <li><h4>Last Race: 1st</h4></li>
+              <li><i class="fas fa-coins"> <%= current_user.coins %></i></li>
+              <li><i class="fas fa-medal"> <%= current_user.score %></i></li>
             </ul>
           </div>
         </div>
