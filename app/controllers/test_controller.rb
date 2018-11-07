@@ -15,8 +15,6 @@ class TestController < ApplicationController
 
   def boardin_submit
     raise
-
-
   end
 
 end

@@ -137,21 +137,19 @@ Array.prototype.forEach.call(selectButtons, button => {
   });
 });
 
+finalSubmit.addEventListener("click", function() {
 
+  var shipName = shipNameInput.value
 
-// finalSubmit.addEventListener("click", function() {
+  l(shipName)
 
-//   var shipName = shipNameInput.value
-
-//   l(shipName)
-
-//   Rails.ajax({
-//     url: `/boardin/?shipname=${shipName}`,
-//     type: 'POST',
-//     sucess: function(r){
-//     }
-//   });
-// });
+  Rails.ajax({
+    url: `/boardin/?shipname=${shipName}`,
+    type: 'POST',
+    sucess: function(r){
+    }
+  });
+});
 
 
 
