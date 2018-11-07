@@ -22,10 +22,6 @@ const allListingDetails = document.querySelectorAll(".listing-body");
 const allListingHeaders = document.querySelectorAll(".listing-header");
 const listingCount = allListingHeaders.length;
 const buyButtons = document.querySelectorAll('.buy-btn');
-const partIds = document.querySelectorAll('.intel-part-id');
-const loggedUserId = parseInt(document.querySelector('#logged-user-id').innerHTML.replace(/\s/g, ''),10);
-
-l(loggedUserId);
 
 var detailsShown = new Array(100);
 for (var i = 0; i < detailsShown.length; ++i) { detailsShown[i] = false; }
@@ -51,29 +47,6 @@ Array.prototype.forEach.call(allListingHeaders, a => {
       detailsShown[indexClick] = false;
     }
   });
-});
-
-Array.prototype.forEach.call(buyButtons, btn => {
-  btn.addEventListener("click", function() {
-
-    indexBuy = (index(btn.parentNode.parentNode.parentNode.parentNode)-1)/2;
-
-    var partBuyId = partIds[indexBuy].innerHTML;
-    var buyerId = loggedUserId;
-
-    Rails.ajax({
-      url: `/transact`,
-      type: 'post',
-      sucess: function(s){
-        alert('Ok');
-      },
-      error: function(s){
-        l("fail");
-      }
-    });
-  })
-
-
 });
 
 

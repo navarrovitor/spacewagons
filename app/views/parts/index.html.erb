@@ -19,12 +19,17 @@
               <div class="col-xs-2">
                 <h3 class="part-price">
                   <i class="fas fa-coins"></i>
-                  <%= part.initial_price %>
+                  <%= part.price %>
                 </h3>
               </div>
-              <div class="intel-part-id" style="display: none;"> <%= part.id %> </div>
               <div class="col-xs-1">
-                <div class="btn btn-primary buy-btn">Buy</div>
+                <form action="/parts/transaction" method="post">
+                  <input name="_method" type="hidden" value="patch"/>
+                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                  <%= hidden_field_tag :part_id, part.id %>
+                  <%= hidden_field_tag :buyer_id, current_user.id %>
+                  <input type="submit" class="btn btn-primary">
+                </form>
               </div>
             </div>
           </div>
@@ -89,10 +94,3 @@
 <% else %>
   <h1 class="no-parts-for-sale">There are no parts for sale</h1>
 <% end %>
-
-
-<div class="logged-user" style="display: none">
-  <h2 id="logged-user-id">
-  <%= current_user.id %>
-  </h2>
-</div>
