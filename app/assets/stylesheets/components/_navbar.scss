@@ -50,15 +50,9 @@
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+  background-color: rgba(100,100,100,1);
 }
-.navbar-wagon-dropdown-menu li > a {
-  transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
-  padding: 10px 20px;
-}
+
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
   color: black !important;
@@ -70,7 +64,7 @@
   position: absolute;
   right: 10px;
   top: -6px;
-  background-color: white;
+  background-color: rgba(100,100,100,1);
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
@@ -78,9 +72,6 @@
 .bigger {
   font-size: 32px;
   color: $light-gray;
-}
-.logo {
-  font-family: $poller !important;
 }
 
 @-webkit-keyframes hvr-icon-buzz {

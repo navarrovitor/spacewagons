@@ -9,14 +9,13 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= link_to "<i class='fas fa-cogs'></i> Your Parts".html_safe, parts_path %>
-
+    <%= link_to "<i class='fas fa-cogs'></i> Parts Store".html_safe, parts_path %>
+    <a>&nbsp;&nbsp;&nbsp;<i class="fas fa-coins" id="coins"> <%= current_user.coins %></i></a>
   <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <img src="https://kitt.lewagon.com/placeholder/users/navarrovitor" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a><i class="fas fa-coins" id="coins"> 40.000</i></a></li>
           <li><%= link_to "<i class='fas fa-columns'></i> Dashboard".html_safe, new_user_registration_path, id: "dropdown-list"  %></li>
           <li><%= link_to "<i class='fas fa-sign-out-alt'></i> Sign out".html_safe, destroy_user_session_path, method: :delete %></li>
         </ul>
