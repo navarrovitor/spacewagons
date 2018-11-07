@@ -41,6 +41,7 @@
                   <form action="/parts/transaction" method="post">
                     <input name="_method" type="hidden" value="patch"/>
                     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <%= hidden_field_tag :method_tag, "transaction" %>
                     <%= hidden_field_tag :part_id, part.id %>
                     <%= hidden_field_tag :buyer_id, current_user.id %>
                     <input type="submit" class="btn btn-primary buy-btn" value="BUY">
