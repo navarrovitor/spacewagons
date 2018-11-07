@@ -2,7 +2,7 @@
   <div class="wrapper-login">
     <div class="container-login">
 
-      <h1 class="login-cta">Sign in</h1>
+      <h1 class="text-uppercase">Sign in</h1>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
@@ -17,7 +17,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
+          <%= f.button :submit, "Log in", class: "login-btn" %>
         </div>
 
         <%= render "devise/shared/links" %>

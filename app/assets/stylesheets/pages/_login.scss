@@ -1,0 +1,40 @@
+.wrapper-login {
+
+}
+
+.container-login {
+  background-color: rgba(100,100,100,0.5);
+  padding: 50px 200px;
+}
+
+.sign-up-cta {
+  font-size: 25px;
+  position: relative;
+  top: 20px;
+  color: white;
+  text-shadow: 2px 2px black;
+
+  &:hover {
+    color: $light-gray;
+  }
+}
+
+.forgot-password-cta {
+  font-size: 25px;
+  position: relative;
+  top: 20px;
+  color: white;
+  text-shadow: 2px 2px black;
+
+  &:hover {
+    color: $light-gray;
+  }
+}
+
+.login-btn {
+  width: 200px;
+  background-color: $pink;
+  font-size: 22px;
+}
+
+
