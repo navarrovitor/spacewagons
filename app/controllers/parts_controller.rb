@@ -6,6 +6,16 @@ class PartsController < ApplicationController
   def show
   end
 
+  def transact
+    # user = current_user
+
+
+
+    # user.coins -=
+
+  end
+
+
 
   private
 

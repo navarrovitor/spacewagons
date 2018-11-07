@@ -23,7 +23,9 @@
                 </h3>
               </div>
               <div class="col-xs-1">
-                <h3 class="buy-btn btn btn-primary"><%= "Buy" %></h3>
+                <%= button_to '+', {:controller => "parts", :action => "transact", :user_id=> 3} , :method=>:post  %>
+
+
               </div>
             </div>
           </div>
