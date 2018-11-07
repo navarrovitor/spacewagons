@@ -1,5 +1,13 @@
 # Seed the basic parts
 
+ship = Ship.new
+ship.name = "Test ship"
+ship.category = "Cruzader"
+ship.user_id = 1
+ship.save
+puts "Created basic ship"
+
+
 part = Part.new
 part.category = "propulsor"
 part.condition = 100

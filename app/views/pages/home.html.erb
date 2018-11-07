@@ -1,4 +1,12 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.progress == 0%>
+
+  <%= render 'shared/shipcreate' %>
+
+<% elsif user_signed_in? && current_user.progress == 1 %>
+
+  <%= render 'shared/pickparts' %>
+
+<% elsif user_signed_in? && current_user.progress == 2 %>
 
   <%= render 'shared/signed' %>
 
