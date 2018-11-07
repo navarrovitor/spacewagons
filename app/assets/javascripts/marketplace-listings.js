@@ -61,28 +61,22 @@ Array.prototype.forEach.call(buyButtons, btn => {
     var partBuyId = partIds[indexBuy].innerHTML;
     var buyerId = loggedUserId;
 
-    // Rails.ajax({
-    //   url: `transact?part_id=${partBuyId}&buyer_id=${buyerId}`,
-    //   type: 'POST',
-    //   sucess: function(r){
-    //     }
-    //   });
-    // })
-
     Rails.ajax({
       url: `/transact`,
-      type: 'POST',
-      sucess: function(){
-        l("sucess")
-        },
-      error: function(){
-        l("fail")
+      type: 'post',
+      sucess: function(s){
+        alert('Ok');
+      },
+      error: function(s){
+        l("fail");
       }
-      });
-    })
+    });
+  })
+
+
+});
 
 
 
-  });
 });
 

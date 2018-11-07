@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'test/:id/boardin/', to: 'test#boardin'
 
-  post '/transact', to: 'part#transact'
+  post '/transact', to: 'parts#transact'
 
 
   devise_for :users

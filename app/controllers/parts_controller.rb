@@ -11,7 +11,6 @@ class PartsController < ApplicationController
 
   def transact
     raise
-
   end
 
 
