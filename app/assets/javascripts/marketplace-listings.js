@@ -20,7 +20,12 @@ function index(el) {
 // Element listing
 const allListingDetails = document.querySelectorAll(".listing-body");
 const allListingHeaders = document.querySelectorAll(".listing-header");
-const listingCount = allListingHeaders.length
+const listingCount = allListingHeaders.length;
+const buyButtons = document.querySelectorAll('.buy-btn');
+const partIds = document.querySelectorAll('.intel-part-id');
+const loggedUserId = parseInt(document.querySelector('#logged-user-id').innerHTML.replace(/\s/g, ''),10);
+
+l(loggedUserId);
 
 var detailsShown = new Array(100);
 for (var i = 0; i < detailsShown.length; ++i) { detailsShown[i] = false; }
@@ -38,7 +43,6 @@ Array.prototype.forEach.call(allListingHeaders, a => {
   a.addEventListener("click", function() {
     indexClick = (index(a.parentNode) - 1)/2
 
-    l(detailsShown[indexClick]);
     if (detailsShown[indexClick] == false) {
       allListingDetails[indexClick].style.display = "";
       detailsShown[indexClick] = true;
@@ -49,7 +53,36 @@ Array.prototype.forEach.call(allListingHeaders, a => {
   });
 });
 
+Array.prototype.forEach.call(buyButtons, btn => {
+  btn.addEventListener("click", function() {
+
+    indexBuy = (index(btn.parentNode.parentNode.parentNode.parentNode)-1)/2;
+
+    var partBuyId = partIds[indexBuy].innerHTML;
+    var buyerId = loggedUserId;
+
+    // Rails.ajax({
+    //   url: `transact?part_id=${partBuyId}&buyer_id=${buyerId}`,
+    //   type: 'POST',
+    //   sucess: function(r){
+    //     }
+    //   });
+    // })
+
+    Rails.ajax({
+      url: `/transact`,
+      type: 'POST',
+      sucess: function(){
+        l("sucess")
+        },
+      error: function(){
+        l("fail")
+      }
+      });
+    })
 
 
 
+  });
 });
+

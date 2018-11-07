@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'test/:id/boardin/', to: 'test#boardin'
-  post '/boardin', to: 'test#boardin_submit'
+
+  post '/transact', to: 'part#transact'
+
 
   devise_for :users
 

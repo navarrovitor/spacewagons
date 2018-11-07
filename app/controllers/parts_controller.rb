@@ -1,4 +1,7 @@
 class PartsController < ApplicationController
+  respond_to :js, :html
+
+
   def index
     @parts_for_sale = Part.where(for_sale: true)
   end
@@ -7,11 +10,7 @@ class PartsController < ApplicationController
   end
 
   def transact
-    # user = current_user
-
-
-
-    # user.coins -=
+    raise
 
   end
 
