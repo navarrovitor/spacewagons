@@ -2,7 +2,8 @@ class PartsController < ApplicationController
 
 
   def index
-    @parts_for_sale = Part.where(for_sale: true)
+    @parts_for_sale = Part.where(for_sale: true).select {|part| part.user_id != current_user.id}
+
   end
 
   def show
