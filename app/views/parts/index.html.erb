@@ -1,96 +1,115 @@
-<% if @parts_for_sale.length > 0 %>
-  <div class="wrapper-listings">
-    <div class="container-listings">
+<div class="wrapper-listings">
+  <div class="container-listings text-center">
 
-      <% @parts_for_sale.each do |part| %>
+    <h1 class="marketplace-title">
+      Welcome to the <span class="galactic-mall-style">Galactic Mall</span>
+    </h1>
 
-        <div class="part-listing">
-          <div class="listing-header">
-            <div class="row">
-              <div class="col-xs-2">
-                <h3 class="part-category"><%= part.category %></h3>
-              </div>
-              <div class="col-xs-3">
-                <h3 class="owner-name"><%= User.find(part.user_id).email %></h3>
-              </div>
-              <div class="col-xs-4">
-                <h3 class="part-serial"><%= part.serial %> </h3>
-              </div>
-              <div class="col-xs-2">
-                <h3 class="part-price">
-                  <i class="fas fa-coins"></i>
-                  <%= part.price %>
-                </h3>
-              </div>
-              <div class="col-xs-1">
-                <form action="/parts/transaction" method="post">
-                  <input name="_method" type="hidden" value="patch"/>
-                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                  <%= hidden_field_tag :part_id, part.id %>
-                  <%= hidden_field_tag :buyer_id, current_user.id %>
-                  <input type="submit" class="btn btn-primary">
-                </form>
+    <h2 class="marketplace-user-coins">
+      <i class="fas fa-coin"></i>
+      Your wallet:
+      <span class="marketplace-user-coin-style">
+        $<%= current_user.coins %>
+      </span>
+    </h2>
+
+
+    <% if @parts_for_sale.length > 0 %>
+
+    <div class="container-part-listing">
+        <% @parts_for_sale.each do |part| %>
+
+          <div class="part-listing">
+            <div class="listing-header">
+              <div class="row">
+                <div class="col-xs-2">
+                  <h3 class="part-category"><%= part.category %></h3>
+                </div>
+                <div class="col-xs-3">
+                  <h3 class="owner-name"><%= User.find(part.user_id).email %></h3>
+                </div>
+                <div class="col-xs-4">
+                  <h3 class="part-serial"><%= part.serial %> </h3>
+                </div>
+                <div class="col-xs-2">
+                  <h3 class="part-price">
+                    <i class="fas fa-coins"></i>
+                    <%= part.price %>
+                  </h3>
+                </div>
+                <div class="col-xs-1">
+                  <form action="/parts/transaction" method="post">
+                    <input name="_method" type="hidden" value="patch"/>
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <%= hidden_field_tag :part_id, part.id %>
+                    <%= hidden_field_tag :buyer_id, current_user.id %>
+                    <input type="submit" class="btn btn-primary buy-btn" value="BUY">
+                  </form>
+                </div>
               </div>
             </div>
+            <div class="listing-body">
+              <ul class="stat-list">
+                <li class="each-stat">
+                  <span class="stat-name">Acceleration: </span>
+                  <% if part.stat_acc > 0 %>
+                    <span class="stat-positive"> +<%= part.stat_acc %></span>
+                  <% elsif part.stat_acc < 0 %>
+                    <span class="stat-negative"> <%= part.stat_acc %></span>
+                  <% else %>
+                    <span class="stat-neutral"> <%= part.stat_acc %> </span>
+                  <% end %>
+                </li>
+                <li class="each-stat">
+                  <span class="stat-name">Speed: </span>
+                  <% if part.stat_spd > 0 %>
+                    <span class="stat-positive"> +<%= part.stat_spd %></span>
+                  <% elsif part.stat_spd < 0 %>
+                    <span class="stat-negative"> <%= part.stat_spd %></span>
+                  <% else %>
+                    <span class="stat-neutral"> <%= part.stat_spd %> </span>
+                  <% end %>
+                </li>
+                <li class="each-stat">
+                  <span class="stat-name">Maneuvrability: </span>
+                  <% if part.stat_man > 0 %>
+                    <span class="stat-positive"> +<%= part.stat_man %></span>
+                  <% elsif part.stat_man < 0 %>
+                    <span class="stat-negative"> <%= part.stat_man %></span>
+                  <% else %>
+                    <span class="stat-neutral"> <%= part.stat_man %> </span>
+                  <% end %>
+                </li>
+                <li class="each-stat">
+                  <span class="stat-name">Attack: </span>
+                  <% if part.stat_atk > 0 %>
+                    <span class="stat-positive"> +<%= part.stat_atk %></span>
+                  <% elsif part.stat_atk < 0 %>
+                    <span class="stat-negative"> <%= part.stat_atk %></span>
+                  <% else %>
+                    <span class="stat-neutral"> <%= part.stat_atk %> </span>
+                  <% end %>
+                </li>
+                <li class="each-stat">
+                  <span class="stat-name">Defense: </span>
+                  <% if part.stat_def > 0 %>
+                    <span class="stat-positive"> +<%= part.stat_def %></span>
+                  <% elsif part.stat_def < 0 %>
+                    <span class="stat-negative"> <%= part.stat_def %></span>
+                  <% else %>
+                    <span class="stat-neutral"> <%= part.stat_def %> </span>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="listing-body">
-            <ul class="stat-list">
-              <li class="each-stat">
-                <span class="stat-name">Acceleration: </span>
-                <% if part.stat_acc > 0 %>
-                  <span class="stat-positive"> +<%= part.stat_acc %></span>
-                <% elsif part.stat_acc < 0 %>
-                  <span class="stat-negative"> <%= part.stat_acc %></span>
-                <% else %>
-                  <span class="stat-neutral"> <%= part.stat_acc %> </span>
-                <% end %>
-              </li>
-              <li class="each-stat">
-                <span class="stat-name">Speed: </span>
-                <% if part.stat_spd > 0 %>
-                  <span class="stat-positive"> +<%= part.stat_spd %></span>
-                <% elsif part.stat_spd < 0 %>
-                  <span class="stat-negative"> <%= part.stat_spd %></span>
-                <% else %>
-                  <span class="stat-neutral"> <%= part.stat_spd %> </span>
-                <% end %>
-              </li>
-              <li class="each-stat">
-                <span class="stat-name">Maneuvrability: </span>
-                <% if part.stat_man > 0 %>
-                  <span class="stat-positive"> +<%= part.stat_man %></span>
-                <% elsif part.stat_man < 0 %>
-                  <span class="stat-negative"> <%= part.stat_man %></span>
-                <% else %>
-                  <span class="stat-neutral"> <%= part.stat_man %> </span>
-                <% end %>
-              </li>
-              <li class="each-stat">
-                <span class="stat-name">Attack: </span>
-                <% if part.stat_atk > 0 %>
-                  <span class="stat-positive"> +<%= part.stat_atk %></span>
-                <% elsif part.stat_atk < 0 %>
-                  <span class="stat-negative"> <%= part.stat_atk %></span>
-                <% else %>
-                  <span class="stat-neutral"> <%= part.stat_atk %> </span>
-                <% end %>
-              </li>
-              <li class="each-stat">
-                <span class="stat-name">Defense: </span>
-                <% if part.stat_def > 0 %>
-                  <span class="stat-positive"> +<%= part.stat_def %></span>
-                <% elsif part.stat_def < 0 %>
-                  <span class="stat-negative"> <%= part.stat_def %></span>
-                <% else %>
-                  <span class="stat-neutral"> <%= part.stat_def %> </span>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% else %>
+
+      <div class="no-parts-container">
+        <h1 class="no-parts-for-sale">There are no parts for sale</h1>
+      </div>
+    <% end %>
   </div>
-<% else %>
-  <h1 class="no-parts-for-sale">There are no parts for sale</h1>
-<% end %>
+</div>
