@@ -121,9 +121,6 @@
   left: 271px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-#font-improvement {
-  font-family: $montserrat;
-}
 #nice-list {
   list-style-type: none;
 }
@@ -159,7 +156,7 @@
 #stats-enhancement {
   font-size: 70px;
   position: absolute;
-  top: 450px;
+  top: 30px;
   left: 650px;
   font-family: $ubuntu;
   color: black;
@@ -170,4 +167,38 @@
   font-family: $ubuntu;
   color: black;
   text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+#your-ship-enhancement {
+  font-size: 70px;
+  position: absolute;
+  top: 200px;
+  left: 1000px;
+  font-family: $ubuntu;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+.img-ship {
+  width: 300px;
+}
+#your-coins-enhancement {
+  font-size: 70px;
+  position: absolute;
+  top: 200px;
+  left: 530px;
+  font-family: $ubuntu;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+.wrapper-user-parts {
+  background-color: lightgrey;
+  padding: 100px 0 100px 0;
+}
+.user-parts-header {
+  background-color: $blue;
+  z-index: 50;
+
+  &:hover {
+    background-color: $lilac;
+    cursor: pointer;
+  }
 }
