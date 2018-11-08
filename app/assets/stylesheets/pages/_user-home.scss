@@ -1,7 +1,7 @@
 .wrapper-home {
   height: cover;
   width: auto;
-  background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 80%), url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GAojbUa/space-background-loop-animation_vjn1rkcge__F0000.png');
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 80%), url('https://images.pexels.com/photos/1205301/pexels-photo-1205301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   padding: 50px 200px;
 }
 
@@ -11,25 +11,21 @@
   width: auto;
   // align-items: center;
   // justify-content: space-around;
-  border: 2px solid white;
   // display: flex;
   padding: 20px 20px 20px 20px;
 }
 
 .card {
-  border: 2px dashed white;
   text-align: center;
   margin: 20px;
 }
 
 .row-dash {
-  border: 2px dotted white;
   margin: 20px;
 }
 
 .container-picture-box  {
   flex: 1 0 50%;
-  border: 2px dashed white;
   text-align: center;
   align-items: center;
   border-width: 1px;
@@ -42,7 +38,6 @@
 
 .container-info-box {
   flex: 1 0 50%;
-  border: 2px dashed white;
   text-align: center;
   align-items: center;
   border-width: 1px;
@@ -80,7 +75,6 @@
 .container-ship-parts {
   background-color: rgba(80,80,120,0.8);
   margin-bottom: 100px;
-  border: 2px solid white;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -107,5 +101,104 @@
 
 .container-spare-parts {
   background-color: rgba(80,80,120,0.8);
-  border: 2px solid white;
+}
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.profile-pic {
+  width: 400px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.ranking {
+  font-size: 70px;
+  color:rgb(250, 246, 41);
+  position: absolute;
+  top: 330px;
+  left: 271px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#nice-list {
+  list-style-type: none;
+}
+#font-improvement {
+  font-family: $ubuntu;
+  color: black;
+  font-size: 40px;
+  position: absolute;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-1%, -50%);
+}
+#coins-container{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+#ships-container{
+  position: relative;
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+}
+#username-enhancement {
+  font-size: 70px;
+  color:rgb(250, 246, 41);
+  position: absolute;
+  top: 380px;
+  left: 100px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#stats-enhancement {
+  font-size: 70px;
+  position: absolute;
+  top: 30px;
+  left: 650px;
+  font-family: $ubuntu;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+#title-enhancement {
+  font-size: 90px;
+  font-family: $ubuntu;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+#your-ship-enhancement {
+  font-size: 70px;
+  position: absolute;
+  top: 200px;
+  left: 1000px;
+  font-family: $ubuntu;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+.img-ship {
+  width: 300px;
+}
+#your-coins-enhancement {
+  font-size: 70px;
+  position: absolute;
+  top: 200px;
+  left: 530px;
+  font-family: $ubuntu;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+.wrapper-user-parts {
+  background-color: lightgrey;
+  padding: 100px 0 100px 0;
+}
+.user-parts-header {
+  background-color: $blue;
+  z-index: 50;
+
+  &:hover {
+    background-color: $lilac;
+    cursor: pointer;
+  }
 }

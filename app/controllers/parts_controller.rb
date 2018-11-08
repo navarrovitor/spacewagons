@@ -29,26 +29,31 @@ class PartsController < ApplicationController
 
     part_prop = Part.find(params[:prop_id])
     part_prop.user_id = user.id
+    part_prop.is_equiped = true
     part_prop.save
     used_parts << part_prop
 
     part_shield = Part.find(params[:shield_id])
     part_shield.user_id = user.id
+    part_shield.is_equiped = true
     part_shield.save
     used_parts << part_shield
 
     part_shell = Part.find(params[:shell_id])
     part_shell.user_id = user.id
+    part_shell.is_equiped = true
     part_shell.save
     used_parts << part_shell
 
     part_bumper = Part.find(params[:bumper_id])
     part_bumper.user_id = user.id
+    part_bumper.is_equiped = true
     part_bumper.save
     used_parts << part_bumper
 
     part_wing = Part.find(params[:wing_id])
     part_wing.user_id = user.id
+    part_wing.is_equiped = true
     part_wing.save
     used_parts << part_wing
 
@@ -70,7 +75,7 @@ class PartsController < ApplicationController
     user.coins = 0
     user.save
 
-    redirect_to root_path
+    redirect_to player_path(user.id)
   end
 
   # transact
