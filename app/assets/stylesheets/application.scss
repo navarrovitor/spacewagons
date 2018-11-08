@@ -13,3 +13,85 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+
+
+
+// CSS DA PAGINA DE SELL
+
+.wrapper-sell {
+  background-color: black;
+  height: calc(100vh - 170px);
+}
+
+.container-sell {
+
+}
+
+.part-specs {
+  padding: 20px 50px;
+}
+
+.boxes {
+  padding: 20px 100px;
+}
+
+.inst-box {
+  margin: 20px 50px;
+  padding: 50px 20px;
+  background-color: black;
+  height: 500px;
+}
+
+.sell-box {
+  background-color: rgba(150,255,100,0.6);
+}
+
+.salvage-box {
+
+  background-color: rgba(255,200,100,0.6);
+}
+
+.sell-box-title {
+  color: black;
+}
+
+.sell-box-desc {
+  color: rgba(180,180,180,1);
+}
+
+.salvage-box-title {
+  color: black;
+}
+
+.salvage-box-desc {
+  color: rgba(180,180,180,1);
+  font-size: 34px;
+  margin-top: 40px;
+}
+
+.salvagevalue {
+  color: gold;
+  text-shadow: 2px 2px black;
+  margin-top: 70px;
+}
+
+#sell-price-select {
+  width: 400px;
+  height: 60px;
+  margin-top: 50px;
+  color: black;
+  text-align: center;
+}
+
+#salvage-btn {
+  margin-top: 40px;
+  width: 300px;
+}
+
+#sell-btn {
+  margin-top: 40px;
+  width: 300px;
+}
+
+

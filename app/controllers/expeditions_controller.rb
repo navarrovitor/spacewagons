@@ -21,24 +21,15 @@ class ExpeditionsController < ApplicationController
       roll = rand()
 
       `rails db:seed:expedition_new_part`
-      part = Part.all[-1]
-      part.user_id = user.id
-      part.save
       total_items = 1
 
       if (roll > 0.5)
         `rails db:seed:expedition_new_part`
-        part = Part.all[-1]
-        part.user_id = user.id
-        part.save
         total_items = 2
       end
 
       if (roll > 0.8)
         `rails db:seed:expedition_new_part`
-        part = Part.all[-1]
-        part.user_id = user.id
-        part.save
         total_items = 3
       end
 
@@ -60,14 +51,36 @@ class ExpeditionsController < ApplicationController
       last_part_id = Part.last.id
 
       if total_items == 3
+
         expedition.expedition_item_1 = last_part_id - 2
+        part = Part.find(last_part_id - 2)
+        part.user_id = user.id
+        part.save
         expedition.expedition_item_2 = last_part_id - 1
+        part = Part.find(last_part_id - 1)
+        part.user_id = user.id
+        part.save
         expedition.expedition_item_3 = last_part_id
+        part = Part.find(last_part_id)
+        part.user_id = user.id
+        part.save
+
       elsif total_items == 2
         expedition.expedition_item_1 = last_part_id - 1
+        part = Part.find(last_part_id - 1)
+        part.user_id = user.id
+        part.save
         expedition.expedition_item_2 = last_part_id
+        part = Part.find(last_part_id)
+        part.user_id = user.id
+        part.save
+
       else
         expedition.expedition_item_1 = last_part_id
+        part = Part.find(last_part_id)
+        part.user_id = user.id
+        part.save
+
       end
 
       user.save

@@ -8,29 +8,30 @@
 }
 
 
-.equiped-parts-headers {
+.parts-headers {
   background-color: black;
   display: flex;
   align-items:center;
   justify-content: space-around;
   h2 {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
-.equiped-parts-footers {
+.parts-footers {
   background-color:$light-gray;
   display: flex;
   align-items:center;
   justify-content: space-around;
   h2 {
-    font-size: 30px;
+    font-size: 20px;
+    color: black;
   }
 }
 
 
 .unequiped-parts {
-
+  margin-top: 60px;
 }
 
 .each-unequiped-part   {
@@ -38,25 +39,18 @@
   margin-bottom: 5px;
 }
 
-
-.unequiped-parts-headers {
-  background-color: black;
-  display: flex;
-  align-items:center;
-  justify-content: space-around;
-  h2 {
-    font-size: 30px;
-  }
+.condition-high {
+  color: green;
 }
 
-.unequiped-parts-footers {
-  background-color:$light-gray;
-  display: flex;
-  align-items:center;
-  justify-content: space-around;
-  h2 {
-    font-size: 30px;
-  }
+.condition-med {
+  color: rgba(150,150,150,1);
 }
+
+.condition-low {
+  color: red;
+}
+
+
 
 

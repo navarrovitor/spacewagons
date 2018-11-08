@@ -46,8 +46,6 @@
   display: flex;
   min-height: 100px;
   overflow: scroll;
-
-
 }
 
 .user-avatar {
@@ -202,3 +200,107 @@
     cursor: pointer;
   }
 }
+
+
+
+
+
+.pilot-license {
+  background-color: rgba(0,0,0,0.8);
+  box-shadow: 3px 3px gold;
+  padding-bottom: 50px;
+}
+
+.pilot-license-title {
+
+}
+
+
+.pilot-picture {
+  position: relative;
+}
+
+.pilot-name {
+  position: absolute;
+  left: 20px;
+  bottom: 50px;
+  font-weight: bold;
+  font-size: 60px;
+  color: gold;
+  text-shadow: 2px 2px black;
+}
+
+.pilot-license-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 100px 0px 100px;
+}
+
+.pilot-stats {
+
+}
+
+.pilot-ship{
+  background-color: $lilac;
+  margin-top: 50px;
+  padding: 5px 100px 50px 100px;
+}
+
+.pilot-stat-tafg {
+  font-size: 30px;
+}
+
+
+.highlight {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.ship-pic {
+  width: 200px;
+}
+
+.stat-bar-full {
+  border: 1px solid white;
+  height: 40px;
+  width: 500px;
+}
+
+.stat-bar-fill {
+  background-color: green;
+  height: 40px;
+}
+
+.ship-stat-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stat-tag {
+  flex: 0 0 10%;
+}
+
+.stat-bar-full {
+  flex: 0 0 90%;
+  border: 1px solid white;
+  height: 40px;
+  width: 500px;
+  background-color: black;
+}
+
+.stat-val {
+  position: relative;
+  left: 90px;
+  bottom: 5px;
+}
+
+.ship-stats {
+
+}
+
+
+
+
+
