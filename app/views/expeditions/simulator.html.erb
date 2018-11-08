@@ -1,0 +1,84 @@
+<div class="wrapper-simulator">
+  <div class="container-simulator">
+
+    <div class="simulator-title text-center">
+      <h1 class="simulator-action">Travelling to <span class="simulator-destination-name"><%= @expedition.destination %></span></h2>
+    </div>
+
+
+    <div class="travelling-bar">
+      <div class="full-bar">
+        <div class="grow-bar">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="gold-found text-center">
+      <h2 class="gold-found-title">
+        Gold found:
+        <i class="fas fa-coin"></i>
+        <span class="gold-counter">
+          <%= @expedition.gold_found %>
+        </span>
+      </h2>
+    </div>
+
+    <div class="items-found">
+      <h2 class="item-found-title text-center">
+        Items found
+      </h2>
+        <div class="items-found-list-container">
+
+          <div class="item-listing">
+            <% if @item1.rarity == "Common" %>
+              <h3 class="new-item-serial serial-common"> <%= @item1.serial %> </h3>
+            <% elsif @item1.rarity == "Rare" %>
+              <h3 class="new-item-serial serial-rare"> <%= @item1.serial %> </h3>
+            <% else %>
+              <h3 class="new-item-serial serial-unique"> <%= @item1.serial %> </h3>
+            <% end %>
+
+            <h3 class="new-item-category"> <%= @item1.category %> </h3>
+
+            <h3 class="new-item-rarity"> <%= @item1.rarity %> </h3>
+          </div>
+
+          <% if @item2boo == true %>
+            <div class="item-listing">
+              <% if @item2.rarity == "Common" %>
+                <h3 class="new-item-serial serial-common"> <%= @item2.serial %> </h3>
+              <% elsif @item2.rarity == "Rare" %>
+                <h3 class="new-item-serial serial-rare"> <%= @item2.serial %> </h3>
+              <% else %>
+                <h3 class="new-item-serial serial-unique"> <%= @item2.serial %> </h3>
+              <% end %>
+
+              <h3 class="new-item-category"> <%= @item2.category %> </h3>
+
+              <h3 class="new-item-rarity"> <%= @item2.rarity %> </h3>
+            </div>
+          <% end %>
+          <% if @item3boo == true %>
+            <div class="item-listing">
+              <% if @item3.rarity == "Common" %>
+                <h3 class="new-item-serial serial-common"> <%= @item3.serial %> </h3>
+              <% elsif @item3.rarity == "Rare" %>
+                <h3 class="new-item-serial serial-rare"> <%= @item3.serial %> </h3>
+              <% else %>
+                <h3 class="new-item-serial serial-unique"> <%= @item3.serial %> </h3>
+              <% end %>
+
+              <h3 class="new-item-category"> <%= @item3.category %> </h3>
+
+              <h3 class="new-item-rarity"> <%= @item3.rarity %> </h3>
+            </div>
+          <% end %>
+        </div>
+    </div>
+
+    <div class="gohome-btn">
+      <%= link_to ("Back to dashboard"), root_path, class: "btn btn-danger simulator-end"  %>
+    </div>
+  </div>
+</div>

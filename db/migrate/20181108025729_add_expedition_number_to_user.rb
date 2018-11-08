@@ -1,0 +1,5 @@
+class AddExpeditionNumberToUser < ActiveRecord::Migration[5.2]
+  def change
+    add_column :users, :expeditions, :integer, default: 3
+  end
+end

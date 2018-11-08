@@ -1,0 +1,160 @@
+.wrapper-pickparts {
+  background-color: black;
+  height: calc(145vh - 170px);
+  padding: 5px 200px;
+  position: relative;
+}
+
+.container-pickparts {
+  margin-top: 5px;
+  background-color: gray;
+  padding: 10px 100px;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    text-align: justify;
+    font-size: 20px;
+  }
+
+  .part-name-highlight {
+    font-weight: bold;
+  }
+}
+
+.user-boardin-coin-block {
+  text-shadow: 1px 1px black;
+  text-align: center !important;
+  background-color: rgba(100,100,100,1);
+}
+
+.coins-left-text {
+  color: white;
+  margin: 0;
+}
+
+.coin-boardin {
+  color: gold;
+}
+
+.user-boardin-coin {
+  color: gold;
+}
+
+.spend-hint {
+  color: white;
+  margin: 0;
+}
+
+.coins {
+  border: 1px solid white;
+  margin: 5px 0;
+
+  h2 {
+    margin: 0;
+    padding: 15px 0;
+    line-height: 1.6;
+    font-size: 30px;
+
+  }
+}
+
+.boardin-category-list {
+  border: 2px solid black;
+  background-color: $lilac;
+  margin-bottom: 10px;
+}
+
+.boardin-category-item {
+  text-transform: uppercase;
+  font-size: 20px;
+  width: 220px;
+  text-align: center;
+  padding: 20px 0;
+
+  &:hover {
+    background-color: lightblue;
+    cursor: pointer;
+  }
+}
+
+.boardin-active {
+  background-color: white;
+  border-bottom: 5px solid red;
+  color: black;
+  font-weight: bold;
+}
+
+.part-pick-listing {
+  margin-top: 5px;
+}
+
+.basic-part-category-group {
+
+}
+
+.part-category-tabs {
+  margin-top: 5px;
+}
+
+.basic-part-listing {
+  background-color: darkgrey;
+  padding: 0px 0px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px rgba(100,100,100,1)
+}
+
+.basic-part-listing-header {
+  padding-top: 10px;
+}
+
+.part-selected {
+  border: 5px solid darkblue;
+  background-color: lightblue !important;
+}
+
+.boardin-part-stats {
+  padding: 5px 0 5px 30px;
+}
+
+.boardin-part-category {
+  text-transform: uppercase;
+  padding-left: 30px;
+}
+
+.boradin-part-serial {
+
+}
+
+.boarding-part-price {
+
+}
+
+.select-part-btn {
+  position: relative;
+  top: -10px;
+}
+
+.final-submit-mock {
+  width: 700px;
+  height: 100px;
+  font-size: 90px;
+  padding-top: 20px;
+  font-size: 50px;
+  position: absolute;
+  bottom: 80px;
+  left: 600px;
+}
+
+#final-mock-btn {
+  background-color: gray;
+  color: darkgray;
+  font-weight: lighter;
+  cursor: not-allowed;
+}
+
+#final-submit-btn {
+  background-color: $blue;
+}

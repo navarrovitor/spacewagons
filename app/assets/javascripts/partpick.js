@@ -25,6 +25,20 @@ const userCoins = document.querySelector(".user-boardin-coin");
 const coinBlock = document.querySelector(".user-boardin-coin-block");
 const finalSubmit = document.querySelector(".final-submit-btn");
 const shipNameInput = document.querySelector("#ship-name-select");
+const allPartIds = document.querySelectorAll(".hidden-part-id");
+
+const formPropulsor = document.querySelector("#prop-select");
+const formShield = document.querySelector("#shield-select");
+const formShell = document.querySelector("#shell-select");
+const formBumper = document.querySelector("#bumper-select");
+const formWing = document.querySelector("#wing-select");
+const formFinalButton = document.querySelector("#final-submit-btn");
+const formMockButton = document.querySelector("#final-mock-btn");
+
+let checkCoins = 0;
+let checkNumberParts = 0;
+
+ formFinalButton.style.display = "none";
 
 //Find price of a part
 function price_of_part(part_index) {
@@ -103,26 +117,6 @@ Array.prototype.forEach.call(selectButtons, button => {
 
     userCoins.innerHTML = moneyLeft
 
-    // Update style and text if negative
-
-    if (moneyLeft < 0) {
-      coinBlock.style.backgroundColor = "rgba(240,80,80,1)"
-      coinBlock.querySelector(".coins-left-text").style.color = "rgba(160,0,0,1)";
-      coinBlock.querySelector(".spend-hint").style.color = "rgba(160,0,0,1)";
-      coinBlock.querySelector(".spend-hint").innerHTML = "<br>Not enough coins!";
-    } else if (moneyLeft === 0) {
-      coinBlock.style.backgroundColor = "rgba(80,240,140,1)"
-      coinBlock.querySelector(".coins-left-text").style.color = "rgba(0,120,50,1)";
-      coinBlock.querySelector(".spend-hint").style.color = "rgba(0,120,50,1)"
-      coinBlock.querySelector(".spend-hint").innerHTML = "<br>Looks like a good setup!";
-    } else {
-      coinBlock.style.backgroundColor = "rgba(100,100,100,1"
-      coinBlock.querySelector(".coins-left-text").style.color = "white";
-      coinBlock.querySelector(".spend-hint").style.color = "white";
-      coinBlock.querySelector(".spend-hint").innerHTML = "<br>Pick awesome parts";
-    }
-
-
     // Remove highlight from parts
 
     sameGroup = []
@@ -134,24 +128,67 @@ Array.prototype.forEach.call(selectButtons, button => {
     // Add highlight to selected part
 
     allListings[btnIndex].classList.add("part-selected");
-  });
-});
 
-finalSubmit.addEventListener("click", function() {
+    // Populate form
+    partId = allPartIds[btnIndex].innerHTML
 
-  var shipName = shipNameInput.value
-
-  l(shipName)
-
-  Rails.ajax({
-    url: `/boardin/?shipname=${shipName}`,
-    type: 'POST',
-    sucess: function(r){
+    if (groupIndex === 0) {
+      formPropulsor.value = partId
+    } else if (groupIndex === 1) {
+      formShell.value = partId
+    } else if (groupIndex === 2) {
+      formShield.value = partId
+    } else if (groupIndex === 3) {
+      formBumper.value = partId
+    } else if (groupIndex === 4) {
+      formWing.value = partId
     }
+
+    // Form submit conditions
+
+    if (moneyLeft < 0) {
+      coinBlock.style.backgroundColor = "rgba(240,80,80,1)"
+      coinBlock.querySelector(".coins-left-text").style.color = "rgba(160,0,0,1)";
+      coinBlock.querySelector(".spend-hint").style.color = "rgba(160,0,0,1)";
+      coinBlock.querySelector(".spend-hint").innerHTML = "<br>Not enough coins!";
+
+      formFinalButton.style.display = "none";
+      formMockButton.style.display = "";
+    } else if (moneyLeft === 0 && selectedParts.length !== 5) {
+      coinBlock.style.backgroundColor = "rgba(240,80,80,1)"
+      coinBlock.querySelector(".coins-left-text").style.color = "rgba(160,0,0,1)";
+      coinBlock.querySelector(".spend-hint").style.color = "rgba(160,0,0,1)";
+      coinBlock.querySelector(".spend-hint").innerHTML = "<br>Select at least one of each part!";
+
+      formFinalButton.style.display = "none";
+      formMockButton.style.display = "";
+    } else if ( moneyLeft > 0 && selectedParts.length < 5    ) {
+      coinBlock.style.backgroundColor = "rgba(100,100,100,1"
+      coinBlock.querySelector(".coins-left-text").style.color = "white";
+      coinBlock.querySelector(".spend-hint").style.color = "white";
+      coinBlock.querySelector(".spend-hint").innerHTML = "<br>Pick some cool parts!";
+
+      formFinalButton.style.display = "none";
+      formMockButton.style.display = "";
+    } else if ( moneyLeft > 0 && selectedParts.length === 5     ) {
+      coinBlock.style.backgroundColor = "rgba(240,80,80,1)"
+      coinBlock.querySelector(".coins-left-text").style.color = "rgba(160,0,0,1)";
+      coinBlock.querySelector(".spend-hint").style.color = "rgba(160,0,0,1)";
+      coinBlock.querySelector(".spend-hint").innerHTML = "<br>There's still money left! Pick better parts";
+
+      formFinalButton.style.display = "none";
+      formMockButton.style.display = "";
+    } else {
+      coinBlock.style.backgroundColor = "rgba(80,240,140,1)"
+      coinBlock.querySelector(".coins-left-text").style.color = "rgba(0,120,50,1)";
+      coinBlock.querySelector(".spend-hint").style.color = "rgba(0,120,50,1)"
+      coinBlock.querySelector(".spend-hint").innerHTML = "<br>Looks like a good setup!";
+
+      formFinalButton.style.display = "";
+      formMockButton.style.display = "none";
+    }
+
   });
 });
-
-
-
 
 });
