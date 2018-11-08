@@ -1,0 +1,47 @@
+.wrapper-shipname {
+  background-color: black;
+  height: calc(100vh - 170px);
+  padding: 100px 150px;
+}
+
+.container-shipname {
+  background-color: gray;
+  padding: 50px 200px 60px 200px;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+}
+
+#ship-name-select {
+  width: 1000px;
+  height: 50px;
+  color: blue;
+  font-size: 30px;
+  text-align: center;
+  margin: 50px 0 50px 10px;
+}
+
+.ship-name-ask {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#create-ship-btn {
+  width: 500px;
+  height: 60px;
+  background-color: black;
+  position: relative;
+  top: -20px;
+  left: 260px;
+}
+
+.user-name-highlight {
+  font-weight: bold;
+  font-size: 80px;
+  color: $purple;
+}

@@ -1,0 +1,114 @@
+.wrapper-simulator {
+  height: calc(100vh - 170px);
+  background-color: black;
+  padding: 20px 200px;
+  position: relative;
+}
+
+.container-simulator {
+
+}
+
+
+.simulator-title {
+  background-color: &lilac;
+  padding: 10px 10px;
+}
+
+.simulator-destination-name {
+  font-weight: bold;
+  color: red;
+}
+
+.travelling-bar {
+  margin-top: 150px;
+  background-color: $lilac;
+  padding: 10px 10px;
+  height: 80px;
+}
+
+.full-bar {
+  margin: 0px 5px;
+  border: 2px solid black;
+  height: 60px;
+}
+
+.grow-bar {
+  background-color: green;
+  height: 58px;
+  width: 0px;
+}
+
+.gold-found {
+  background-color: $lilac;
+  margin-top: 20px;
+  padding: 10px 20px;
+
+  h2 {
+
+  }
+}
+
+.gold-counter {
+  color: gold;
+  font-size: 50px;
+}
+
+.items-found {
+  background-color: $lilac;
+  margin-top: 20px;
+  padding: 20px 20px;
+}
+
+.items-found-title {
+}
+
+.items-found-list-container {
+  margin-top: 20px;
+}
+
+.item-listing {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  background-color: black;
+  padding: 10px 0;
+}
+
+.new-item-serial {
+  flex: 0 0 40%;
+  padding-left: 160px
+}
+
+.serial-common {
+  color: white;
+}
+
+.serial-rare {
+  color: blue;
+}
+
+.serial-unique {
+  color: gold;
+}
+
+.new-item-category {
+  flex: 0 0 30%;
+  padding-left: 80px;
+  text-transform: capitalize;
+}
+
+.new-item-rarity {
+  flex: 0 0 30%;
+  padding-left: 80px
+}
+
+.simulator-end {
+  position: absolute;
+  top: 30px;
+  left: 490px;
+  width: 800px;
+  height: 90px;
+  font-size: 50px;
+}

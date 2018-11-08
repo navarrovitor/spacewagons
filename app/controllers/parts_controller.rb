@@ -3,10 +3,74 @@ class PartsController < ApplicationController
 
   def index
     @parts_for_sale = Part.where(for_sale: true).select {|part| part.user_id != current_user.id}
-
   end
 
   def show
+  end
+
+  def new
+    @user = current_user
+    # Initiate the 15 basic parts to be sold to the user
+    `rails db:seed:boardin-basic-parts`
+    # Pick the 15 last generated parts to be the user basic parts
+    @basicparts = Part.all[-15 .. -1]
+
+    @basicpartsids = []
+    @basicparts.each do |part|
+      @basicpartsids << part.id
+    end
+  end
+
+  def create
+    user = User.find(params[:user_id])
+
+    # Transfer each part from neutral user to the user
+    used_parts = []
+
+    part_prop = Part.find(params[:prop_id])
+    part_prop.user_id = user.id
+    part_prop.save
+    used_parts << part_prop
+
+    part_shield = Part.find(params[:shield_id])
+    part_shield.user_id = user.id
+    part_shield.save
+    used_parts << part_shield
+
+    part_shell = Part.find(params[:shell_id])
+    part_shell.user_id = user.id
+    part_shell.save
+    used_parts << part_shell
+
+    part_bumper = Part.find(params[:bumper_id])
+    part_bumper.user_id = user.id
+    part_bumper.save
+    used_parts << part_bumper
+
+    part_wing = Part.find(params[:wing_id])
+    part_wing.user_id = user.id
+    part_wing.save
+    used_parts << part_wing
+
+    # Destroy all unused parts
+
+    all_parts = params[:all_parts].split(" ")
+    all_parts.map!(&:to_i)
+
+    unused_parts = all_parts.select { |part| !used_parts.include?(Part.find(part)) }
+
+    unused_parts.each do |part|
+      unused_part = Part.find(part)
+      unused_part.destroy
+    end
+
+    # Update user status
+
+    user.progress = 2
+    user.coins = 0
+    user.save
+
+    redirect_to root_path
   end
 
   # transact
@@ -67,12 +131,6 @@ class PartsController < ApplicationController
 
 
   private
-
-  def new
-  end
-
-  def create
-  end
 
   def edit
   end
