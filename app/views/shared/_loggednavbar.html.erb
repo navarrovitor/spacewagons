@@ -18,7 +18,7 @@
         <img src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "<i class='fas fa-columns'></i> Dashboard".html_safe, new_user_registration_path, id: "dropdown-list"  %></li>
-          <li><%= link_to "<i class='fas fa-space-shuttle'></i> Go to expedition".html_safe, new_user_registration_path, id: "dropdown-list"  %></li>
+          <li><%= link_to "<i class='fas fa-space-shuttle'></i> Go to expedition".html_safe, new_expedition_path, id: "dropdown-list"  %></li>
           <li><%= link_to "<i class='fas fa-sign-out-alt'></i> Sign out".html_safe, destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
