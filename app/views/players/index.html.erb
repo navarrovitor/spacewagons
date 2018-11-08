@@ -1,0 +1,27 @@
+<div id="userRank">
+	<% @users.order(:score).first(10).each do |player| %>
+		<div>
+			<% if player.id == current_user.id %>
+				<div class="rank-userphoto current-user">
+					FOTO
+				</div>
+				<div class="rank-username current-user">
+					<%= player.username %>
+				</div>
+				<div class="rank-score current-user">
+					<%= player.score %>
+				</div>			
+			<% else %>
+				<div class="rank-userphoto">
+					FOTO
+				</div>
+				<div class="rank-username">
+					<%= player.username %>
+				</div>
+				<div class="rank-score">
+					<%= player.score %>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
