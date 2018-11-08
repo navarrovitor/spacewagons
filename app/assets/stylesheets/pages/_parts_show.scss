@@ -1,0 +1,62 @@
+.equiped-parts {
+
+}
+
+.each-equiped-part {
+  border: 3px solid green;
+  margin-bottom: 5px;
+}
+
+
+.equiped-parts-headers {
+  background-color: black;
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  h2 {
+    font-size: 30px;
+  }
+}
+
+.equiped-parts-footers {
+  background-color:$light-gray;
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  h2 {
+    font-size: 30px;
+  }
+}
+
+
+.unequiped-parts {
+
+}
+
+.each-unequiped-part   {
+  border: 3px solid red;
+  margin-bottom: 5px;
+}
+
+
+.unequiped-parts-headers {
+  background-color: black;
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  h2 {
+    font-size: 30px;
+  }
+}
+
+.unequiped-parts-footers {
+  background-color:$light-gray;
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  h2 {
+    font-size: 30px;
+  }
+}
+
+
