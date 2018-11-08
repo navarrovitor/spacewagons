@@ -1,0 +1,31 @@
+.wrapper{
+  background-image: url("stars.png");
+  display: flex;
+  background-color: black;
+}
+
+#userRank {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  p {
+  font-size: 30px;
+  color: black;
+  }
+  background-color: rgba(255,255,255,0.4);
+}
+ .user {
+  // align-content: center;  
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+ .pic-and-name {
+  display: flex;
+}
+ .current-user {
+  p{
+    font-weight: bold;
+    color: orange;
+  }
+} 
