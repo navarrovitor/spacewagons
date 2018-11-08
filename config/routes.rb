@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :parts, only: [:index, :new, :create]
+  get 'parts/sell/:id', to: 'parts#sell', as: "parts_sell"
+  patch 'parts/salvage', to: 'parts#salvage'
+
+
 
   resources :ships
 

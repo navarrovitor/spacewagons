@@ -30,30 +30,35 @@ class PartsController < ApplicationController
     part_prop = Part.find(params[:prop_id])
     part_prop.user_id = user.id
     part_prop.is_equiped = true
+    part_prop.rarity = "Common"
     part_prop.save
     used_parts << part_prop
 
     part_shield = Part.find(params[:shield_id])
     part_shield.user_id = user.id
     part_shield.is_equiped = true
+    part_shield.rarity = "Common"
     part_shield.save
     used_parts << part_shield
 
     part_shell = Part.find(params[:shell_id])
     part_shell.user_id = user.id
     part_shell.is_equiped = true
+    part_shell.rarity = "Common"
     part_shell.save
     used_parts << part_shell
 
     part_bumper = Part.find(params[:bumper_id])
     part_bumper.user_id = user.id
     part_bumper.is_equiped = true
+    part_bumper.rarity = "Common"
     part_bumper.save
     used_parts << part_bumper
 
     part_wing = Part.find(params[:wing_id])
     part_wing.user_id = user.id
     part_wing.is_equiped = true
+    part_wing.rarity = "Common"
     part_wing.save
     used_parts << part_wing
 
@@ -105,27 +110,37 @@ class PartsController < ApplicationController
     end
   end
 
-  def evaluate
-    raise
-
-    # click to evaluate for salvage
-    # get method
-    # render the value of the piece based on stats and condition
-    # has a button to click to accept the value
-  end
-
-  def salvage
-
-    # actually sell the piece
-    # destroy method
-    # adds coins equal to the value you agreed on last instance
-  end
-
-
   def sell
+    @part = Part.find(params[:id])
+
+    @salvage_value = 0
+    @salvage_value += @part.stat_acc
+    @salvage_value += @part.stat_spd
+    @salvage_value += @part.stat_man
+    @salvage_value += @part.stat_atk
+    @salvage_value += @part.stat_def
+    @salvage_value *= 30
+    @salvage_value *= @part.condition/100
+
+    @salvage_value = 300*@part.condition if @salvage_value < 300
+
+    @user = current_user.id
     # get method
     # prompt for price you want to sell
     # confirmation to put for sale
+  end
+
+  def salvage
+    salvage_value = params[:salvage_value].to_i
+    part = Part.find(params[:part_id])
+    user = User.find(params[:salvage_user])
+
+    part.destroy
+    user.coins += salvage_value
+
+    user.save
+
+    redirect_to root_path
   end
 
   def put_in_marketplace

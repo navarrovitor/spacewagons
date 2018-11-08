@@ -1,0 +1,100 @@
+<div class="wrapper-sell">
+  <div class="container-sell">
+    <div class="row part-specs">
+      <div class="each-equiped-part">
+        <div class="parts-headers">
+          <% if @part.rarity == "Rare" %>
+            <h2 class="serial-rare"> <%= @part.serial %></h2>
+          <% elsif @part.rarity == "Unique" %>
+            <h2 class="serial-unique"> <%= @part.serial %></h2>
+          <% else %>
+            <h2 class="serial-common"> <%= @part.serial %></h2>
+          <% end %>
+          <% if @part.rarity == "Rare" %>
+            <h2 class="serial-rare text-capitalize"> <%= @part.category %></h2>
+          <% elsif @part.rarity == "Unique" %>
+            <h2 class="serial-unique text-capitalize"> <%= @part.category %></h2>
+          <% else %>
+            <h2 class="serial-common text-capitalize"> <%= @part.category %></h2>
+          <% end %>
+          <% if @part.condition >= 70 %>
+            <h2 class="condition-high"> <%= @part.condition %>%</h2>
+          <% elsif @part.condition >= 30 && @part.condition < 70 %>
+            <h2 class="condition-med"> <%= @part.condition %>%</h2>
+          <% else %>
+            <h2 class="condition-low"> <%= @part.condition %>%</h2>
+          <% end %>
+          <h2> <%= @part.rarity %></h2>
+
+        </div>
+        <div class="parts-footers">
+          <% if @part.stat_acc > 0 %>
+            <h2 class="dash-stat">Acc: <span class="stat-positive">+<%= @part.stat_acc %></span></h2>
+          <% elsif @part.stat_acc == 0 %>
+            <h2 class="dash-stat">Acc: <span class="stat-neutral"><%= @part.stat_acc %></span></h2>
+          <% else %>
+            <h2 class="dash-stat">Acc: <span class="stat-negative"><%= @part.stat_acc %></span></h2>
+          <% end %>
+          <% if @part.stat_spd > 0 %>
+            <h2 class="dash-stat">Spd: <span class="stat-positive">+<%= @part.stat_spd %></span></h2>
+          <% elsif @part.stat_spd == 0 %>
+            <h2 class="dash-stat">Spd: <span class="stat-neutral"><%= @part.stat_spd %></span></h2>
+          <% else %>
+            <h2 class="dash-stat">Spd: <span class="stat-negative"><%= @part.stat_spd %></span></h2>
+          <% end %>
+          <% if @part.stat_man > 0 %>
+            <h2 class="dash-stat">Man: <span class="stat-positive">+<%= @part.stat_man %></span></h2>
+          <% elsif @part.stat_man == 0 %>
+            <h2 class="dash-stat">Man: <span class="stat-neutral"><%= @part.stat_man %></span></h2>
+          <% else %>
+            <h2 class="dash-stat">Man: <span class="stat-negative"><%= @part.stat_man %></span></h2>
+          <% end %>
+          <% if @part.stat_atk > 0 %>
+            <h2 class="dash-stat">Atk: <span class="stat-positive">+<%= @part.stat_atk %></span></h2>
+          <% elsif @part.stat_atk == 0 %>
+            <h2 class="dash-stat">Atk: <span class="stat-neutral"><%= @part.stat_atk %></span></h2>
+          <% else %>
+            <h2 class="dash-stat">Atk: <span class="stat-negative"><%= @part.stat_atk %></span></h2>
+          <% end %>
+          <% if @part.stat_def > 0 %>
+            <h2 class="dash-stat">Def: <span class="stat-positive">+<%= @part.stat_def %></span></h2>
+          <% elsif @part.stat_def == 0 %>
+            <h2 class="dash-stat">Def: <span class="stat-neutral"><%= @part.stat_def %></span></h2>
+          <% else %>
+            <h2 class="dash-stat">Def: <span class="stat-negative"><%= @part.stat_def %></span></h2>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row boxes">
+      <div class="col-xs-6">
+        <div class="inst-box sell-box text-center">
+          <h1 class="sell-box-title">Sell your product</h1>
+          <h2 class="sell-box-desc">Put your product in the marketplace for a better deal</h2>
+          <form action="/parts/salvage" method="post">
+            <input name="_method" type="hidden" value="patch"/>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <%= hidden_field_tag :part_id, @part.id %>
+            <input type="text" name="sell_value" id="sell-price-select" placeholder="Selling price" autofocus><br>
+            <input type="submit" id="sell-btn" class="btn btn-success" value="Put in marketplace!">
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="inst-box salvage-box text-center">
+          <h1 class="salvage-box-title">Salvage your product</h1>
+          <h2 class="salvage-box-desc">Sell your product in the black market instantly for a lower value</h2>
+          <h2 class="salvagevalue">Value: <span class="salvagevalueint"> $<%= @salvage_value %> </span></h2>
+          <form action="/parts/salvage" method="post">
+            <input name="_method" type="hidden" value="patch"/>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <%= hidden_field_tag :part_id, @part.id %>
+            <%= hidden_field_tag :salvage_value, @salvage_value %>
+            <%= hidden_field_tag :salvage_user, @user %>
+            <input type="submit" id="salvage-btn" class="btn btn-danger" value="Salvage!">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

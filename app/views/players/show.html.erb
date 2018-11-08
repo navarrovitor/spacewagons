@@ -63,19 +63,66 @@
           <div class="equiped-parts">
             <% @equiped_parts.each do |part| %>
               <div class="each-equiped-part">
-                <div class="equiped-parts-headers">
-                  <h2> <%= part.serial %></h2>
-                  <h2> <%= part.category %></h2>
-                  <h2> <%= part.condition %></h2>
+                <div class="parts-headers">
+                  <% if part.rarity == "Rare" %>
+                    <h2 class="serial-rare"> <%= part.serial %></h2>
+                  <% elsif part.rarity == "Unique" %>
+                    <h2 class="serial-unique"> <%= part.serial %></h2>
+                  <% else %>
+                    <h2 class="serial-common"> <%= part.serial %></h2>
+                  <% end %>
+                  <% if part.rarity == "Rare" %>
+                    <h2 class="serial-rare text-capitalize"> <%= part.category %></h2>
+                  <% elsif part.rarity == "Unique" %>
+                    <h2 class="serial-unique text-capitalize"> <%= part.category %></h2>
+                  <% else %>
+                    <h2 class="serial-common text-capitalize"> <%= part.category %></h2>
+                  <% end %>
+                  <% if part.condition >= 70 %>
+                    <h2 class="condition-high"> <%= part.condition %>%</h2>
+                  <% elsif part.condition >= 30 && part.condition < 70 %>
+                    <h2 class="condition-med"> <%= part.condition %>%</h2>
+                  <% else %>
+                    <h2 class="condition-low"> <%= part.condition %>%</h2>
+                  <% end %>
                   <h2> <%= part.rarity %></h2>
-                  <!-- <h2>  BUTTON </h2> -->
                 </div>
-                <div class="equiped-parts-footers">
-                  <h2> Acc: <%= part.stat_acc %></h2>
-                  <h2> Spd: <%= part.stat_spd %></h2>
-                  <h2> Man: <%= part.stat_man %></h2>
-                  <h2> Atk: <%= part.stat_atk %></h2>
-                  <h2> Def: <%= part.stat_def %></h2>
+                <div class="parts-footers">
+                  <% if part.stat_acc > 0 %>
+                    <h2 class="dash-stat">Acc: <span class="stat-positive">+<%= part.stat_acc %></span></h2>
+                  <% elsif part.stat_acc == 0 %>
+                    <h2 class="dash-stat">Acc: <span class="stat-neutral"><%= part.stat_acc %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Acc: <span class="stat-negative"><%= part.stat_acc %></span></h2>
+                  <% end %>
+                  <% if part.stat_spd > 0 %>
+                    <h2 class="dash-stat">Spd: <span class="stat-positive">+<%= part.stat_spd %></span></h2>
+                  <% elsif part.stat_spd == 0 %>
+                    <h2 class="dash-stat">Spd: <span class="stat-neutral"><%= part.stat_spd %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Spd: <span class="stat-negative"><%= part.stat_spd %></span></h2>
+                  <% end %>
+                  <% if part.stat_man > 0 %>
+                    <h2 class="dash-stat">Man: <span class="stat-positive">+<%= part.stat_man %></span></h2>
+                  <% elsif part.stat_man == 0 %>
+                    <h2 class="dash-stat">Man: <span class="stat-neutral"><%= part.stat_man %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Man: <span class="stat-negative"><%= part.stat_man %></span></h2>
+                  <% end %>
+                  <% if part.stat_atk > 0 %>
+                    <h2 class="dash-stat">Atk: <span class="stat-positive">+<%= part.stat_atk %></span></h2>
+                  <% elsif part.stat_atk == 0 %>
+                    <h2 class="dash-stat">Atk: <span class="stat-neutral"><%= part.stat_atk %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Atk: <span class="stat-negative"><%= part.stat_atk %></span></h2>
+                  <% end %>
+                  <% if part.stat_def > 0 %>
+                    <h2 class="dash-stat">Def: <span class="stat-positive">+<%= part.stat_def %></span></h2>
+                  <% elsif part.stat_def == 0 %>
+                    <h2 class="dash-stat">Def: <span class="stat-neutral"><%= part.stat_def %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Def: <span class="stat-negative"><%= part.stat_def %></span></h2>
+                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -83,19 +130,68 @@
           <div class="unequiped-parts">
             <% @unequiped_parts.each do |part| %>
               <div class="each-unequiped-part">
-                <div class="unequiped-parts-headers">
-                  <h2> <%= part.serial %></h2>
-                  <h2> <%= part.category %></h2>
-                  <h2> <%= part.condition %></h2>
+                <div class="parts-headers">
+                  <% if part.rarity == "Rare" %>
+                    <h2 class="serial-rare"> <%= part.serial %></h2>
+                  <% elsif part.rarity == "Unique" %>
+                    <h2 class="serial-unique"> <%= part.serial %></h2>
+                  <% else %>
+                    <h2 class="serial-common"> <%= part.serial %></h2>
+                  <% end %>
+                  <% if part.rarity == "Rare" %>
+                    <h2 class="serial-rare text-capitalize"> <%= part.category %></h2>
+                  <% elsif part.rarity == "Unique" %>
+                    <h2 class="serial-unique text-capitalize"> <%= part.category %></h2>
+                  <% else %>
+                    <h2 class="serial-common text-capitalize"> <%= part.category %></h2>
+                  <% end %>
+                  <% if part.condition >= 70 %>
+                    <h2 class="condition-high"> <%= part.condition %>%</h2>
+                  <% elsif part.condition >= 30 && part.condition < 70 %>
+                    <h2 class="condition-med"> <%= part.condition %>%</h2>
+                  <% else %>
+                    <h2 class="condition-low"> <%= part.condition %>%</h2>
+                  <% end %>
                   <h2> <%= part.rarity %></h2>
-                  <!-- <h2>  BUTTON </h2> -->
+                  <%= link_to "Sell", parts_sell_path(part.id), class: "btn btn-primary btn-sell" %>
+
                 </div>
-                <div class="unequiped-parts-footers">
-                  <h2> Acc: <%= part.stat_acc %></h2>
-                  <h2> Spd: <%= part.stat_spd %></h2>
-                  <h2> Man: <%= part.stat_man %></h2>
-                  <h2> Atk: <%= part.stat_atk %></h2>
-                  <h2> Def: <%= part.stat_def %></h2>
+                <div class="parts-footers">
+                  <% if part.stat_acc > 0 %>
+                    <h2 class="dash-stat">Acc: <span class="stat-positive">+<%= part.stat_acc %></span></h2>
+                  <% elsif part.stat_acc == 0 %>
+                    <h2 class="dash-stat">Acc: <span class="stat-neutral"><%= part.stat_acc %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Acc: <span class="stat-negative"><%= part.stat_acc %></span></h2>
+                  <% end %>
+                  <% if part.stat_spd > 0 %>
+                    <h2 class="dash-stat">Spd: <span class="stat-positive">+<%= part.stat_spd %></span></h2>
+                  <% elsif part.stat_spd == 0 %>
+                    <h2 class="dash-stat">Spd: <span class="stat-neutral"><%= part.stat_spd %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Spd: <span class="stat-negative"><%= part.stat_spd %></span></h2>
+                  <% end %>
+                  <% if part.stat_man > 0 %>
+                    <h2 class="dash-stat">Man: <span class="stat-positive">+<%= part.stat_man %></span></h2>
+                  <% elsif part.stat_man == 0 %>
+                    <h2 class="dash-stat">Man: <span class="stat-neutral"><%= part.stat_man %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Man: <span class="stat-negative"><%= part.stat_man %></span></h2>
+                  <% end %>
+                  <% if part.stat_atk > 0 %>
+                    <h2 class="dash-stat">Atk: <span class="stat-positive">+<%= part.stat_atk %></span></h2>
+                  <% elsif part.stat_atk == 0 %>
+                    <h2 class="dash-stat">Atk: <span class="stat-neutral"><%= part.stat_atk %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Atk: <span class="stat-negative"><%= part.stat_atk %></span></h2>
+                  <% end %>
+                  <% if part.stat_def > 0 %>
+                    <h2 class="dash-stat">Def: <span class="stat-positive">+<%= part.stat_def %></span></h2>
+                  <% elsif part.stat_def == 0 %>
+                    <h2 class="dash-stat">Def: <span class="stat-neutral"><%= part.stat_def %></span></h2>
+                  <% else %>
+                    <h2 class="dash-stat">Def: <span class="stat-negative"><%= part.stat_def %></span></h2>
+                  <% end %>
                 </div>
               </div>
             <% end %>
