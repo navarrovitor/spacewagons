@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :ships
 
+  resources :players, only: :index
+
   resources :expeditions, only: [ :new, :create ]
 
 
