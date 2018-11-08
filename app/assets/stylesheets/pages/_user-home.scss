@@ -102,6 +102,72 @@
 .container-spare-parts {
   background-color: rgba(80,80,120,0.8);
 }
-#profile {
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.profile-pic {
   width: 400px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.ranking {
+  font-size: 70px;
+  color:rgb(250, 246, 41);
+  position: absolute;
+  top: 330px;
+  left: 271px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#font-improvement {
+  font-family: $montserrat;
+}
+#nice-list {
+  list-style-type: none;
+}
+#font-improvement {
+  font-family: $ubuntu;
+  color: black;
+  font-size: 40px;
+  position: absolute;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-1%, -50%);
+}
+#coins-container{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+#ships-container{
+  position: relative;
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+}
+#username-enhancement {
+  font-size: 70px;
+  color:rgb(250, 246, 41);
+  position: absolute;
+  top: 380px;
+  left: 100px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#stats-enhancement {
+  font-size: 70px;
+  position: absolute;
+  top: 450px;
+  left: 650px;
+  font-family: $ubuntu;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+#title-enhancement {
+  font-size: 90px;
+  font-family: $ubuntu;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
 }
