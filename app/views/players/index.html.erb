@@ -3,14 +3,16 @@
 		<div id="userRank">
 			<% @users.order("score DESC").first(10).each do |player| %>
 				<div class="user">
-					<div class="pic-and-name">
-						<%= image_tag("https://www.placecage.com/100/100", class: "rounded") %>
-						<div class="rank-username <%= player == current_user ? 'current-user' : '' %>">
-							<p>
-								<%= player.username %>
-							</p>
+					<%= link_to(player_path(player)) do %>
+						<div class="pic-and-name">
+							<%= image_tag("https://www.placecage.com/100/100", class: "rounded") %>
+							<div class="rank-username <%= player == current_user ? 'current-user' : '' %>">
+								<p>
+									<%= player.username %>
+								</p>
+							</div>
 						</div>
-					</div>
+					<% end %>						
 					<div class="rank-score <%= player == current_user ? 'current-user' : '' %>">
 						<p>
 							<%= player.score %>
