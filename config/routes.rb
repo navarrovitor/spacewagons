@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :parts, only: :index
+  resources :parts, only: [:index, :new, :create]
+
+  resources :ships
 
 
 
