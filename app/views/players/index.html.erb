@@ -1,19 +1,21 @@
-<div class="container">
-	<div id="userRank">
-		<div class="user">
-			<% @users.order(:score).first(10).each do |player| %>
-				<div class="pic-and-name">
-					<%= image_tag("https://www.placecage.com/100/100", class: "rounded") %>
-					<div class="rank-username <%= player == current_user ? 'current-user' : '' %>">
+<div class="wrapper">
+	<div class="container">
+		<div id="userRank">
+			<% @users.order("score DESC").first(10).each do |player| %>
+				<div class="user">
+					<div class="pic-and-name">
+						<%= image_tag("https://www.placecage.com/100/100", class: "rounded") %>
+						<div class="rank-username <%= player == current_user ? 'current-user' : '' %>">
+							<p>
+								<%= player.username %>
+							</p>
+						</div>
+					</div>
+					<div class="rank-score <%= player == current_user ? 'current-user' : '' %>">
 						<p>
-							<%= player.username %>
+							<%= player.score %>
 						</p>
 					</div>
-				</div>
-				<div class="rank-score <%= player == current_user ? 'current-user' : '' %>">
-					<p>
-						<%= player.score %>
-					</p>
 				</div>
 			<% end %>
 		</div>

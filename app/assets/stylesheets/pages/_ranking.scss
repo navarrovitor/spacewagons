@@ -1,3 +1,9 @@
+.wrapper{
+  background-image: url("stars.png");
+  display: flex;
+  background-color: black;
+}
+
 #userRank {
   display: flex;
   flex-direction: column;
@@ -6,8 +12,7 @@
   font-size: 30px;
   color: black;
   }
-  background-image: "../images/stars.png";
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(255,255,255,0.4);
 }
  .user {
   // align-content: center;  
