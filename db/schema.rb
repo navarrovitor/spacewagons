@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_221917) do
+ActiveRecord::Schema.define(version: 2018_11_08_044341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "expeditions", force: :cascade do |t|
+    t.string "destination"
+    t.string "date"
+    t.integer "gold_found"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "expedition_item_1"
+    t.integer "expedition_item_2"
+    t.integer "expedition_item_3"
+    t.index ["user_id"], name: "index_expeditions_on_user_id"
+  end
 
   create_table "parts", force: :cascade do |t|
     t.string "serial"
@@ -32,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_221917) do
     t.boolean "is_starter"
     t.integer "initial_price"
     t.boolean "is_equiped"
+    t.string "rarity"
     t.index ["user_id"], name: "index_parts_on_user_id"
   end
 
@@ -56,10 +76,12 @@ ActiveRecord::Schema.define(version: 2018_11_07_221917) do
     t.integer "coins"
     t.integer "score"
     t.integer "progress", default: 0
+    t.integer "exp_left", default: 3
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "expeditions", "users"
   add_foreign_key "parts", "users"
   add_foreign_key "ships", "users"
 end

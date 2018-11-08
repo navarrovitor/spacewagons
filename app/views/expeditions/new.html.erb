@@ -1,0 +1,59 @@
+<div class="wrapper-expedition-title">
+  <div class="container-expedition-title">
+    <div class="expedition-board-title text-center">
+      <h1 class="expedition-main-title">
+        EXPEDITION BOARD
+      </h1>
+      <h2 class="expedition-description">
+        Head down for an adventure and find awesome treasures!
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper-expedition">
+  <div class="container-expedition">
+
+    <div class="expedition-setup text-center">
+      <div class="expedition-counter">
+        <h2>
+          Expeditions left for today:
+          <% if @expeditions_left > 0 %>
+            <span class="expedition-counter-ok"><%= @expeditions_left %></span>
+          <% else %>
+            <span class="expedition-counter-none"><%= @expeditions_left %></span>
+          <% end %>
+          <span class="expedition-left-max">/3</span>
+        </h2>
+      </div>
+
+      <div class="expedition-select">
+        <h2 class="expedition-pick-label">
+          Where do you want to go?
+        </h2>
+        <div class="expedition-pick-dropdown">
+          <select class="form-control" id="destination-name-dd">
+            <% @expedition_destinations.each do |destination| %>
+              <option class="destination-name-item"> <%= destination %> </option>
+            <% end %>
+        </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="expedition-go">
+      <form action="/expeditions" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :user_id, current_user.id %>
+        <input type="text" name="destination_name" id="destination-name-select" placeholder="" autofocus style="display: none;">
+        <input type="submit" id="go-real" class="btn btn-primary final-go-submit" value="Let's Go!">
+      </form>
+    </div>
+
+    <div class="mock-letsgo">
+      <div class="btn final-go-submit" id="go-mock">No more expeditions today!</div>
+    </div>
+
+
+  </div>
+</div>
