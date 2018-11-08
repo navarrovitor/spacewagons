@@ -1,17 +1,26 @@
 <div class="wrapper">
-	<div class="container">
+	<div class="container center">
 		<div id="userRank">
+			<h1 id="title-enhancement">Legendary Cosmonauts</h1>			
 			<% @users.order("score DESC").first(10).each do |player| %>
-				<div class="user">
-					<div class="pic-and-name">
-						<%= image_tag("https://www.placecage.com/100/100", class: "rounded") %>
-						<div class="rank-username <%= player == current_user ? 'current-user' : '' %>">
-							<p>
-								<%= player.username %>
-							</p>
+				<div class="user<%= player == current_user ? ' current-user' : '' %>">
+					<%= link_to(player_path(player)) do %>
+						<div class="pic-and-name">
+							<%= image_tag("https://kitt.lewagon.com/placeholder/users/#{player.username}", class: "profile-pic") %>
+							<div class="rank-username">
+								<p>
+									<%= player.username %>
+								</p>
+							</div>
+							<div class="rank-shipname">
+								<p>
+									<i class="fas fa-rocket"></i>
+									<%= player.ship.name %>
+								</p>
+							</div>
 						</div>
-					</div>
-					<div class="rank-score <%= player == current_user ? 'current-user' : '' %>">
+					<% end %>						
+					<div class="rank-score">
 						<p>
 							<%= player.score %>
 						</p>
