@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  get 'test/:id/boardin/', to: 'test#boardin'
-
   patch 'parts/transaction', to: 'parts#transaction'
-
-  post 'boardin', to: 'test#boardin_submit'
-
+  get 'expeditions/simulator', to: 'expeditions#simulator'
 
   devise_for :users
 
-  resources :parts, only: :index
+  resources :parts, only: [:index, :new, :create]
+
+  resources :ships
+
+  resources :expeditions, only: [ :new, :create ]
 
 
 
