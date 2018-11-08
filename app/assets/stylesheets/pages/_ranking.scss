@@ -1,0 +1,22 @@
+#userRank {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  p {
+  font-size: 30px;
+  color: black;
+  }
+}
+ .user {
+  align-content: center;  
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+ .pic-and-name {
+  display: flex;
+}
+ .current-user {
+  font-weight: bold;
+  color: white;
+} 
