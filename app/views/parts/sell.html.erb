@@ -71,7 +71,7 @@
         <div class="inst-box sell-box text-center">
           <h1 class="sell-box-title">Sell your product</h1>
           <h2 class="sell-box-desc">Put your product in the marketplace for a better deal</h2>
-          <form action="/parts/salvage" method="post">
+          <form action="/parts/sell" method="post">
             <input name="_method" type="hidden" value="patch"/>
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
             <%= hidden_field_tag :part_id, @part.id %>

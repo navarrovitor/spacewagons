@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :parts, only: [:index, :new, :create]
   get 'parts/sell/:id', to: 'parts#sell', as: "parts_sell"
   patch 'parts/salvage', to: 'parts#salvage'
+  patch 'parts/sell', to: 'parts#put_in_marketplace'
+  patch 'parts/equip', to: 'parts#equip'
 
 
 

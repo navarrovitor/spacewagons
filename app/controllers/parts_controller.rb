@@ -122,7 +122,7 @@ class PartsController < ApplicationController
     @salvage_value *= 30
     @salvage_value *= @part.condition/100
 
-    @salvage_value = 300*@part.condition if @salvage_value < 300
+    @salvage_value = 3*@part.condition if @salvage_value < 300
 
     @user = current_user.id
     # get method
@@ -144,11 +144,48 @@ class PartsController < ApplicationController
   end
 
   def put_in_marketplace
-    # patch method: update for_sale and price
-    # update price
-    # update
+    sell_value = params[:sell_value]
+
+    if sell_value !~ /\D/
+
+      part = Part.find(params[:part_id])
+
+      part.for_sale = true
+      part.price = sell_value.to_i
+      part.save
+
+      redirect_to root_path
+
+    else
+
+      redirect_to parts_sell_path(params[:part.id])
+    end
   end
 
+  def equip
+    part = Part.find(params[:part_id])
+    user = User.find(part.user_id)
+
+
+    if current_user.id == user.id
+
+      currently_equiped = user.parts.select { |equiped| equiped.category == part.category && equiped.is_equiped == true}.first
+
+      currently_equiped.is_equiped = false
+      part.is_equiped = true
+
+      currently_equiped.save
+      part.save
+
+      redirect_to player_path(user.id)
+
+    else
+
+      redirect_to player_path(user.id)
+
+    end
+
+  end
 
   private
 

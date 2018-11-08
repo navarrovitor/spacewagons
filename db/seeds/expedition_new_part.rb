@@ -4,7 +4,7 @@ common_prob = 0.65
 rare_prob = 0.25
 unique_prop = 1 - common_prob - rare_prob
 
-possible_categories = ["propulsor", "shield", "shell", "bumper", "wings"]
+possible_categories = ["propulsor", "shield", "shell", "bumper", "wing"]
 part.category = possible_categories.sample
 
 part.save
