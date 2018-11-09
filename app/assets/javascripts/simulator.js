@@ -10,6 +10,7 @@ function l(x) {
 loadingTab = document.querySelector(".travelling-bar");
 loadingFull = document.querySelector(".full-bar");
 loadingAmount = document.querySelector(".grow-bar");
+loadingAmountShip = document.querySelector(".my-ship-bar");
 goldTab = document.querySelector(".gold-found");
 goldCount = goldTab.getElementsByTagName("h2")[0].getElementsByClassName("gold-counter")[0]
 itemsTab = document.querySelector(".items-found");
@@ -45,19 +46,22 @@ simulatorEnd.style.display = "none";
 
 function moveBar() {
     var width = 1;
+    var padding = 0;
     var id = setInterval(frame, 30);
     function frame() {
         if (width >= 100) {
             clearInterval(id);
             increaseGold();
             loadingTab.style.display = "none";
+            loadingAmountShip.style.display = "none";
         } else {
             width += Math.random();
+            padding += 6;
             loadingAmount.style.width = width + '%';
+            loadingAmountShip.style.paddingLeft = padding.toString() + 'px';
         }
     }
 }
-
 function increaseGold() {
     goldTab.style.display = "";
     simulatorTitle.innerHTML = "Exploring the planet"
