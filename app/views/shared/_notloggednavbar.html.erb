@@ -1,23 +1,13 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand hvr-icon-buzz">
-    <p class= "hvr-icon"><%= image_tag "logowhite.png", height: '32' %></p>
-  </a>
+  <p class= "hvr-icon"><%= image_tag "logowhite.png", height: '32' %></p>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <div> <%= link_to "<i class='fas fa-user-plus'></i> Sign Up".html_safe, new_user_registration_path  %> &nbsp;&nbsp;&nbsp;</div>
 
-    <div> <%= link_to "<i class='fas fa-sign-in-alt'></i> Sign In".html_safe, new_user_session_path  %> </div>
-
-  <!-- Profile picture with dropdown list -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <a class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"><i class="bigger fas fa-user-astronaut"></i></a>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu ">
-          <li><%= link_to "<i class='fas fa-user-plus'></i> Create your account!".html_safe, new_user_registration_path, id: "dropdown-list"  %></li>
-        </ul>
-      </div>
+    <div> 
+      <%= link_to "<i class='fas fa-sign-in-alt'></i> Sign In<i class='bigger fas fa-user-astronaut'></i>".html_safe, new_user_session_path  %> 
     </div>
+  <!-- Profile picture with dropdown list -->
   </div>
 </div>

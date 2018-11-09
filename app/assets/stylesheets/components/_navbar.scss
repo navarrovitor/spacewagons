@@ -22,6 +22,10 @@
   border-radius: 50%;
 }
 
+.expedition-link {
+  font-size: 30px;
+}
+
 /* Right section */
 .navbar-wagon-right {
   display: flex;
@@ -32,7 +36,11 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 10px;
+}
+
+.gold {
+  color: #FFD700;
 }
 
 /* Navbar link */
