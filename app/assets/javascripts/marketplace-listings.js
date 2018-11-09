@@ -26,6 +26,8 @@ const buyButtons = document.querySelectorAll('.buy-btn');
 const priceFilterMax = document.querySelector('#price-filter-max');
 const priceFilterMin = document.querySelector('#price-filter-min');
 const filterBtn = document.querySelector('#filter-btn')
+const categoryFilter = document.querySelector("#category-filter-dd")
+const categoryFilterLabel = document.querySelector(".category-name-item")
 
 var detailsShown = new Array(100);
 for (var i = 0; i < detailsShown.length; ++i) { detailsShown[i] = false; }
@@ -36,6 +38,38 @@ l(listingCount)
 Array.prototype.forEach.call(allListingDetails, a => {
   a.style.display = "none";
 });
+
+
+//Filter Category
+
+categoryFilterLabel.value = categoryFilter.value;
+last_category_filter = ""
+
+categoryFilter.onchange = function() {
+  l("oi")
+    categoryFilterLabel.value = categoryFilter.value;
+    if ( categoryFilterLabel.value === last_category_filter) {
+      categoryFilterLabel.value = "None"
+    }
+    l("oi")
+
+    last_category_filter = categoryFilterLabel.value
+    l(categoryFilterLabel.value)
+
+    Array.prototype.forEach.call(allListings, listing => {
+      instancePartCategory = listing.getElementsByClassName("listing-header")[0].getElementsByClassName("row")[0].getElementsByClassName("col-xs-2")[0].getElementsByClassName("part-category")[0].innerHTML.replace(/\s/g, '')
+
+      listing.style.display = "";
+
+      if ( instancePartCategory !== categoryFilterLabel.value ) {
+        listing.style.display = "none";
+      }
+
+      if ( categoryFilterLabel.value === "None" ) {
+        listing.style.display = "";
+      }
+    });
+}
 
 // Listing on click
 
@@ -89,7 +123,7 @@ filterBtn.addEventListener("click", function() {
   }
 
   Array.prototype.forEach.call(allListings, listing => {
-    instancePartPrice = parseInt(listing.getElementsByClassName("listing-header")[0].getElementsByClassName("row")[0].getElementsByClassName("col-xs-2")[1].getElementsByClassName("part-price")[0].getElementsByClassName("part-price-value")[0].innerHTML.replace(/\s/g, ''),10)
+    instancePartPrice = parseInt(listing.getElementsByClassName("listing-header")[0].getElementsByClassName("row")[0].getElementsByClassName("col-xs-2")[2].getElementsByClassName("part-price")[0].getElementsByClassName("part-price-value")[0].innerHTML.replace(/\s/g, ''),10)
 
     listing.style.display = "";
 

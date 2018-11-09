@@ -3,6 +3,9 @@ class PartsController < ApplicationController
 
   def index
     @parts_for_sale = Part.where(for_sale: true).select {|part| part.user_id != current_user.id}
+
+    @filters_category = ["none","propulsor", "shield", "shell", "bumper", "wing"]
+    @filters_rarity = ["None","Common", "Rare", "Unique"]
   end
 
   def show
