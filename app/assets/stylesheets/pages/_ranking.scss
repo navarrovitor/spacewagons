@@ -8,9 +8,9 @@ h1 {
   background-color: black;
 }
 
-.rank-shipname {
-  margin-left: 50px;
-}
+// .rank-shipname {
+//   margin-right: 50px;
+// }
 
 #userRank {
   padding: 40px;
@@ -35,8 +35,8 @@ h1 {
     text-align: center;
   }
   .current-user {
-    color: black;
-    background-color: rgba(255, 255, 255, 0.6);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.4);
     p {
       font-weight: bold;
     }
@@ -47,10 +47,22 @@ h1 {
   padding: 50px;
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  flex: 0 1 50%;
   margin: 10px;
-  padding: 5px;
+  padding: 10px;
 }
  .pic-and-name {
-  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+
+.ship-and-score {
+  display:flex;
+  align-content: center;
+}
+
+.ship-name {
+  margin-right: 100px;
 }
