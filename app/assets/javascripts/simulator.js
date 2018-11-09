@@ -45,7 +45,7 @@ simulatorEnd.style.display = "none";
 
 function moveBar() {
     var width = 1;
-    var id = setInterval(frame, 3);
+    var id = setInterval(frame, 30);
     function frame() {
         if (width >= 100) {
             clearInterval(id);
@@ -62,7 +62,7 @@ function increaseGold() {
     goldTab.style.display = "";
     simulatorTitle.innerHTML = "Exploring the planet"
     var gold = 0;
-    var id = setInterval(frame, 3);
+    var id = setInterval(frame, 30);
     function frame() {
         if (gold >= goldTotal) {
             clearInterval(id);
@@ -79,7 +79,7 @@ function showItems() {
     itemsTab.style.display = "";
     goldCount.innerHTML = goldTotal
     icomplete = 0
-    var id = setInterval(frame, 3);
+    var id = setInterval(frame, 40);
     function frame() {
         if (icomplete >= 100) {
             clearInterval(id);

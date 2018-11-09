@@ -135,8 +135,7 @@ class PartsController < ApplicationController
     part = Part.find(params[:part_id])
     user = User.find(params[:salvage_user])
 
-
-    if ( part.for_sale == true )
+    if ( part.for_sale != true )
 
       part.destroy
       user.coins += salvage_value
@@ -188,12 +187,17 @@ class PartsController < ApplicationController
 
     if current_user.id == user.id
 
-      currently_equiped = user.parts.select { |equiped| equiped.category == part.category && equiped.is_equiped == true}.first
+      currently_equiped = user.parts.select { |equiped| equiped.category == part.category && equiped.is_equiped == true}
 
-      currently_equiped.is_equiped = false
+      if currently_equiped.length > 0
+
+        currently_equiped.first.is_equiped = false
+        currently_equiped.first.save
+
+      end
+
       part.is_equiped = true
 
-      currently_equiped.save
       part.save
 
       redirect_to player_path(user.id)
