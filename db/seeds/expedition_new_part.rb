@@ -3,6 +3,9 @@ part = Part.new
 common_prob = 0.65
 rare_prob = 0.25
 unique_prop = 1 - common_prob - rare_prob
+rarity_common_mult = 1
+rarity_rare_mult = 3
+rarity_unique_mult = 6
 
 possible_categories = ["propulsor", "shield", "shell", "bumper", "wing"]
 part.category = possible_categories.sample
@@ -40,13 +43,13 @@ puts rarity
 
 if (rarity >= 0 && rarity < common_prob)
   part.rarity = "Common"
-  raritymult = 1
+  raritymult = rarity_common_mult
 elsif (rarity >= common_prob && rarity < common_prob + rare_prob)
   part.rarity = "Rare"
-  raritymult = 1.5
+  raritymult = rarity_rare_mult
 else
   part.rarity = "Unique"
-  raritymult = 2.2
+  raritymult = rarity_unique_mult
 end
 
 if part.category == "propulsor"
@@ -94,6 +97,7 @@ end
 part.is_starter = false
 part.initial_price = 0
 part.is_equiped = false
+part.for_sale = false
 
 part.user_id = 1
 
