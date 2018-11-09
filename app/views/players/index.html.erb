@@ -1,10 +1,8 @@
-<div class="wrapper">
+<div class="ranking-all">
 	<div class="container center">
 		<div id="userRank">
-
 			<h1 id="title-enhancement">Legendary Cosmonauts</h1>			
 			<% @users.order("score DESC").each do |player| %>
-
 				<div class="user<%= player == current_user ? ' current-user' : '' %>">
 					<%= link_to(player_path(player)) do %>
 						<div class="pic-and-name card">
@@ -16,7 +14,6 @@
 							</div>
 						</div>
 					<% end %>
-
 					<div class="ship-and-score">
 						<div class="card ship-name">
 							<p>
@@ -33,7 +30,6 @@
 								pts.
 							</p>						
 						</div>
-
 					</div>
 				</div>
 			<% end %>
