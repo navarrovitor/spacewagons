@@ -135,12 +135,21 @@ class PartsController < ApplicationController
     part = Part.find(params[:part_id])
     user = User.find(params[:salvage_user])
 
-    part.destroy
-    user.coins += salvage_value
 
-    user.save
+    if ( part.for_sale == true )
 
-    redirect_to root_path
+      part.destroy
+      user.coins += salvage_value
+
+      user.save
+
+      redirect_to root_path
+
+    else
+
+      redirect_to root_path
+
+    end
   end
 
   def put_in_marketplace
@@ -161,6 +170,16 @@ class PartsController < ApplicationController
       redirect_to parts_sell_path(params[:part.id])
     end
   end
+
+  def remove_from_marketplace
+    part = Part.find(params[:part_id])
+
+    part.for_sale = false
+    part.save
+
+    redirect_to root_path
+  end
+
 
   def equip
     part = Part.find(params[:part_id])

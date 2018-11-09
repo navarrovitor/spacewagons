@@ -132,10 +132,16 @@ Array.prototype.forEach.call(selectButtons, button => {
     // Populate form
     partId = allPartIds[btnIndex].innerHTML
 
+    Array.prototype.forEach.call(allPartIds, listing => {
+      l(listing.innerHTML)
+    });
+
+
     if (groupIndex === 0) {
       formPropulsor.value = partId
     } else if (groupIndex === 1) {
       formShell.value = partId
+      l(formShield)
     } else if (groupIndex === 2) {
       formShield.value = partId
     } else if (groupIndex === 3) {

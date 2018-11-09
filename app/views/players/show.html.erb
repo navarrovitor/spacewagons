@@ -33,6 +33,7 @@
             <h3 class="stat-tag">
               Acc:
             </h3>
+            <i class="stat-ico fas fa-fighter-jet"></i>
             <h3 class="stat-val" id="stat-val-acc">
               <%= @ship_acc %>
             </h3>
@@ -44,6 +45,7 @@
             <h3 class="stat-tag">
               Spd:
             </h3>
+            <i class="stat-ico fas fa-tachometer-alt"></i>
             <h3 class="stat-val" id="stat-val-spd">
               <%= @ship_spd %>
             </h3>
@@ -55,6 +57,7 @@
             <h3 class="stat-tag">
               Man:
             </h3>
+            <i class="stat-ico fas fa-road"></i>
             <h3 class="stat-val" id="stat-val-man">
               <%= @ship_man %>
             </h3>
@@ -69,6 +72,7 @@
             <h3 class="stat-val" id="stat-val-atk">
               <%= @ship_atk %>
             </h3>
+            <i class="stat-ico fas fa-bullseye fix"></i>
             <div class="stat-bar-full">
               <div class="stat-bar-fill" id="stat-bar-atk"></div>
             </div>
@@ -77,6 +81,7 @@
             <h3 class="stat-tag">
               Def:
             </h3>
+            <i class="stat-ico fas fa-shield-alt"></i>
             <h3 class="stat-val" id="stat-val-def">
               <%= @ship_def %>
             </h3>
@@ -186,14 +191,23 @@
                     <h2 class="condition-low"> <%= part.condition %>%</h2>
                   <% end %>
                   <h2> <%= part.rarity %></h2>
-                  <%= link_to "Sell", parts_sell_path(part.id), class: "btn btn-primary btn-sell" %>
-                  <form action="/parts/equip" method="post">
-                    <input name="_method" type="hidden" value="patch"/>
-                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                    <%= hidden_field_tag :part_id, part.id %>
-                    <input type="submit" id="equip-btn" class="btn btn-success" value="Equip!">
-                  </form>
 
+                  <% if part.for_sale == false %>
+                    <%= link_to "Sell", parts_sell_path(part.id), class: "btn btn-primary btn-sell" %>
+                    <form action="/parts/equip" method="post">
+                      <input name="_method" type="hidden" value="patch"/>
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                      <%= hidden_field_tag :part_id, part.id %>
+                      <input type="submit" id="equip-btn" class="btn btn-success" value="Equip!">
+                    </form>
+                  <% else %>
+                    <form action="/parts/removemkt" method="post">
+                      <input name="_method" type="hidden" value="patch"/>
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                      <%= hidden_field_tag :part_id, part.id %>
+                      <input type="submit" id="equip-btn" class="btn btn-success" value="Remove from marketplace">
+                    </form>
+                  <% end %>
 
                 </div>
                 <div class="parts-footers">

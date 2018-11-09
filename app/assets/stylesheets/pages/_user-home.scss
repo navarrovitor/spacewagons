@@ -242,7 +242,11 @@
 }
 
 .pilot-ship{
-  background-color: $lilac;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.scifiideas.com/wp-content/uploads/2014/10/SPACESHIP.jpg');
+  -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
   margin-top: 50px;
   padding: 5px 100px 50px 100px;
 }
@@ -298,6 +302,16 @@
 
 .ship-stats {
 
+}
+
+.stat-ico {
+  color: white;
+  font-size: 50px;
+}
+
+.fix {
+  position: relative;
+  right: 30px;
 }
 
 
