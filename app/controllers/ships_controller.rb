@@ -3,6 +3,7 @@ class ShipsController < ApplicationController
     user = User.find(params[:user_id])
     user.progress = 1
     user.coins = 10000
+    user.score = 0
     user.save
 
     ship = Ship.new
