@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_044341) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.integer "coins"
-    t.integer "score"
+    t.integer "score", default: 0
     t.integer "progress", default: 0
     t.integer "exp_left", default: 3
     t.index ["email"], name: "index_users_on_email", unique: true
