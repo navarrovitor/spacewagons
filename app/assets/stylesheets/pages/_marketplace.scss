@@ -46,6 +46,11 @@
 .no-parts-container {
   padding: 150px 0px;
   margin-top: 50px;
+  margin-top: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 500px;
+  max-width: 100%;
   background-color: rgba(0,0,0,0.8);
 }
 
@@ -142,9 +147,9 @@
 .buy-btn {
   z-index: 99;
   position: relative;
-  right: 70px;
+  right: 25px;
   top: 10px;
-  width: 150px;
+  width: 70px;
   background-color: black;
 
   &:hover {
@@ -156,10 +161,11 @@
 
 .container-filters {
   background-color: black;
-  margin: 0 80px;
+  margin: 0 57px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 1060px;
 }
 
 #filter-price-min {
@@ -172,8 +178,7 @@
 
 .filter-button {
   flex: 0 0 20%;
-  padding-right: 50px;
-
+  padding-right: 20px;
 }
 
 .filter-price {
@@ -184,6 +189,7 @@
 
 .filter-price-label {
   flex: 0 0 50%;
+  margin-left: 30px;
 }
 
 .filter-price-input {
@@ -192,7 +198,7 @@
 
 .price-filter-class {
   color: black;
-  width: 300px;
+  width: 200px;
   margin-right: 90px;
 }
 
@@ -201,5 +207,7 @@
 }
 
 #filter-btn {
-  width: 300px;
+  width: 100px;
+  margin-left: 90px;
+  margin-right: 0px;
 }
