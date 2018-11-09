@@ -113,15 +113,36 @@
 }
 
 .owner-name {
-  font-size: 25px;
+  font-size: 30px;
   color: black;
+  padding-top: 20px;
+  font-weight: bold;
 }
 
 .part-serial {
   font-size: 25px;
   font-weight: bold;
+  color: white;
+  padding: 25px 50px;
+
+}
+
+.part-rarity {
+  font-size: 25px;
   color: black;
-  padding-left: 20px;
+  padding-left: 80px;
+}
+
+.part-rarity-common {
+  background-color: darkgrey;
+}
+
+.part-rarity-rare {
+  background-color: blue;
+}
+
+.part-rarity-unique {
+  background-color: gold;
 }
 
 .part-category {
@@ -130,6 +151,7 @@
   font-weight: bold;
   color: white;
   text-transform: uppercase;
+  padding-top: 20px;
 }
 
 .part-price {
@@ -138,6 +160,7 @@
   text-shadow: 2px 2px black;
   position: absolute;
   top: -8px;
+  right: 45px;
 }
 
 .coin-listing {
@@ -147,7 +170,8 @@
 .buy-btn {
   z-index: 99;
   position: relative;
-  right: 25px;
+  right: -40px;
+
   top: 10px;
   width: 70px;
   background-color: black;
