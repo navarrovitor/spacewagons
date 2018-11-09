@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   patch 'parts/salvage', to: 'parts#salvage'
   patch 'parts/sell', to: 'parts#put_in_marketplace'
   patch 'parts/equip', to: 'parts#equip'
+  patch 'parts/removemkt', to: 'parts#remove_from_marketplace'
 
 
 
