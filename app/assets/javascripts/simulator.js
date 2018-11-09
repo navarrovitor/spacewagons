@@ -8,6 +8,7 @@ function l(x) {
 // Elements
 
 loadingTab = document.querySelector(".travelling-bar");
+loadingTabShip = document.querySelector(".space-bar");
 loadingFull = document.querySelector(".full-bar");
 loadingAmount = document.querySelector(".grow-bar");
 loadingAmountShip = document.querySelector(".my-ship-bar");
@@ -53,7 +54,7 @@ function moveBar() {
             clearInterval(id);
             increaseGold();
             loadingTab.style.display = "none";
-            loadingAmountShip.style.display = "none";
+            loadingTabShip.style.display = "none";
         } else {
             width += Math.random();
             padding += 6;
