@@ -226,3 +226,19 @@
 #filter-btn {
   width: 300px;
 }
+
+.container-filters-parts {
+  background-color: black;
+  margin: 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.category-name-item {
+  text-transform: capitalize;
+}
+
+#category-filter-dd {
+  text-transform: capitalize;
+}

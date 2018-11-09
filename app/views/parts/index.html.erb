@@ -14,7 +14,6 @@
     </h2>
 
     <div class="container-filters">
-
       <div class="filter-price" id="filter-price-min">
         <div class="filter-price-label">
           <h2>Min price: </h2>
@@ -23,7 +22,6 @@
           <input type="text" class = "price-filter-class" id="price-filter-min">
         </div>
       </div>
-
       <div class="filter-price" id="filter-price-max">
         <div class="filter-price-label">
           <h2>Max price: </h2>
@@ -32,13 +30,24 @@
           <input type="text" class = "price-filter-class" id="price-filter-max">
         </div>
       </div>
-
       <div class="filter-button">
         <div class="btn btn-primary" id="filter-btn">Filter</div>
       </div>
-
-
     </div>
+
+    <div class="container-filters-parts">
+      <div class="filter-price" id="filter-price-min">
+        <div class="filter-price-label">
+          <h2>Category: </h2>
+        </div>
+        <select class="form-control" id="category-filter-dd">
+          <% @filters_category.each do |category| %>
+            <option class="category-name-item"> <%= category %> </option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+
 
 
     <% if @parts_for_sale.length > 0 %>
