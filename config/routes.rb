@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   patch 'parts/removemkt', to: 'parts#remove_from_marketplace'
 
 
+  resources :races, only: [:create, :show]
 
   resources :ships
 
