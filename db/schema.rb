@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_044341) do
+ActiveRecord::Schema.define(version: 2018_11_12_022753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,27 @@ ActiveRecord::Schema.define(version: 2018_11_08_044341) do
     t.index ["user_id"], name: "index_expeditions_on_user_id"
   end
 
+  create_table "laps", force: :cascade do |t|
+    t.integer "lap_num"
+    t.integer "combat_killers", default: [], array: true
+    t.integer "combat_victims", default: [], array: true
+    t.integer "crash_victims", default: [], array: true
+    t.integer "positions", default: [], array: true
+    t.integer "points", default: [], array: true
+    t.bigint "race_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["race_id"], name: "index_laps_on_race_id"
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.string "name"
+    t.integer "acc_mult"
+    t.integer "spd_mult"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "parts", force: :cascade do |t|
     t.string "serial"
     t.string "category"
@@ -53,6 +74,20 @@ ActiveRecord::Schema.define(version: 2018_11_08_044341) do
     t.boolean "is_equiped"
     t.string "rarity"
     t.index ["user_id"], name: "index_parts_on_user_id"
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "map"
+    t.integer "runners", default: [], array: true
+    t.integer "champs_stats", default: [], array: true
+    t.integer "final_results", default: [], array: true
+    t.integer "runners_acc", default: [], array: true
+    t.integer "runners_spd", default: [], array: true
+    t.integer "runners_man", default: [], array: true
+    t.integer "runners_atk", default: [], array: true
+    t.integer "runners_def", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ships", force: :cascade do |t|
@@ -82,6 +117,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_044341) do
   end
 
   add_foreign_key "expeditions", "users"
+  add_foreign_key "laps", "races"
   add_foreign_key "parts", "users"
   add_foreign_key "ships", "users"
 end

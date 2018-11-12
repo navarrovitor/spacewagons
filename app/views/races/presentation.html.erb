@@ -1,0 +1,106 @@
+<div class="wrapper-presentation-lap">
+  <div class="container-presentation-lap-title text-center">
+    <h1>Lap: <%= @lap.lap_num %> </h1>
+  </div>
+
+  <div class="container-presentation-lap-combats text-center">
+    <h1>Kill feed</h1>
+
+    <% (0..@lap.combat_killers.length - 1).to_a.each do |kill| %>
+      <div class="kill-instance">
+        <div class="killer-data">
+          <div class="killer-portrait">
+            <%= image_tag("https://kitt.lewagon.com/placeholder/users/#{User.find(@lap.combat_killers[kill]).username}", class: "profile-pic pic-kill-feed img-circle") %>
+          </div>
+          <div class="killer-ship">
+            <h1>
+              <%= User.find(@lap.combat_killers[kill]).ship.name %>
+            </h1>
+          </div>
+        </div>
+        <div class="gunicon">
+          <%= image_tag("https://steamuserimages-a.akamaihd.net/ugc/582406402592292008/136628CC5A81D5D28A7884C49B3A071AEE26633E/", class: "gun-pic  ") %>
+        </div>
+        <div class="victim-data">
+          <div class="victim-ship">
+            <h1>
+              <%= User.find(@lap.combat_victims[kill]).ship.name %>
+            </h1>
+          </div>
+          <div class="victim-portrait">
+            <%= image_tag("https://kitt.lewagon.com/placeholder/users/#{User.find(@lap.combat_victims[kill]).username}", class: "profile-pic pic-kill-feed img-circle pic-victim") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="container-presentation-lap-crashes text-center">
+    <h1>Crashes</h1>
+    <div class="crash-row">
+      <% (0..@lap.crash_victims.length - 1).to_a.each do |crash| %>
+        <div class="each-crash">
+          <%= image_tag("https://kitt.lewagon.com/placeholder/users/#{User.find(@lap.crash_victims[crash]).username}", class: "profile-pic pic-kill-feed img-circle") %>
+          <h1 class="crash-player">
+            <%= User.find(@lap.crash_victims[crash]).ship.name %>
+          </h1>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container-presentation-ranking text-center">
+  <h1>Lap Results</h1>
+    <table id="ranking-table">
+      <% (0..@lap.race.runners.length - 1).to_a.each do |player| %>
+        <tr class="ranking-row">
+          <td class="rank-image"> <%= image_tag("https://kitt.lewagon.com/placeholder/users/#{User.find(player + 1).username}", class: "profile-pic pic-kill-feed img-circle") %> </td>
+          <td class="rank-ship"> <%= User.find(player + 1).ship.name %> </td>
+          <td class="events-happened">
+            <% @lap.combat_killers.count(player + 1).times do %>
+              <%= image_tag("https://steamuserimages-a.akamaihd.net/ugc/582406402592292008/136628CC5A81D5D28A7884C49B3A071AEE26633E/", class: "gun-small-feed") %>
+            <% end %>
+            <% @lap.combat_victims.count(player + 1).times do %>
+              <%= image_tag("https://bobandsuewilliams.com/images/red-skull-icon-5.png", class: "gun-small-feed") %>
+            <% end %>
+            <% @lap.crash_victims.count(player + 1).times do %>
+              <%= image_tag("https://static.thenounproject.com/png/168773-200.png", class: "gun-small-feed") %>
+            <% end %>
+          </td>
+
+
+          <td class="rank-position">
+            <% if @lap.positions.include?(player + 1) %>
+              <span class="position-no"> <%= @lap.positions.index(player + 1) + 1 %></span>
+              <span class="position-mod">
+                <% if (@lap.positions.index(player + 1) + 1) == 1 %>
+                  st
+                <% elsif (@lap.positions.index(player + 1) + 1) == 2 %>
+                  nd
+                <% elsif (@lap.positions.index(player + 1) + 1) == 3 %>
+                  rd
+                <% else %>
+                  th
+                <% end %>
+            </span>
+            <% else %>
+              <span class="position-mod">N/A</span>
+            <% end %>
+          </td>
+          <td class="rank-points">
+            <% if @lap.points[player] > 0 %>
+              +<%= @lap.points[player] %>
+            <% else %>
+              <%= @lap.points[player] %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+
+  </div>
+
+
+
+</div>

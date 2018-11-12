@@ -1,3 +1,8 @@
+<form action="/races" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="submit" id="sell-btn" class="btn btn-success" value="Run race">
+</form>
+
 <div class="wrapper-home">
   <div class="container container-content">
     <div class="pilot-license">
