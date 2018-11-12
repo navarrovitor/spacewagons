@@ -7,54 +7,18 @@ h1 {
   background-color: black;
 }
 
-// .rank-shipname {
-//   margin-right: 50px;
-// }
-
-#userRank {
-  padding: 40px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  margin: 30px;
-  p {
-  font-size: 30px;
-  };
-  a {
-    color: white;
-  }
-  background-color: rgba(80, 80, 120, 0.4);
-  .profile-pic {
-    border-radius: 50%;
-    border-size: 0;
-    height: 100px;
-    width: 100px;
-  }
-  .title {
-    text-align: center;
-  }
-  .current-user {
-    color: white;
-    background-color: rgba(255, 255, 255, 0.4);
-    p {
-      font-weight: bold;
-    }
-  }
-}
- .user {
+.user {
   // align-content: center;
-  padding: 50px;
   background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex: 0 1 50%;
-  margin: 10px;
-  padding: 10px;
 }
- .pic-and-name {
-  flex-wrap: wrap;
-  justify-items: center;
+
+.current-user {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
 }
 
 .ship-and-score {

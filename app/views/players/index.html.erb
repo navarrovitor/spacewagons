@@ -1,3 +1,12 @@
+<div class="wrapper">
+	<div class="container">
+		<h1 id="title-enhancement">Legendary Cosmonauts</h1>	
+		<% @users.order("score DESC").each do |player| %>		
+			<div class="row user <%= player == current_user ? ' current-user' : '' %>">
+			    <div class="col-xs-12 col-sm-4">
+			      	<!-- insert <div class="card"> -->
+					<div class="card">
+						<div>
 <div class="ranking-all">
 	<div class="container center">
 		<div id="userRank">
@@ -7,11 +16,9 @@
 					<%= link_to(player_path(player)) do %>
 						<div class="pic-and-name card">
 							<%= image_tag("https://kitt.lewagon.com/placeholder/users/#{player.username}", class: "profile-pic") %>
-							<div class="rank-username">
-								<p>
-									<%= player.username %>
-								</p>
-							</div>
+							<h5>
+								<%= player.username %>
+							</h5>
 						</div>
 					<% end %>
 					<div class="ship-and-score">
@@ -32,7 +39,7 @@
 						</div>
 					</div>
 				</div>
-			<% end %>
-		</div>
+	    	</div>
+		<% end %>
 	</div>
 </div>
