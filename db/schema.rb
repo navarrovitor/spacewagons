@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_200157) do
+ActiveRecord::Schema.define(version: 2018_11_12_022753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(version: 2018_11_11_200157) do
   end
 
   create_table "laps", force: :cascade do |t|
+    t.integer "lap_num"
     t.integer "combat_killers", default: [], array: true
     t.integer "combat_victims", default: [], array: true
-    t.integer "crash", default: [], array: true
+    t.integer "crash_victims", default: [], array: true
     t.integer "positions", default: [], array: true
     t.integer "points", default: [], array: true
     t.bigint "race_id"

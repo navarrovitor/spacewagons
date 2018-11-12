@@ -10,6 +10,27 @@ h1 {
 .user {
   // align-content: center;
   background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.user-color {
+  flex: 0 0 10%;
+  height: 100px;
+  background-color: rgba(250,250,250,0.1)
+}
+
+.rank-color-0 {
+  background-color: gold;
+}
+
+.rank-color-1 {
+  background-color: silver;
+}
+
+.rank-color-2 {
+  background-color: rgba(205,127,50,1);
 }
 
 .current-user {
@@ -17,15 +38,21 @@ h1 {
 }
 
 .profile-pic {
-  width: 150px;
+  width: 100px;
   border-radius: 50%;
 }
 
 .ship-and-score {
-  display:flex;
+  display: flex;
   align-content: center;
 }
 
 .ship-name {
   margin-right: 100px;
 }
+
+.position-placer {
+  font-size: 60px;
+  text-shadow: 1px 1px black;
+}
+

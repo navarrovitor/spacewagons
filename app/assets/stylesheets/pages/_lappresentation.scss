@@ -1,0 +1,125 @@
+.wrapper-presentation-lap {
+  height: calc(250vh - 170px);
+  background-color: black;
+}
+
+.container-presentation-lap-title {
+  margin: 0px 50px;
+  padding: 10px 50px;
+  background-color: rgba(220,220,220,0.4)
+}
+
+.container-presentation-lap-combats {
+  margin: 20px 50px;
+  padding: 30px 50px;
+  background-color: rgba(220,220,220,0.4)
+}
+
+.kill-instance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 200px;
+  padding: 10px 150px;
+  border: 2px solid black;
+}
+
+.killer-data {
+  flex: 0 0 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gunicon {
+  flex: 0 0 40%;
+}
+
+.victim-data {
+  flex: 0 0 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pic-kill-feed {
+  width: 80px;
+}
+
+.pic-victim {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.container-presentation-lap-crashes {
+  margin: 20px 50px;
+  padding: 30px 50px;
+  background-color: rgba(220,220,220,0.4)
+}
+
+.crash-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.each-crash {
+  border: 1px solid black;
+}
+
+.gun-pic {
+  width: 150px;
+  margin: 0 10px;
+}
+
+.container-presentation-ranking {
+  margin: 20px 50px;
+  padding: 30px 150px;
+  background-color: rgba(220,220,220,0.4)
+}
+
+.ranking-row {
+  border: 1px solid black;
+}
+
+.rank-image {
+  width: 150px;
+}
+
+.rank-ship {
+  width: 800px;
+  font-size: 30px;
+}
+
+.rank-position {
+  width: 400px;
+}
+
+.rank-points {
+  width: 40px;
+  font-size: 80px;
+}
+
+.position-no {
+  font-size: 80px;
+}
+
+.position-mod {
+  font-size: 50px;
+  position: relative;
+  bottom: 25px;
+}
+
+.gun-small-feed {
+  width: 50px;
+}
+
+.events-happened {
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+}
+
+#ranking-table {
+  margin-top: 60px;
+}
