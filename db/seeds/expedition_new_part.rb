@@ -39,7 +39,6 @@ part.condition = 100
 part.price = nil
 
 rarity = rand()
-puts rarity
 
 if (rarity >= 0 && rarity < common_prob)
   part.rarity = "Common"

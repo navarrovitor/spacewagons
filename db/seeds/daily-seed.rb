@@ -1,12 +1,18 @@
 min_price_mult = 80
 max_price_mult = 100
-common_parts = 25
-rare_parts = 10
-unique_parts = 3
+common_parts = 60
+rare_parts = 22
+unique_parts = 8
 rarity_common_mult = 1
 rarity_rare_mult = 3
 rarity_unique_mult = 6
 
+users_pick = (1..User.all.length).to_a
+
+# Delete all current parts
+Part.all.select{|part| part.for_sale}.each do |part|
+  part.destroy
+end
 
 common_parts.times do
 
@@ -101,7 +107,7 @@ part.price *= (min_price_mult.to_f + (max_price_mult - min_price_mult)*rand()).r
 
 part.price = 1000 if part.price < 1000
 
-part.user_id = 1
+part.user_id = users_pick.sample
 
 part.save
 
@@ -202,7 +208,7 @@ part.price *= (min_price_mult.to_f + (max_price_mult - min_price_mult)*rand()).r
 
 part.price = 1000 if part.price < 1000
 
-part.user_id = 1
+part.user_id = users_pick.sample
 
 part.save
 
@@ -303,7 +309,7 @@ part.price *= (min_price_mult.to_f + (max_price_mult - min_price_mult)*rand()).r
 
 part.price = 1000 if part.price < 1000
 
-part.user_id = 1
+part.user_id = users_pick.sample
 
 part.save
 

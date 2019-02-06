@@ -17,6 +17,22 @@ function index(el) {
     return -1;
 }
 
+// Restricts input for the given textbox to the given inputFilter.
+function setInputFilter(textbox, inputFilter) {
+  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+    textbox.addEventListener(event, function() {
+      if (inputFilter(this.value)) {
+        this.oldValue = this.value;
+        this.oldSelectionStart = this.selectionStart;
+        this.oldSelectionEnd = this.selectionEnd;
+      } else if (this.hasOwnProperty("oldValue")) {
+        this.value = this.oldValue;
+        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+      }
+    });
+  });
+}
+
 // Element listing
 const allListingDetails = document.querySelectorAll(".listing-body");
 const allListingHeaders = document.querySelectorAll(".listing-header");
@@ -46,12 +62,10 @@ categoryFilterLabel.value = categoryFilter.value;
 last_category_filter = ""
 
 categoryFilter.onchange = function() {
-  l("oi")
     categoryFilterLabel.value = categoryFilter.value;
     if ( categoryFilterLabel.value === last_category_filter) {
       categoryFilterLabel.value = "None"
     }
-    l("oi")
 
     last_category_filter = categoryFilterLabel.value
     l(categoryFilterLabel.value)
@@ -88,24 +102,12 @@ Array.prototype.forEach.call(allListingHeaders, a => {
 });
 
 //Filter price input validation
-
-
-priceFilterMax.addEventListener('keyup', (event) => {
-  textNow = priceFilterMax.value
-  previousText = textNow.substring(0, textNow.length-1)
-
-  if (event.keyCode < 48 || event.keyCode > 57) {
-    priceFilterMax.value = previousText;
-  }
+// Restrict input to digits using a regular expression filter.
+setInputFilter(priceFilterMax, function(value) {
+  return /^\d*$/.test(value)
 });
-
-priceFilterMin.addEventListener('keyup', (event) => {
-  textNow = priceFilterMin.value
-  previousText = textNow.substring(0, textNow.length-1)
-
-  if (event.keyCode < 48 || event.keyCode > 57) {
-    priceFilterMin.value = previousText;
-  }
+setInputFilter(priceFilterMin, function(value) {
+  return /^\d*$/.test(value)
 });
 
 

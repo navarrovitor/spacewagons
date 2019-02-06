@@ -1,6 +1,6 @@
 .wrapper-pickparts {
   background-color: black;
-  height: calc(145vh - 170px);
+  height: calc(115vh - 170px);
   padding: 5px 200px;
   position: relative;
 }
@@ -70,9 +70,9 @@
 .boardin-category-item {
   text-transform: uppercase;
   font-size: 20px;
-  width: 220px;
+  width: 19%;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
 
   &:hover {
     background-color: lightblue;
@@ -122,19 +122,30 @@
 .boardin-part-category {
   text-transform: uppercase;
   padding-left: 30px;
+  font-size: 20px;
+  margin: 0;
 }
 
-.boradin-part-serial {
-
+.col-xs-2 {
+  h3 {
+    font-size: 25px;
+    margin: 0;
+  }
 }
 
-.boarding-part-price {
+.boardin-part-serial {
+  font-size: 20px;
+  margin: 0;
+}
 
+.boardin-part-price {
+  font-size: 20px;
+  margin: 0;
 }
 
 .select-part-btn {
   position: relative;
-  top: -10px;
+  top: 10px;
 }
 
 .final-submit-mock {
@@ -143,9 +154,10 @@
   font-size: 90px;
   padding-top: 20px;
   font-size: 50px;
-  position: absolute;
-  bottom: 80px;
-  left: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 }
 
 #final-mock-btn {
@@ -158,3 +170,4 @@
 #final-submit-btn {
   background-color: $blue;
 }
+

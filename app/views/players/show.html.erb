@@ -1,17 +1,15 @@
-<form action="/races" method="post">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <input type="submit" id="sell-btn" class="btn btn-success" value="Run race">
-</form>
-
 <div class="wrapper-home">
   <div class="container container-content">
     <div class="pilot-license">
       <h1 class="pilot-license-title text-center" id="title-enhancement">Pilot license</h1>
       <div class="pilot-license-flex">
         <div class="pilot-picture">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{@user.username}", class: "img-circle profile-pic" %>
+          <%= image_tag @user.pic, class: "img-circle profile-pic", style:"width: 300px;" %>
           <!-- ornament -->
-          <h2 class="pilot-name"> <%= @user.username %> </h2>
+          <div class="pilot-name-div text-center">
+            <h2 class="pilot-name"> <%= @user.username %> </h2>
+          </div>
+
         </div>
         <div class="pilot-stats">
           <h2 class="pilot-shipname">
@@ -31,7 +29,7 @@
     </div>
 
     <div class="pilot-ship">
-      <h1 class="pilot-ship-title text-center" id="title-enhancement"><%= @user.ship.name %></h1>
+      <h1 class="pilot-ship-title text-center"><%= @user.ship.name %></h1>
 
         <div class="ship-stats">
           <div class="ship-stat-bar">
@@ -39,11 +37,11 @@
               Acc:
             </h3>
             <i class="stat-ico fas fa-fighter-jet"></i>
-            <h3 class="stat-val" id="stat-val-acc">
-              <%= @ship_acc %>
-            </h3>
             <div class="stat-bar-full">
               <div class="stat-bar-fill" id="stat-bar-acc"></div>
+              <h3 class="stat-val" id="stat-val-acc">
+                <%= @ship_acc %>
+              </h3>
             </div>
           </div>
           <div class="ship-stat-bar">
@@ -51,11 +49,11 @@
               Spd:
             </h3>
             <i class="stat-ico fas fa-tachometer-alt"></i>
-            <h3 class="stat-val" id="stat-val-spd">
-              <%= @ship_spd %>
-            </h3>
             <div class="stat-bar-full">
               <div class="stat-bar-fill" id="stat-bar-spd"></div>
+              <h3 class="stat-val" id="stat-val-spd">
+                <%= @ship_spd %>
+              </h3>
             </div>
           </div>
           <div class="ship-stat-bar">
@@ -63,23 +61,23 @@
               Man:
             </h3>
             <i class="stat-ico fas fa-road"></i>
-            <h3 class="stat-val" id="stat-val-man">
-              <%= @ship_man %>
-            </h3>
             <div class="stat-bar-full">
               <div class="stat-bar-fill" id="stat-bar-man"></div>
+              <h3 class="stat-val" id="stat-val-man">
+                <%= @ship_man %>
+              </h3>
             </div>
           </div>
           <div class="ship-stat-bar">
             <h3 class="stat-tag">
               Atk:
             </h3>
-            <h3 class="stat-val" id="stat-val-atk">
-              <%= @ship_atk %>
-            </h3>
-            <i class="stat-ico fas fa-bullseye fix"></i>
+            <i class="stat-ico fas fa-bullseye"></i>
             <div class="stat-bar-full">
               <div class="stat-bar-fill" id="stat-bar-atk"></div>
+              <h3 class="stat-val" id="stat-val-atk">
+                <%= @ship_atk %>
+              </h3>
             </div>
           </div>
           <div class="ship-stat-bar">
@@ -87,11 +85,11 @@
               Def:
             </h3>
             <i class="stat-ico fas fa-shield-alt"></i>
-            <h3 class="stat-val" id="stat-val-def">
-              <%= @ship_def %>
-            </h3>
             <div class="stat-bar-full">
               <div class="stat-bar-fill" id="stat-bar-def"></div>
+              <h3 class="stat-val" id="stat-val-def">
+                <%= @ship_def %>
+              </h3>
             </div>
           </div>
         </div>
@@ -103,32 +101,33 @@
       <div class="col-xs-12 col-sm-12">
         <div class="card">
           <h1 id="title-enhancement">Your parts</h1>
+          <h2 class="inventory-title">Currently equiped</h2>
           <div class="equiped-parts">
             <% @equiped_parts.each do |part| %>
               <div class="each-equiped-part">
                 <div class="parts-headers">
                   <% if part.rarity == "Rare" %>
-                    <h2 class="serial-rare"> <%= part.serial %></h2>
+                    <h2 class="serial-rare part-header-flex-i"> <%= part.serial %></h2>
                   <% elsif part.rarity == "Unique" %>
-                    <h2 class="serial-unique"> <%= part.serial %></h2>
+                    <h2 class="serial-unique part-header-flex-i"> <%= part.serial %></h2>
                   <% else %>
-                    <h2 class="serial-common"> <%= part.serial %></h2>
+                    <h2 class="serial-common part-header-flex-i"> <%= part.serial %></h2>
                   <% end %>
                   <% if part.rarity == "Rare" %>
-                    <h2 class="serial-rare text-capitalize"> <%= part.category %></h2>
+                    <h2 class="serial-rare text-capitalize part-header-flex-i"> <%= part.category %></h2>
                   <% elsif part.rarity == "Unique" %>
-                    <h2 class="serial-unique text-capitalize"> <%= part.category %></h2>
+                    <h2 class="serial-unique text-capitalize part-header-flex-i"> <%= part.category %></h2>
                   <% else %>
-                    <h2 class="serial-common text-capitalize"> <%= part.category %></h2>
+                    <h2 class="serial-common text-capitalize part-header-flex-i"> <%= part.category %></h2>
                   <% end %>
                   <% if part.condition >= 70 %>
-                    <h2 class="condition-high"> <%= part.condition %>%</h2>
+                    <h2 class="condition-high part-header-flex-i"> <%= part.condition %>%</h2>
                   <% elsif part.condition >= 30 && part.condition < 70 %>
-                    <h2 class="condition-med"> <%= part.condition %>%</h2>
+                    <h2 class="condition-med part-header-flex-i"> <%= part.condition %>%</h2>
                   <% else %>
-                    <h2 class="condition-low"> <%= part.condition %>%</h2>
+                    <h2 class="condition-low part-header-flex-i"> <%= part.condition %>%</h2>
                   <% end %>
-                  <h2> <%= part.rarity %></h2>
+                  <h2 class='part-header-flex-i'> <%= part.rarity %></h2>
                 </div>
                 <div class="parts-footers">
                   <% if part.stat_acc > 0 %>
@@ -171,46 +170,49 @@
             <% end %>
           </div>
           <div class="unequiped-parts">
+            <h2 class="inventory-title">Inventory</h2>
             <% @unequiped_parts.each do |part| %>
               <div class="each-unequiped-part">
                 <div class="parts-headers">
                   <% if part.rarity == "Rare" %>
-                    <h2 class="serial-rare"> <%= part.serial %></h2>
+                    <h2 class="serial-rare part-header-flex-iun"> <%= part.serial %></h2>
                   <% elsif part.rarity == "Unique" %>
-                    <h2 class="serial-unique"> <%= part.serial %></h2>
+                    <h2 class="serial-unique part-header-flex-iun"> <%= part.serial %></h2>
                   <% else %>
-                    <h2 class="serial-common"> <%= part.serial %></h2>
+                    <h2 class="serial-common part-header-flex-iun"> <%= part.serial %></h2>
                   <% end %>
                   <% if part.rarity == "Rare" %>
-                    <h2 class="serial-rare text-capitalize"> <%= part.category %></h2>
+                    <h2 class="serial-rare text-capitalize part-header-flex-iun"> <%= part.category %></h2>
                   <% elsif part.rarity == "Unique" %>
-                    <h2 class="serial-unique text-capitalize"> <%= part.category %></h2>
+                    <h2 class="serial-unique text-capitalize part-header-flex-iun"> <%= part.category %></h2>
                   <% else %>
-                    <h2 class="serial-common text-capitalize"> <%= part.category %></h2>
+                    <h2 class="serial-common text-capitalize part-header-flex-iun"> <%= part.category %></h2>
                   <% end %>
                   <% if part.condition >= 70 %>
-                    <h2 class="condition-high"> <%= part.condition %>%</h2>
+                    <h2 class="condition-high part-header-flex-iun"> <%= part.condition %>%</h2>
                   <% elsif part.condition >= 30 && part.condition < 70 %>
-                    <h2 class="condition-med"> <%= part.condition %>%</h2>
+                    <h2 class="condition-med part-header-flex-iun"> <%= part.condition %>%</h2>
                   <% else %>
-                    <h2 class="condition-low"> <%= part.condition %>%</h2>
+                    <h2 class="condition-low part-header-flex-iun"> <%= part.condition %>%</h2>
                   <% end %>
-                  <h2> <%= part.rarity %></h2>
+                  <h2 class='part-header-flex-iun'> <%= part.rarity %></h2>
 
                   <% if part.for_sale == false %>
-                    <%= link_to "Sell", parts_sell_path(part.id), class: "btn btn-primary btn-sell" %>
+                    <div class="part-sell-btn part-header-flex-iun">
+                      <%= link_to "Sell", parts_sell_path(part.id), class: "btn btn-primary btn-sell part-header-flex-iun" %>
+                    </div>
                     <form action="/parts/equip" method="post">
                       <input name="_method" type="hidden" value="patch"/>
                       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                       <%= hidden_field_tag :part_id, part.id %>
-                      <input type="submit" id="equip-btn" class="btn btn-success" value="Equip!">
+                      <input type="submit" id="equip-btn" class="btn btn-success part-header-flex-iun" value="Equip!">
                     </form>
                   <% else %>
                     <form action="/parts/removemkt" method="post">
                       <input name="_method" type="hidden" value="patch"/>
                       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                       <%= hidden_field_tag :part_id, part.id %>
-                      <input type="submit" id="equip-btn" class="btn btn-success" value="Remove from marketplace">
+                      <input type="submit" id="equip-btn" class="btn btn-success part-header-flex-iun" value="Remove from marketplace">
                     </form>
                   <% end %>
 
@@ -261,6 +263,11 @@
     <% end %>
   </div>
 </div>
+
+<form action="/races" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="submit" id="sell-btn" class="btn btn-success" value="Run race">
+</form>
 
 
 

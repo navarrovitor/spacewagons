@@ -13,11 +13,12 @@
 }
 
 .marketplace-title {
-  font-size: 40px
+  font-size: 40px;
+  margin-top: 50px;
 }
 
 .galactic-mall-style {
-  font-size: 50px;
+  font-size: 35px;
   font-weight: bold;
   color: $blue;
 }
@@ -26,11 +27,11 @@
   padding: 20px 0;
   border: 2px solid gold;
   background-color: rgba(100,100,0,0.2);
-  font-size: 40px;
+  font-size: 25px;
 }
 
 .marketplace-user-coin-style {
-  font-size: 60px;
+  font-size: 30px;
   font-weight: bold;
   color: gold;
 }
@@ -39,7 +40,7 @@
   margin-top: 20px;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 500px;
+  height: 400px;
   max-width: 100%;
 }
 
@@ -51,7 +52,7 @@
 
 
 .part-listing {
-  margin: 15px 60px;
+  margin: 0px 60px;
 }
 
 .listing-header {
@@ -79,7 +80,7 @@
 }
 
 .stat-name {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   color: white;
   font-weight: bold;
@@ -90,19 +91,19 @@
 }
 
 .stat-positive {
-  font-size: 28px;
+  font-size: 15px;
   font-weight: bold;
   color: green;
 }
 
 .stat-negative {
-  font-size: 28px;
+  font-size: 15px;
   font-weight: bold;
   color: red;
 }
 
 .stat-neutral {
-  font-size: 28px;
+  font-size: 15px;
   font-weight: bold;
   color: gray;
 }
@@ -118,8 +119,7 @@
   font-size: 25px;
   font-weight: bold;
   color: white;
-  padding: 25px 50px;
-
+  padding: 12px 50px;
 }
 
 .part-rarity {
@@ -154,12 +154,17 @@
   color: rgba(255,215,0,1);
   text-shadow: 2px 2px black;
   position: absolute;
-  top: -8px;
+  top: 10px;
   right: 45px;
 }
 
 .coin-listing {
   color: black;
+}
+
+.listing-text {
+  font-size: 18px !important;
+  margin: 8px 0;
 }
 
 .buy-btn {
@@ -179,30 +184,33 @@
 
 .container-filters {
   background-color: black;
-  margin: 0 80px;
+  margin: 0 2%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
 #filter-price-min {
-  flex: 0 0 40%;
+  // flex: 0 0 40%;
 }
 
 #filter-price-max {
-  flex: 0 0 40%;
+  // flex: 0 0 40%;
 }
 
 .filter-button {
-  flex: 0 0 20%;
   padding-right: 50px;
-
+  background: black;
+  padding-bottom: 10px;
+  margin: 0 2%;
 }
 
 .filter-price {
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  flex: 0 0 30%;
 }
 
 .filter-price-label {

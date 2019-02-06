@@ -30,12 +30,6 @@
           <input type="text" class = "price-filter-class" id="price-filter-max">
         </div>
       </div>
-      <div class="filter-button">
-        <div class="btn btn-primary" id="filter-btn">Filter</div>
-      </div>
-    </div>
-
-    <div class="container-filters-parts">
       <div class="filter-price" id="filter-price-min">
         <div class="filter-price-label">
           <h2>Category: </h2>
@@ -47,8 +41,9 @@
         </select>
       </div>
     </div>
-
-
+    <div class="filter-button">
+      <div class="btn btn-primary" id="filter-btn">Filter</div>
+    </div>
 
     <% if @parts_for_sale.length > 0 %>
 
@@ -59,25 +54,25 @@
             <div class="listing-header">
               <div class="row">
                 <div class="col-xs-2">
-                  <h3 class="part-category"><%= part.category %></h3>
+                  <h3 class="part-category listing-text"><%= part.category %></h3>
                 </div>
                 <div class="col-xs-2">
-                  <h3 class="owner-name"><%= User.find(part.user_id).username %></h3>
+                  <h3 class="owner-name listing-text"><%= User.find(part.user_id).username %></h3>
                 </div>
                 <div class="col-xs-1" style="display:none;">
-                  <h3 class="part-rarity"><%= part.rarity %> </h3>
+                  <h3 class="part-rarity listing-text"><%= part.rarity %> </h3>
                 </div>
                 <div class="col-xs-4">
                   <% if part.rarity == "Common" %>
-                    <h3 class="part-serial part-rarity-common"><%= part.serial %> </h3>
+                    <h3 class="part-serial part-rarity-common listing-text"><%= part.serial %> </h3>
                   <% elsif part.rarity == "Rare" %>
-                    <h3 class="part-serial part-rarity-rare"><%= part.serial %> </h3>
+                    <h3 class="part-serial part-rarity-rare listing-text"><%= part.serial %> </h3>
                   <% else %>
-                    <h3 class="part-serial part-rarity-unique"><%= part.serial %> </h3>
+                    <h3 class="part-serial part-rarity-unique listing-text"><%= part.serial %> </h3>
                   <% end %>
                 </div>
                 <div class="col-xs-2">
-                  <h3 class="part-price">
+                  <h3 class="part-price listing-text">
                     <i class="fas fa-coins"></i>
                     <span class="part-price-value"><%= part.price %></span>
                   </h3>

@@ -15,6 +15,7 @@
   justify-content: space-around;
   h2 {
     font-size: 20px;
+    margin: 5px 0;
   }
 }
 
@@ -24,14 +25,15 @@
   align-items:center;
   justify-content: space-around;
   h2 {
-    font-size: 20px;
+    font-size: 18px;
     color: black;
+    margin: 5px 0;
   }
 }
 
 
 .unequiped-parts {
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .each-unequiped-part   {
@@ -49,6 +51,18 @@
 
 .condition-low {
   color: red;
+}
+
+.part-header-flex-iun {
+  flex: 0 0 15%;
+
+  .btn-sell {
+    margin: 0 30px;  }
+}
+
+.part-header-flex-i  {
+  flex: 0 0 25%;
+  width: 100%;
 }
 
 

@@ -1,42 +1,186 @@
-.wrapper-presentation-lap {
-  height: calc(250vh - 170px);
-  background-color: black;
+.wrapper-race-presentation {
+  height: auto;
+  padding: 20px 100px;
+  background: black;
 }
 
-.container-presentation-lap-title {
-  margin: 0px 50px;
+.race-presentation-title {
+  text-align: center;
+  font-size: 40px;
+  font-family: $roboto;
+  letter-spacing: 2px;
+}
+
+.container-race-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-race-summary {
+  flex: 0 0 40%;
+
+  min-height: 70vh;
+
+  margin-right: 20px;
+  padding: 0px 0;
+}
+
+.container-race-standings {
+  flex: 0 0 55%;
+  min-height: 70vh;
+  max-height: 70vh;
+  border: 1px solid white;
   padding: 10px 50px;
-  background-color: rgba(220,220,220,0.4)
+  overflow-y: auto;
 }
 
-.container-presentation-lap-combats {
-  margin: 20px 50px;
-  padding: 30px 50px;
-  background-color: rgba(220,220,220,0.4)
+.race-summary-winner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background: rgba(240,240,240,0.2);
+
+  padding: 20px 0;
+}
+
+.fa-trophy {
+  flex: 0 0 20%;
+  font-size: 120px;
+  color: gold;
+}
+
+.fighter-jet-winner {
+  font-size: 80px;
+}
+.fighter-jet-small {
+  font-size: 30px;
+}
+
+.race-winner-pic-div {
+  flex: 0 0 30%;
+}
+
+.race-winner-pic {
+  width: 160px !important;
+}
+
+.race-summary-winner-ship-div {
+  flex: 0 0 40%;
+}
+
+.container-race-stats {
+  // background: rgba(240,240,240,0.2);
+  padding: 10px 30px;
+}
+
+.most-stats {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.race-highlights-title {
+  font-size: 22px;
+  text-align: center;
+  border-bottom: 1px solid rgba(100,100,100,1);
+}
+
+.race-user-pic {
+  width: 100px;
+}
+
+#racestandings {
+  width: 100%;
+}
+
+.standing-header {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.race-standing-pos {width: 10%;}
+.race-standing-pic {width: 25%;}
+.race-standing-ship {width: 35%;}
+.race-standing-kills {width: 5%;}
+.race-standing-deaths {width: 5%;}
+.race-standing-crashes {width: 5%;}
+.race-standing-points {width: 15%; text-align: center; font-size: 25px;}
+
+.container-race-lap {
+  margin-top: 30px;
+  height: auto;
+}
+
+.lap-control {
+  width: 100%;
+  background-color: rgba(100,100,100,1);
+
+  font-size: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.lap-control-text {
+  flex: 0 0 40%;
+  text-align: center;
+}
+
+.lap-control-btn {
+  flex: 0 0 30%;
+  text-align: center;
+
+  &:hover {
+    background-color: rgba(60,60,60,1);
+    cursor: pointer;
+  }
+}
+
+.container-lap-infos {
+  flex: 0 0 40%;
+
+  min-height: 70vh;
+
+  margin-right: 20px;
+  padding: 0px 20px;
+
+  overflow-y: auto;
 }
 
 .kill-instance {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0px 200px;
-  padding: 10px 150px;
+
+  width: 100%;
   border: 2px solid black;
 }
 
 .killer-data {
-  flex: 0 0 30%;
+  flex: 0 0 45%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.killer-portrait {flex: 0 0 40%;}
+.killer-ship {flex: 0 0 40%;}
+.victim-portrait {flex: 0 0 40%;}
+.victim-ship {flex: 0 0 40%;}
+
 .gunicon {
-  flex: 0 0 40%;
+  flex: 0 0 10%;
+}
+
+.fighter-jet-kill {
+  font-size: 30px;
 }
 
 .victim-data {
-  flex: 0 0 30%;
+  flex: 0 0 45%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,80 +190,68 @@
   width: 80px;
 }
 
+.kill-feed-ship {
+  font-size: 20px;
+}
+
 .pic-victim {
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
 
-.container-presentation-lap-crashes {
-  margin: 20px 50px;
-  padding: 30px 50px;
-  background-color: rgba(220,220,220,0.4)
-}
+.each-crash {
+  border: 1px solid black;
 
-.crash-row {
+  width: 50%;
+
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.each-crash {
-  border: 1px solid black;
+.crash-player {
+  font-size: 20px;
 }
 
-.gun-pic {
-  width: 150px;
-  margin: 0 10px;
+.lap-standings {
+  width: 100%;
 }
 
-.container-presentation-ranking {
-  margin: 20px 50px;
-  padding: 30px 150px;
-  background-color: rgba(220,220,220,0.4)
+.standing-header {
+  font-size: 20px;
+  padding-bottom: 30px;
+  font-weight: bold;
 }
 
-.ranking-row {
-  border: 1px solid black;
+.lap-standing-pic {width: 15%;}
+.lap-standing-ship {width: 35%;}
+.lap-standing-events {width: 20%;}
+.lap-standing-pos {width: 10%;}
+.lap-standing-points {width: 10%;}
+
+.gun-small-feed {
+  font-size: 25px;
 }
 
-.rank-image {
-  width: 150px;
-}
-
-.rank-ship {
-  width: 800px;
-  font-size: 30px;
-}
-
-.rank-position {
-  width: 400px;
-}
-
-.rank-points {
-  width: 40px;
-  font-size: 80px;
+.fa-car-crash, .fa-skull-crossbones {
+  color: red;
 }
 
 .position-no {
-  font-size: 80px;
+  font-size: 25px;
 }
 
 .position-mod {
-  font-size: 50px;
+  font-size: 25px;
   position: relative;
-  bottom: 25px;
+  bottom: 8px;
 }
 
-.gun-small-feed {
-  width: 50px;
+.lap-standing-points {
+  font-size: 30px;
+  text-align: center;
 }
 
-.events-happened {
- display: flex;
- align-items: center;
- justify-content: space-around;
-}
-
-#ranking-table {
-  margin-top: 60px;
-}

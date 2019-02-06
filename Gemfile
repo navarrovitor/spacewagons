@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.4'
+ruby '2.5.3'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
@@ -32,3 +32,4 @@ end
 gem 'devise'
 gem 'jquery-rails'
 gem 'faker'
+gem 'cloudinary', '~> 1.9.1'

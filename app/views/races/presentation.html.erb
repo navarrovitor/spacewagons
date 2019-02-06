@@ -1,106 +1,591 @@
-<div class="wrapper-presentation-lap">
-  <div class="container-presentation-lap-title text-center">
-    <h1>Lap: <%= @lap.lap_num %> </h1>
-  </div>
+<!-- Render the last race presentation page -->
+<!-- At the top, show the results for the race -->
+<!-- This div has a race summary on the left and the race standings on the right -->
+<!-- Race summary shows the winner and stat highlights for the race -->
+<!-- Race standings shows a table of all players, number of kills, deaths, crashes and total points -->
+<!-- Then, there is a lap summary section -->
+<!-- You can navigate between all the laps on the race using navigation arrows -->
+<!-- For each lap, there is a lap summary on the left, showing the combat feed and crashes -->
+<!-- On the right, the lap results shows the players, events on that lap and result on lap -->
 
-  <div class="container-presentation-lap-combats text-center">
-    <h1>Kill feed</h1>
-
-    <% (0..@lap.combat_killers.length - 1).to_a.each do |kill| %>
-      <div class="kill-instance">
-        <div class="killer-data">
-          <div class="killer-portrait">
-            <%= image_tag("https://kitt.lewagon.com/placeholder/users/#{User.find(@lap.combat_killers[kill]).username}", class: "profile-pic pic-kill-feed img-circle") %>
-          </div>
-          <div class="killer-ship">
-            <h1>
-              <%= User.find(@lap.combat_killers[kill]).ship.name %>
-            </h1>
-          </div>
+<div class="wrapper-race-presentation">
+  <h1 class="race-presentation-title">
+    Race results
+  </h1>
+  <div class="container-race-total">
+    <div class="container-race-summary">
+      <div class="race-summary-winner">
+        <i class="fas fa-trophy"></i>
+        <div class="race-winner-pic-div text-center">
+          <%= image_tag(@race_winner.pic, class: "img-circle race-winner-pic") %>
         </div>
-        <div class="gunicon">
-          <%= image_tag("https://steamuserimages-a.akamaihd.net/ugc/582406402592292008/136628CC5A81D5D28A7884C49B3A071AEE26633E/", class: "gun-pic  ") %>
-        </div>
-        <div class="victim-data">
-          <div class="victim-ship">
-            <h1>
-              <%= User.find(@lap.combat_victims[kill]).ship.name %>
-            </h1>
-          </div>
-          <div class="victim-portrait">
-            <%= image_tag("https://kitt.lewagon.com/placeholder/users/#{User.find(@lap.combat_victims[kill]).username}", class: "profile-pic pic-kill-feed img-circle pic-victim") %>
-          </div>
+        <div class="race-winner-ship-div text-center">
+          <i class="fas fa-fighter-jet fighter-jet-winner"></i> <br>
+          <p class="race-summary-winner-ship"><%= @race_winner.ship.name %></p>
         </div>
       </div>
-    <% end %>
-  </div>
 
-  <div class="container-presentation-lap-crashes text-center">
-    <h1>Crashes</h1>
-    <div class="crash-row">
-      <% (0..@lap.crash_victims.length - 1).to_a.each do |crash| %>
-        <div class="each-crash">
-          <%= image_tag("https://kitt.lewagon.com/placeholder/users/#{User.find(@lap.crash_victims[crash]).username}", class: "profile-pic pic-kill-feed img-circle") %>
-          <h1 class="crash-player">
-            <%= User.find(@lap.crash_victims[crash]).ship.name %>
-          </h1>
-        </div>
-      <% end %>
+      <h2 class="race-highlights-title">Race highlights</h2>
+
+      <div class="container-race-stats">
+        <!-- Most kills -->
+        <h2 class="most-stats">
+          <strong>Most kills: <%= @most_kills %> &nbsp;&nbsp;</strong> (
+          <span class="race-list-players">
+            <% if @most_kills_players.length == 1 %>
+              <%= @most_kills_players[0].ship.name %>
+            <% else %>
+              Draw -
+              <% @most_kills_players.each do |player| %>
+                <%= player.ship.name %>
+                <% if @most_kills_players[-1] != player %>
+                  ,
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
+          )
+        </h2>
+
+        <!-- Most deaths -->
+        <h2 class="most-stats">
+          <strong>Most deaths: <%= @most_deaths %> </strong>&nbsp;&nbsp; (
+          <span class="race-list-players">
+            <% if @most_deaths_players.length == 1 %>
+              <%= @most_deaths_players[0].ship.name %>
+            <% else %>
+              Draw -
+              <% @most_deaths_players.each do |player| %>
+                <%= player.ship.name %>
+                <% if @most_deaths_players[-1] != player %>
+                ,
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
+          )
+        </h2>
+
+        <!-- Most crahes -->
+        <h2 class="most-stats">
+          <strong>Most crashes: <%= @most_crashes %></strong> &nbsp;&nbsp; (
+          <span class="race-list-players">
+            <% if @most_crashes_players.length == 1 %>
+              <%= @most_crashes_players[0].ship.name %>
+            <% else %>
+              Draw -
+              <% @most_crashes_players.each do |player| %>
+                <%= player.ship.name %>
+                <% if @most_crashes_players[-1] != player %>
+                  ,
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
+          )
+        </h2>
+      </div>
+
+      <div class="container-race-stats">
+        <!-- Most acc -->
+        <h2 class="most-stats">
+          <strong>Highest acc: <%= @most_acc %> &nbsp;&nbsp;</strong> (
+          <span class="race-list-players">
+            <% if @most_acc_players.length == 1 %>
+              <%= @most_acc_players[0].ship.name %>
+            <% else %>
+              Draw -
+              <% @most_acc_players.each do |player| %>
+                <%= player.ship.name %>
+                <% if @most_acc_players[-1] != player %>
+                  ,
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
+          )
+        </h2>
+
+        <!-- Most spd -->
+        <h2 class="most-stats">
+          <strong>Highest speed: <%= @most_spd %> &nbsp;&nbsp;</strong> (
+          <span class="race-list-players">
+            <% if @most_spd_players.length == 1 %>
+              <%= @most_spd_players[0].ship.name %>
+            <% else %>
+              Draw -
+              <% @most_spd_players.each do |player| %>
+                <%= player.ship.name %>
+                <% if @most_spd_players[-1] != player %>
+                  ,
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
+          )
+        </h2>
+
+        <!-- Most man -->
+        <h2 class="most-stats">
+          <strong>Highest maneuvrability: <%= @most_man %> &nbsp;&nbsp;</strong> (
+          <span class="race-list-players">
+            <% if @most_man_players.length == 1 %>
+              <%= @most_man_players[0].ship.name %>
+            <% else %>
+              Draw -
+              <% @most_man_players.each do |player| %>
+                <%= player.ship.name %>
+                <% if @most_man_players[-1] != player %>
+                  ,
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
+          )
+        </h2>
+
+        <!-- Most atk -->
+        <h2 class="most-stats">
+          <strong>Highest attack: <%= @most_atk %> &nbsp;&nbsp;</strong> (
+          <span class="race-list-players">
+            <% if @most_atk_players.length == 1 %>
+              <%= @most_atk_players[0].ship.name %>
+            <% else %>
+              Draw -
+              <% @most_atk_players.each do |player| %>
+                <%= player.ship.name %>
+                <% if @most_atk_players[-1] != player %>
+                  ,
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
+          )
+        </h2>
+
+        <!-- Most def -->
+        <h2 class="most-stats">
+          <strong>Highest defense: <%= @most_def %> &nbsp;&nbsp;</strong> (
+          <span class="race-list-players">
+            <% if @most_def_players.length == 1 %>
+              <%= @most_def_players[0].ship.name %>
+            <% else %>
+              Draw -
+              <% @most_def_players.each do |player| %>
+                <%= player.ship.name %>
+                <% if @most_def_players[-1] != player %>
+                  ,
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
+          )
+        </h2>
+
+      </div>
+    </div>
+
+    <div class="container-race-standings">
+      <table id="racestandings">
+        <tr class="moviesindex-header">
+          <td class="standing-header"></td>
+          <td class="standing-header"></td>
+          <td class="standing-header">Ship</td>
+          <td class="standing-header">K</td>
+          <td class="standing-header">D</td>
+          <td class="standing-header">Cr</td>
+          <td class="standing-header">Points</td>
+        </tr>
+        <% @runners.each do |runner| %>
+          <tr class="each-standing">
+            <td class="race-standing-pos">
+            </td>
+            <td class="race-standing-pic">
+              <%= image_tag(runner.pic, class: "img-circle race-user-pic") %>
+            </td>
+            <td class="race-standing-ship"> <%= runner.ship.name %> </td>
+            <td class="race-standing-kills"> <%= @race_kills[@runners.index(runner)] %> </td>
+            <td class="race-standing-deaths"> <%= @race_deaths[@runners.index(runner)] %> </td>
+            <td class="race-standing-crashes"> <%= @race_crashes[@runners.index(runner)] %> </td>
+            <td class="race-standing-points"> <%= @race.final_results[@runners.index(runner)] %> </td>
+
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 
-  <div class="container-presentation-ranking text-center">
-  <h1>Lap Results</h1>
-    <table id="ranking-table">
-      <% (0..@lap.race.runners.length - 1).to_a.each do |player| %>
-        <tr class="ranking-row">
-          <td class="rank-image"> <%= image_tag("https://kitt.lewagon.com/placeholder/users/#{User.find(player + 1).username}", class: "profile-pic pic-kill-feed img-circle") %> </td>
-          <td class="rank-ship"> <%= User.find(player + 1).ship.name %> </td>
-          <td class="events-happened">
-            <% @lap.combat_killers.count(player + 1).times do %>
-              <%= image_tag("https://steamuserimages-a.akamaihd.net/ugc/582406402592292008/136628CC5A81D5D28A7884C49B3A071AEE26633E/", class: "gun-small-feed") %>
-            <% end %>
-            <% @lap.combat_victims.count(player + 1).times do %>
-              <%= image_tag("https://bobandsuewilliams.com/images/red-skull-icon-5.png", class: "gun-small-feed") %>
-            <% end %>
-            <% @lap.crash_victims.count(player + 1).times do %>
-              <%= image_tag("https://static.thenounproject.com/png/168773-200.png", class: "gun-small-feed") %>
-            <% end %>
-          </td>
+  <h2 class="race-presentation-title">Detailed lap results</h2>
 
-
-          <td class="rank-position">
-            <% if @lap.positions.include?(player + 1) %>
-              <span class="position-no"> <%= @lap.positions.index(player + 1) + 1 %></span>
-              <span class="position-mod">
-                <% if (@lap.positions.index(player + 1) + 1) == 1 %>
-                  st
-                <% elsif (@lap.positions.index(player + 1) + 1) == 2 %>
-                  nd
-                <% elsif (@lap.positions.index(player + 1) + 1) == 3 %>
-                  rd
-                <% else %>
-                  th
-                <% end %>
-            </span>
-            <% else %>
-              <span class="position-mod">N/A</span>
-            <% end %>
-          </td>
-          <td class="rank-points">
-            <% if @lap.points[player] > 0 %>
-              +<%= @lap.points[player] %>
-            <% else %>
-              <%= @lap.points[player] %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-
-
+  <div class="lap-control">
+    <div class="lap-control-prev lap-control-btn"><</div>
+    <div class="lap-control-text">Lap 1</div>
+    <div class="lap-control-next lap-control-btn">></div>
   </div>
 
+  <% @laps.each do |lap| %>
+    <div class="container-race-lap <%= "race-lap-#{lap.lap_num}" %>">
+      <div class="container-race-total">
+        <div class="container-lap-infos">
+          <h2 class="race-highlights-title">Combat feed</h2>
 
+          <% (0..lap.combat_killers.length - 1).to_a.each do |kill| %>
+            <div class="kill-instance">
+              <div class="killer-data">
+                <div class="killer-portrait">
+                  <%= image_tag(User.find(lap.combat_killers[kill]).pic, class: "profile-pic pic-kill-feed img-circle") %>
+                </div>
+                <div class="killer-ship">
+                  <h1 class="kill-feed-ship">
+                    <%= User.find(lap.combat_killers[kill]).ship.name %>
+                  </h1>
+                </div>
+              </div>
+              <div class="gunicon">
+                <i class="fas fa-fighter-jet fighter-jet-kill"></i>
+              </div>
+              <div class="victim-data">
+                <div class="victim-ship">
+                  <h1 class='kill-feed-ship'>
+                    <%= User.find(lap.combat_victims[kill]).ship.name %>
+                  </h1>
+                </div>
+                <div class="victim-portrait">
+                  <%= image_tag(User.find(lap.combat_victims[kill]).pic, class: "profile-pic pic-kill-feed img-circle pic-victim") %>
+                </div>
+              </div>
+            </div>
+          <% end %>
 
+          <h2 class="race-highlights-title">Crashes</h2>
+
+          <div class="text-center">
+            <% (0..lap.crash_victims.length - 1).to_a.each do |crash| %>
+              <div class="each-crash">
+                <%= image_tag(User.find(lap.crash_victims[crash]).pic, class: "profile-pic pic-kill-feed img-circle crash-img") %>
+                <h1 class="crash-player">
+                  <%= User.find(lap.crash_victims[crash]).ship.name %>
+                </h1>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="container-race-standings">
+          <table class="lap-standings">
+            <tr class="moviesindex-header">
+              <td class="standing-header"></td>
+              <td class="standing-header"></td>
+              <td class="standing-header">Events</td>
+              <td class="standing-header">Pos</td>
+              <td class="standing-header">Pts</td>
+            </tr>
+            <% lap.race.runners.each do |player| %>
+              <tr class="each-player-lap">
+                <td class="lap-standing-pic">
+                  <%= image_tag(User.find(player).pic, class: "profile-pic pic-kill-feed img-circle") %>
+                </td>
+                <td class="lap-standing-ship"> <%= User.find(player).ship.name %></td>
+                <td class="lap-standing-events">
+                  <% lap.combat_killers.count(player).times do %>
+                    <i class="fas fa-fighter-jet gun-small-feed"></i>
+                  <% end %>
+                  <% lap.combat_victims.count(player).times do %>
+                    <i class="fas fa-skull-crossbones gun-small-feed"></i>
+                  <% end %>
+                  <% lap.crash_victims.count(player).times do %>
+                  <i class="fas fa-car-crash gun-small-feed"></i>
+                  <% end %>
+                </td>
+                <td class="lap-standing-pos">
+                  <% if lap.positions.include?(player) %>
+                    <span class="position-no"> <%= lap.positions.index(player) + 1 %></span>
+                    <span class="position-mod">
+                      <% if (lap.positions.index(player) + 1) == 1 %>
+                        st
+                      <% elsif (lap.positions.index(player) + 1) == 2 %>
+                        nd
+                      <% elsif (lap.positions.index(player) + 1) == 3 %>
+                        rd
+                      <% else %>
+                        th
+                      <% end %>
+                  </span>
+                  <% else %>
+                    <span class="position-mod">N/A</span>
+                  <% end %>
+                </td>
+                <td class="lap-standing-points">
+                    <%= lap.points[lap.race.runners.index(player)] %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
+
+<!-- Info to javascript -->
+<h2 class="js_max_laps" style="display: none;"> <%= @laps.count %> </h2>
+
+<style>
+  .wrapper-race-presentation {
+    height: auto;
+    padding: 20px 100px;
+    background: black;
+  }
+
+  .race-presentation-title {
+    text-align: center;
+    font-size: 40px;
+    font-family: $roboto;
+    letter-spacing: 2px;
+  }
+
+  .container-race-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .container-race-summary {
+    flex: 0 0 40%;
+
+    min-height: 70vh;
+
+    margin-right: 20px;
+    padding: 0px 0;
+  }
+
+  .container-race-standings {
+    flex: 0 0 55%;
+    min-height: 70vh;
+    max-height: 70vh;
+    border: 1px solid white;
+    padding: 10px 50px;
+    overflow-y: auto;
+  }
+
+  .race-summary-winner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background: rgba(240,240,240,0.2);
+
+    padding: 20px 0;
+  }
+
+  .fa-trophy {
+    flex: 0 0 20%;
+    font-size: 120px;
+    color: gold;
+  }
+
+  .fighter-jet-winner {
+    font-size: 80px;
+  }
+  .fighter-jet-small {
+    font-size: 30px;
+  }
+
+  .race-winner-pic-div {
+    flex: 0 0 30%;
+  }
+
+  .race-winner-pic {
+    width: 160px !important;
+  }
+
+  .race-summary-winner-ship-div {
+    flex: 0 0 40%;
+  }
+
+  .container-race-stats {
+    // background: rgba(240,240,240,0.2);
+    padding: 10px 30px;
+  }
+
+  .most-stats {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+
+  .race-highlights-title {
+    font-size: 22px;
+    text-align: center;
+    border-bottom: 1px solid rgba(100,100,100,1);
+  }
+
+  .race-user-pic {
+    width: 100px;
+  }
+
+  #racestandings {
+    width: 100%;
+  }
+
+  .standing-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .race-standing-pos {width: 10%;}
+  .race-standing-pic {width: 25%;}
+  .race-standing-ship {width: 35%;}
+  .race-standing-kills {width: 5%;}
+  .race-standing-deaths {width: 5%;}
+  .race-standing-crashes {width: 5%;}
+  .race-standing-points {width: 15%; text-align: center; font-size: 25px;}
+
+  .container-race-lap {
+    margin-top: 30px;
+    height: auto;
+  }
+
+  .lap-control {
+    width: 100%;
+    background-color: rgba(100,100,100,1);
+
+    font-size: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .lap-control-text {
+    flex: 0 0 40%;
+    text-align: center;
+  }
+
+  .lap-control-btn {
+    flex: 0 0 30%;
+    text-align: center;
+
+    &:hover {
+      background-color: rgba(60,60,60,1);
+      cursor: pointer;
+    }
+  }
+
+  .container-lap-infos {
+    flex: 0 0 40%;
+
+    min-height: 70vh;
+
+    margin-right: 20px;
+    padding: 0px 20px;
+
+    overflow-y: auto;
+  }
+
+  .kill-instance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    border: 2px solid black;
+  }
+
+  .killer-data {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .killer-portrait {flex: 0 0 40%;}
+  .killer-ship {flex: 0 0 40%;}
+  .victim-portrait {flex: 0 0 40%;}
+  .victim-ship {flex: 0 0 40%;}
+
+  .gunicon {
+    flex: 0 0 10%;
+  }
+
+  .fighter-jet-kill {
+    font-size: 30px;
+  }
+
+  .victim-data {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pic-kill-feed {
+    width: 80px;
+  }
+
+  .kill-feed-ship {
+    font-size: 20px;
+  }
+
+  .pic-victim {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+
+  .each-crash {
+    border: 1px solid black;
+
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .crash-player {
+    font-size: 20px;
+  }
+
+  .lap-standings {
+    width: 100%;
+  }
+
+  .standing-header {
+    font-size: 20px;
+    padding-bottom: 30px;
+    font-weight: bold;
+  }
+
+  .lap-standing-pic {width: 15%;}
+  .lap-standing-ship {width: 35%;}
+  .lap-standing-events {width: 20%;}
+  .lap-standing-pos {width: 10%;}
+  .lap-standing-points {width: 10%;}
+
+  .gun-small-feed {
+    font-size: 25px;
+  }
+
+  .fa-car-crash, .fa-skull-crossbones {
+    color: red;
+  }
+
+  .position-no {
+    font-size: 25px;
+  }
+
+  .position-mod {
+    font-size: 25px;
+    position: relative;
+    bottom: 8px;
+  }
+
+  .lap-standing-points {
+    font-size: 30px;
+    text-align: center;
+  }
+</style>
+

@@ -10,6 +10,7 @@ h1 {
 .user {
   // align-content: center;
   background-color: rgba(0, 0, 0, 0.4);
+
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -25,6 +26,20 @@ h1 {
   background-color: gold;
 }
 
+.ship-name-flex {
+  flex: 0 0 40%;
+}
+
+.profile-pic {
+  width: 100px;
+  border-radius: 40%;
+}
+
+.player-score {
+  flex: 0 0 10%;
+}
+
+
 .rank-color-1 {
   background-color: silver;
 }
@@ -37,11 +52,6 @@ h1 {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.profile-pic {
-  width: 100px;
-  border-radius: 50%;
-}
-
 .ship-and-score {
   display: flex;
   align-content: center;
@@ -52,7 +62,7 @@ h1 {
 }
 
 .position-placer {
-  font-size: 60px;
+  font-size: 30px;
   text-shadow: 1px 1px black;
 }
 
