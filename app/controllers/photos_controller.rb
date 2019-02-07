@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user = current_user
     @photo.save
+    redirect_to players_path
   end
 
   private

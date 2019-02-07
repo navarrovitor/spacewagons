@@ -24,9 +24,9 @@ class RacesController < ApplicationController
     n_laps = 17
     # Number of eliminations per lap (on each lap, one player will destroy another)
     # The destroyed player gets 0 points on the lap, the attacking player gets points
-    number_of_kills = 3
+    number_of_kills = 2
     # Number of crashes per lap (on each lap, one player will crash and get 0 pts)
-    number_of_crashes = 2
+    number_of_crashes = 1
     # How much acc and spd are weighted for lap score calculation
     acc_mult = 2
     spd_mult = 1

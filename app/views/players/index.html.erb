@@ -4,51 +4,52 @@
 			<h1 id="title-enhancement">Legendary Cosmonauts</h1>
       <% user_count = 0 %>
 			<% @users.order("score DESC").each do |player| %>
-				<div class="user<%= player == current_user ? ' current-user' : '' %>">
-          <div class="user-color rank-color-<%=user_count%>">
-             <h2 class="position-placer text-center">
-               <% if user_count == 0 %>
-                1st
-               <% elsif user_count == 1 %>
-                2nd
-               <% elsif user_count == 2 %>
-                3rd
-               <% else %>
-                <%= (user_count + 1) %>th
-               <% end %>
-             </h2>
-          </div>
-          <% user_count += 1 %>
-					<%= link_to(player_path(player)) do %>
-						<div class="pic-and-name card">
-              <% if !player.photos.last.nil? %>
-                <%= cl_image_tag(player.photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"profile-pic") %>
-              <% else %>
-                  <%= image_tag "avatar-none.jpg", class:"profile-pic" %>
-              <% end %>
-							<h5>
+        <% if player.username != "Jabba" %>
+                  <div class="user<%= player == current_user ? ' current-user' : '' %>">
+                    <div class="user-color rank-color-<%=user_count%>">
+                       <h2 class="position-placer text-center">
+                         <% if user_count == 0 %>
+                          1st
+                         <% elsif user_count == 1 %>
+                          2nd
+                         <% elsif user_count == 2 %>
+                          3rd
+                         <% else %>
+                          <%= (user_count + 1) %>th
+                         <% end %>
+                       </h2>
+                    </div>
+                    <% user_count += 1 %>
+                    <%= link_to(player_path(player)) do %>
+                      <div class="pic-and-name card">
+                        <% if !player.photos.last.nil? %>
+                          <%= cl_image_tag(player.photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"profile-pic") %>
+                        <% else %>
+                            <%= image_tag "avatar-none.jpg", class:"profile-pic" %>
+                        <% end %>
+                        <h5>
+                          <%= player.username %>
+                        </h5>
+                      </div>
+                    <% end %>
+                    <div class="card ship-name ship-name-flex">
+                      <p>
+                        <i class="fas fa-rocket"></i>
+                        <%= player.ship.name.upcase %>
+                        <i class="fas fa-rocket"></i>
+                      </p>
+                    </div>
+                    <div class="card player-score">
+                      <p>
+                        <%= player.score %>
+                      </p>
+                      <p>
+                        pts.
+                      </p>
+                    </div>
 
-								<%= player.username %>
-							</h5>
-						</div>
-					<% end %>
-					<div class="card ship-name ship-name-flex">
-						<p>
-							<i class="fas fa-rocket"></i>
-							<%= player.ship.name.upcase %>
-							<i class="fas fa-rocket"></i>
-						</p>
-					</div>
-					<div class="card player-score">
-						<p>
-							<%= player.score %>
-						</p>
-						<p>
-							pts.
-						</p>
-					</div>
-
-				</div>
+                  </div>
+        <% end %>
 		  <% end %>
     </div>
 	</div>
