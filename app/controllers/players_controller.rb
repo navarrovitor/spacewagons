@@ -32,9 +32,12 @@ class PlayersController < ApplicationController
     end
 
     last_race = Race.last
-    @last_race_no_users = Race.last.runners.length
-    @last_race_standing = last_race.final_results.sort.reverse.index(last_race.final_results[last_race.runners.index(@user.id)]) + 1
-    @last_race_date = last_race.created_at.strftime("%d/%m/%y")
+    @race_ok = !last_race.nil?
+    if @race_ok
+      @last_race_no_users = Race.last.runners.length
+      @last_race_standing = last_race.final_results.sort.reverse.index(last_race.final_results[last_race.runners.index(@user.id)]) + 1
+      @last_race_date = last_race.created_at.strftime("%d/%m/%y")
+    end
   end
 
   def edit

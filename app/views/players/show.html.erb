@@ -28,23 +28,25 @@
           <h2 class="pilot-stat-tag">
             Number of expeditions: <span class="highlight"><%= @user.expeditions.length %></span>
           </h2>
-          <h2 class="pilot-stat-tag">
-            Last race results: <span class="highlight">
-              <% if @last_race_standing == 1 %>
-                <%= @last_race_standing %>st
-              <% elsif @last_race_standing == 2%>
-                <%= @last_race_standing %>nd
-              <% elsif @last_race_standing == 3 %>
-                <%= @last_race_standing %>rd
-              <% else %>
-                <%= @last_race_standing %>th
-              <% end %>
-              / <%= @last_race_no_users %></span> (<%= @last_race_date %>)
-              <br>
-              <%= link_to "/races/presentation" do  %>
-                See race
-              <% end %>
-          </h2>
+          <% if @race_ok %>
+            <h2 class="pilot-stat-tag">
+              Last race results: <span class="highlight">
+                <% if @last_race_standing == 1 %>
+                  <%= @last_race_standing %>st
+                <% elsif @last_race_standing == 2%>
+                  <%= @last_race_standing %>nd
+                <% elsif @last_race_standing == 3 %>
+                  <%= @last_race_standing %>rd
+                <% else %>
+                  <%= @last_race_standing %>th
+                <% end %>
+                / <%= @last_race_no_users %></span> (<%= @last_race_date %>)
+                <br>
+                <%= link_to "/races/presentation" do  %>
+                  See race
+                <% end %>
+            </h2>
+          <% end %>
         </div>
       </div>
     </div>
