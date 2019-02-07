@@ -29,11 +29,15 @@
   <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <% if !current_user.photos.last.nil? %>
+          <%= cl_image_tag(current_user.photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"avatar", data: {toggle: 'dropdown'}) %>
+        <% else %>
+            <%= image_tag "avatar-none.jpg", class:"avatar", data: {toggle: 'dropdown'} %>
+        <% end %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <%= link_to new_photo_path do %>
-              Edit profile
+              Change picture
             <% end %>
           </li>
           <li><%= link_to "<i class='fas fa-sign-out-alt'></i> Sign out".html_safe, destroy_user_session_path, method: :delete %></li>

@@ -10,14 +10,18 @@
 
 <div class="wrapper-race-presentation">
   <h1 class="race-presentation-title">
-    Race results
+    Race results (<%= @race.created_at.strftime("%d/%m/%y") %>)
   </h1>
   <div class="container-race-total">
     <div class="container-race-summary">
       <div class="race-summary-winner">
         <i class="fas fa-trophy"></i>
         <div class="race-winner-pic-div text-center">
-          <%= image_tag(@race_winner.pic, class: "img-circle race-winner-pic") %>
+          <% if !@race_winner.photos.last.nil? %>
+            <%= cl_image_tag(@race_winner.photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"img-circle race-winner-pic") %>
+          <% else %>
+              <%= image_tag "avatar-none.jpg", class:"img-circle race-winner-pic" %>
+          <% end %>
         </div>
         <div class="race-winner-ship-div text-center">
           <i class="fas fa-fighter-jet fighter-jet-winner"></i> <br>
@@ -198,16 +202,22 @@
         </tr>
         <% @runners.each do |runner| %>
           <tr class="each-standing">
-            <td class="race-standing-pos">
-            </td>
-            <td class="race-standing-pic">
-              <%= image_tag(runner.pic, class: "img-circle race-user-pic") %>
-            </td>
-            <td class="race-standing-ship"> <%= runner.ship.name %> </td>
-            <td class="race-standing-kills"> <%= @race_kills[@runners.index(runner)] %> </td>
-            <td class="race-standing-deaths"> <%= @race_deaths[@runners.index(runner)] %> </td>
-            <td class="race-standing-crashes"> <%= @race_crashes[@runners.index(runner)] %> </td>
-            <td class="race-standing-points"> <%= @race.final_results[@runners.index(runner)] %> </td>
+            <div>
+              <td class="race-standing-pos">
+              </td>
+              <td class="race-standing-pic">
+                <% if !runner.photos.last.nil? %>
+                  <%= cl_image_tag(runner.photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"img-circle pic-kill-feed race-user-pic") %>
+                <% else %>
+                    <%= image_tag "avatar-none.jpg", class:"img-circle pic-kill-feed race-user-pic" %>
+                <% end %>
+              </td>
+              <td class="race-standing-ship"> <%= runner.ship.name %> </td>
+              <td class="race-standing-kills"> <%= @race_kills[@runners.index(runner)] %> </td>
+              <td class="race-standing-deaths"> <%= @race_deaths[@runners.index(runner)] %> </td>
+              <td class="race-standing-crashes"> <%= @race_crashes[@runners.index(runner)] %> </td>
+              <td class="race-standing-points"> <%= @race.final_results[@runners.index(runner)] %> </td>
+            </div>
 
           </tr>
         <% end %>
@@ -233,7 +243,11 @@
             <div class="kill-instance">
               <div class="killer-data">
                 <div class="killer-portrait">
-                  <%= image_tag(User.find(lap.combat_killers[kill]).pic, class: "profile-pic pic-kill-feed img-circle") %>
+                  <% if !User.find(lap.combat_killers[kill]).photos.last.nil? %>
+                    <%= cl_image_tag(User.find(lap.combat_killers[kill]).photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"profile-pic pic-kill-feed img-circle") %>
+                  <% else %>
+                      <%= image_tag "avatar-none.jpg", class:"profile-pic pic-kill-feed img-circle" %>
+                  <% end %>
                 </div>
                 <div class="killer-ship">
                   <h1 class="kill-feed-ship">
@@ -251,7 +265,11 @@
                   </h1>
                 </div>
                 <div class="victim-portrait">
-                  <%= image_tag(User.find(lap.combat_victims[kill]).pic, class: "profile-pic pic-kill-feed img-circle pic-victim") %>
+                  <% if !User.find(lap.combat_victims[kill]).photos.last.nil? %>
+                    <%= cl_image_tag(User.find(lap.combat_victims[kill]).photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"profile-pic pic-kill-feed img-circle pic-victim") %>
+                  <% else %>
+                      <%= image_tag "avatar-none.jpg", class:"profile-pic pic-kill-feed img-circle pic-victim" %>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -262,7 +280,11 @@
           <div class="text-center">
             <% (0..lap.crash_victims.length - 1).to_a.each do |crash| %>
               <div class="each-crash">
-                <%= image_tag(User.find(lap.crash_victims[crash]).pic, class: "profile-pic pic-kill-feed img-circle crash-img") %>
+                <% if !User.find(lap.crash_victims[crash]).photos.last.nil? %>
+                  <%= cl_image_tag(User.find(lap.crash_victims[crash]).photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"profile-pic pic-kill-feed img-circle crash-img") %>
+                <% else %>
+                    <%= image_tag "avatar-none.jpg", class:"profile-pic pic-kill-feed img-circle crash-img" %>
+                <% end %>
                 <h1 class="crash-player">
                   <%= User.find(lap.crash_victims[crash]).ship.name %>
                 </h1>
@@ -283,7 +305,11 @@
             <% lap.race.runners.each do |player| %>
               <tr class="each-player-lap">
                 <td class="lap-standing-pic">
-                  <%= image_tag(User.find(player).pic, class: "profile-pic pic-kill-feed img-circle") %>
+                  <% if !User.find(player).photos.last.nil? %>
+                    <%= cl_image_tag(User.find(player).photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"profile-pic pic-kill-feed img-circle") %>
+                  <% else %>
+                      <%= image_tag "avatar-none.jpg", class:"profile-pic pic-kill-feed img-circle" %>
+                  <% end %>
                 </td>
                 <td class="lap-standing-ship"> <%= User.find(player).ship.name %></td>
                 <td class="lap-standing-events">

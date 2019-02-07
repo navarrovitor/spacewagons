@@ -1,7 +1,25 @@
-<%= simple_form_for(@photo) do |f| %>
-  <!-- [...] -->
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <!-- [...] -->
-  <%= f.submit %>
-<% end %>
+<div class="wrapper-useredit">
+  <div class="container-useredit">
+
+    <% if !current_user.photos.last.nil? %>
+    <%= cl_image_tag(current_user.photos.last.photo.file.public_id, :width=>250, :height=>250, :gravity=>"faces", :crop=>"fill", class:"img-avatar img-circle") %>
+    <% else %>
+        <%= image_tag "avatar-none.jpg", class:"profile-pic" %>
+    <% end %>
+
+    <h1 class="useredit-title">
+      Update user picture
+    </h1>
+
+    <br>
+    <br>
+
+    <%= simple_form_for(@photo) do |f| %>
+      <%= f.input :photo, label: "Select picture" %>
+      <%= f.input :photo_cache, as: :hidden, class:"update-pic" %>
+      <%= f.submit 'Update', class:"btn btn-success btn-update-pic" %>
+    <% end %>
+  </div>
+</div>
+
+

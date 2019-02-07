@@ -54,7 +54,11 @@ class RacesController < ApplicationController
     r = Race.new
 
     # All users on database will participate on the race
-    User.all.each do |user|
+    # Except the user "Jabba", which is the shop
+
+    all_racers = User.all.select {|user| user.username != 'Jabba'}
+
+    all_racers.each do |user|
       r.runners << user.id
       r.final_results << 0
 

@@ -11,8 +11,8 @@ class ExpeditionsController < ApplicationController
 
   def create
     one_item_prob = 1
-    two_item_prob = 0.5
-    three_item_prob = 0.8
+    two_item_prob = 0
+    three_item_prob = 0
     part_damage_max = 40
     part_damage_min = 5
     gold_mult_min = 5
@@ -31,12 +31,12 @@ class ExpeditionsController < ApplicationController
       `rails db:seed:expedition_new_part`
       total_items = 1
 
-      if (roll > 1 - two_item_prob)
+      if (roll < 1 - two_item_prob)
         `rails db:seed:expedition_new_part`
         total_items = 2
       end
 
-      if (roll > 1 - three_item_prob)
+      if (roll < 1 - three_item_prob)
         `rails db:seed:expedition_new_part`
         total_items = 3
       end

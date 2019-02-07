@@ -30,6 +30,11 @@ class PlayersController < ApplicationController
     @equiped_parts.each do |part|
       @ship_def += part.stat_def
     end
+
+    last_race = Race.last
+    @last_race_no_users = Race.last.runners.length
+    @last_race_standing = last_race.final_results.sort.reverse.index(last_race.final_results[last_race.runners.index(@user.id)]) + 1
+    @last_race_date = last_race.created_at.strftime("%d/%m/%y")
   end
 
   def edit

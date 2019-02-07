@@ -1,14 +1,14 @@
-<%= cl_image_tag(current_user.photos.last.photo.file.public_id,
-      width: 800, height: 500, crop: :fill) %>
-
 <div class="wrapper-home">
   <div class="container container-content">
     <div class="pilot-license">
       <h1 class="pilot-license-title text-center" id="title-enhancement">Pilot license</h1>
       <div class="pilot-license-flex">
         <div class="pilot-picture">
-          <%= cl_image_tag(current_user.photos.last.photo.file.public_id,
-                width: 300, height: 300, crop: :fill) %>
+          <% if !current_user.photos.last.nil? %>
+            <%= cl_image_tag(current_user.photos.last.photo.file.public_id, :width=>250, :height=>250, :gravity=>"faces", :crop=>"fill", class:"img-avatar img-circle") %>
+          <% else %>
+              <%= image_tag "avatar-none.jpg", class:"img-avatar img-circle" %>
+          <% end %>
           <!-- ornament -->
           <div class="pilot-name-div text-center">
             <h2 class="pilot-name"> <%= @user.username %> </h2>
@@ -27,6 +27,23 @@
           </h2>
           <h2 class="pilot-stat-tag">
             Number of expeditions: <span class="highlight"><%= @user.expeditions.length %></span>
+          </h2>
+          <h2 class="pilot-stat-tag">
+            Last race results: <span class="highlight">
+              <% if @last_race_standing == 1 %>
+                <%= @last_race_standing %>st
+              <% elsif @last_race_standing == 2%>
+                <%= @last_race_standing %>nd
+              <% elsif @last_race_standing == 3 %>
+                <%= @last_race_standing %>rd
+              <% else %>
+                <%= @last_race_standing %>th
+              <% end %>
+              / <%= @last_race_no_users %></span> (<%= @last_race_date %>)
+              <br>
+              <%= link_to "/races/presentation" do  %>
+                See race
+              <% end %>
           </h2>
         </div>
       </div>
@@ -267,11 +284,4 @@
     <% end %>
   </div>
 </div>
-
-<form action="/races" method="post">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <input type="submit" id="sell-btn" class="btn btn-success" value="Run race">
-</form>
-
-
 

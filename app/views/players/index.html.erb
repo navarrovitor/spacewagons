@@ -21,8 +21,13 @@
           <% user_count += 1 %>
 					<%= link_to(player_path(player)) do %>
 						<div class="pic-and-name card">
-							<%= image_tag("https://kitt.lewagon.com/placeholder/users/#{player.username}", class: "profile-pic") %>
+              <% if !player.photos.last.nil? %>
+                <%= cl_image_tag(player.photos.last.photo.file.public_id, :gravity=>"faces", :crop=>"fill", class:"profile-pic") %>
+              <% else %>
+                  <%= image_tag "avatar-none.jpg", class:"profile-pic" %>
+              <% end %>
 							<h5>
+
 								<%= player.username %>
 							</h5>
 						</div>

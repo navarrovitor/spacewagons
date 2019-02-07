@@ -1,0 +1,18 @@
+.wrapper-useredit {
+  height: calc(100vh - 70px);
+  width: auto;
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 80%), url('https://images.pexels.com/photos/1205301/pexels-photo-1205301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  padding: 50px 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container-useredit {
+  border: 1px solid gold;
+
+  padding: 150px;
+
+  background: black;
+}

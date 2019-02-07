@@ -7,6 +7,8 @@ rarity_common_mult = 1
 rarity_rare_mult = 3
 rarity_unique_mult = 6
 
+jabba = User.find_by(username: "Jabba")
+
 users_pick = (1..User.all.length).to_a
 
 # Delete all current parts
@@ -107,7 +109,7 @@ part.price *= (min_price_mult.to_f + (max_price_mult - min_price_mult)*rand()).r
 
 part.price = 1000 if part.price < 1000
 
-part.user_id = users_pick.sample
+part.user = jabba
 
 part.save
 
@@ -208,7 +210,7 @@ part.price *= (min_price_mult.to_f + (max_price_mult - min_price_mult)*rand()).r
 
 part.price = 1000 if part.price < 1000
 
-part.user_id = users_pick.sample
+part.user = jabba
 
 part.save
 
@@ -309,7 +311,7 @@ part.price *= (min_price_mult.to_f + (max_price_mult - min_price_mult)*rand()).r
 
 part.price = 1000 if part.price < 1000
 
-part.user_id = users_pick.sample
+part.user = jabba
 
 part.save
 

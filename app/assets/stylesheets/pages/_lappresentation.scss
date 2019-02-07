@@ -64,6 +64,7 @@
 
 .race-winner-pic {
   width: 160px !important;
+  height: 160px !important;
 }
 
 .race-summary-winner-ship-div {
@@ -187,7 +188,8 @@
 }
 
 .pic-kill-feed {
-  width: 80px;
+  width: 80px !important;
+  height: 80px !important;
 }
 
 .kill-feed-ship {
