@@ -30,8 +30,14 @@ class PlayersController < ApplicationController
     @equiped_parts.each do |part|
       @ship_def += part.stat_def
     end
+  end
 
+  def edit
+    @player = current_user
+  end
 
-
+  def update
+    raise
+    user = User.find(current_user)
   end
 end

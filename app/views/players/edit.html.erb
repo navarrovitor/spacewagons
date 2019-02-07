@@ -1,0 +1,10 @@
+<form action="/players/<%= "#{@player.id}" %>" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input name="_method" type="hidden" value="patch" />
+
+  <input class="form-control-file file optional" type="file" name="user[photo]" id="user_photo">
+
+  <input type="submit" id="user_edit_submit" class="btn btn-success" value="edit">
+</form>
+
+

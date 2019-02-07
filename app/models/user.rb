@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_one :ship
   has_many :parts
   has_many :expeditions
+  has_many :photos
 end

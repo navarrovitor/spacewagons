@@ -16,9 +16,13 @@ Rails.application.routes.draw do
 
   resources :ships
 
-  resources :players, only: [:index, :show]
+  resources :players, only: [:index, :show, :edit, :update]
+
+  resources :photos, only: [:new, :create, :edit, :update]
 
   resources :expeditions, only: [ :new, :create ]
+
+
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

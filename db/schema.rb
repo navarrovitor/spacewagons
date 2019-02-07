@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_205637) do
+ActiveRecord::Schema.define(version: 2019_02_06_185813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 2019_01_29_205637) do
     t.integer "expedition_item_2"
     t.integer "expedition_item_3"
     t.index ["user_id"], name: "index_expeditions_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "laps", force: :cascade do |t|
@@ -76,6 +84,22 @@ ActiveRecord::Schema.define(version: 2019_01_29_205637) do
     t.index ["user_id"], name: "index_parts_on_user_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photourl"
+    t.string "photo"
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_players_on_user_id"
+  end
+
   create_table "races", force: :cascade do |t|
     t.string "map"
     t.integer "runners", default: [], array: true
@@ -113,12 +137,16 @@ ActiveRecord::Schema.define(version: 2019_01_29_205637) do
     t.integer "progress", default: 0
     t.integer "exp_left", default: 3
     t.string "pic"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "expeditions", "users"
+  add_foreign_key "images", "users"
   add_foreign_key "laps", "races"
   add_foreign_key "parts", "users"
+  add_foreign_key "photos", "users"
+  add_foreign_key "players", "users"
   add_foreign_key "ships", "users"
 end
